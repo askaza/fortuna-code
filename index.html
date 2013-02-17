@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/common.css" />
 	<link rel="stylesheet" type="text/css" href="css/components.css" />
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/slides.min.jquery.js"></script>
 	<script type="text/javascript" src="js/common.js"></script>
 
 	<meta name="description" content="Fortuna" />
@@ -24,7 +25,7 @@
 	<div class="nav"> <!-- .nav -->
 	    <h1 class="logo"><a href="#"><img src="images/logo.png" alt="Fortuna" title="Fortuna" /></a></h1>
 	    <ul class="menu menu_site">
-		<li class="menu__item"><a href="#">О компании</a></li>
+		<li class="menu__item menu__item_active"><a href="#">О компании</a></li>
 		<li class="menu__item"><a href="#">Клиенты</a></li>
 		<li class="menu__item"><a href="#">Связь с нами</a></li>
 	    </ul>
@@ -36,12 +37,12 @@
 		<li class="menu__item"><i class="ico"><img src="images/cat/ico_pump.png" alt="" class="ico__img"/></i><a href="#"><strong>насосное</strong> оборудование</a>
 		    <ul class="submenu">
 			<li class="submenu__item"><a href="#">Описание</a></li>
-			<li class="submenu__item"><a href="#">Сферы применения</a></li>
+			<li class="submenu__item menu__item_active"><a href="#">Сферы применения</a></li>
 			<li class="submenu__item"><a href="#">Плюсы и результаты</a></li>
 			<li class="submenu__item"><a href="#">Инфоброшюра</a></li>
 			<li class="submenu__item"><a href="#">Полный каталог</a></li>
 			<li class="submenu__item"><a href="#">Условия и цены</a></li>
-			<li class="submenu__item"><a href="#">Заказать сейчас</a></li>
+			<li class="submenu__item"><a href="#"><strong>Заказать сейчас</strong></a></li>
 		    </ul>
 		</li>
 		<li class="menu__item"><i class="ico"><img src="images/cat/ico_sorb.png" alt="" class="ico__img"/></i><a href="#"><strong>Инновационные</strong> сорбиционные материалы</a>
@@ -52,7 +53,7 @@
 			<li class="submenu__item"><a href="#">Инфоброшюра</a></li>
 			<li class="submenu__item"><a href="#">Полный каталог</a></li>
 			<li class="submenu__item"><a href="#">Условия и цены</a></li>
-			<li class="submenu__item"><a href="#">Заказать сейчас</a></li>
+			<li class="submenu__item"><a href="#"><strong>Заказать сейчас</strong></a></li>
 		    </ul>
 		</li>
 		<li class="menu__item"><i class="ico"><img src="images/cat/ico_oil.png" alt="" class="ico__img"/></i><a href="#"><strong>нефтеловушки</strong> и системы очистки для автомоек</a>
@@ -63,10 +64,10 @@
 			<li class="submenu__item"><a href="#">Инфоброшюра</a></li>
 			<li class="submenu__item"><a href="#">Полный каталог</a></li>
 			<li class="submenu__item"><a href="#">Условия и цены</a></li>
-			<li class="submenu__item"><a href="#">Заказать сейчас</a></li>
+			<li class="submenu__item"><a href="#"><strong>Заказать сейчас</strong></a></li>
 		    </ul>
 		</li>
-		<li class="menu__item"><i class="ico"><img src="images/cat/ico_skim.png" alt="" class="ico__img"/></i><a href="#"><strong>Скиммеры</strong> жиров и нефтеродуктов</a>
+		<li class="menu__item"><i class="ico"><img src="images/cat/ico_skim.png" alt="" class="ico__img"/></i><a href="#"><strong>Скиммеры</strong> жиров и нефтепродуктов</a>
 		    <ul class="submenu">
 			<li class="submenu__item"><a href="#">Описание</a></li>
 			<li class="submenu__item"><a href="#">Сферы применения</a></li>
@@ -74,7 +75,7 @@
 			<li class="submenu__item"><a href="#">Инфоброшюра</a></li>
 			<li class="submenu__item"><a href="#">Полный каталог</a></li>
 			<li class="submenu__item"><a href="#">Условия и цены</a></li>
-			<li class="submenu__item"><a href="#">Заказать сейчас</a></li>
+			<li class="submenu__item"><a href="#"><strong>Заказать сейчас</strong></a></li>
 		    </ul>
 		</li>
 	    </ul> <!-- ..menu_catalog -->
@@ -82,17 +83,47 @@
 	</div> <!-- /.nav -->
 
 	<div class="pages">
-	    <div class="page" id="home">
+	    <div class="page" id="home" style="display: none;">
 		<div class="slider slider_news" id="news-slider">
-		    <ul class="slides-list">
-			<li class="slides-list__item">
+		    <div class="slides_container slides-list">
+			<div class="slides-list__item">
 			    <small class="date">14/02/2013</small>
 			    <div class="slide-content">
-				Наша компания принимает участие на 9-й международной выставке экологических технологий и
-				инноваций «WASMA 2012», которая состоится с 23 по 25 октября в павильоне №2 КВЦ «Сокольники».
+				<div class="slide-text">Наша компания принимает участие на 9-й международной выставке экологических технологий и
+				инноваций «WASMA 2012», которая состоится с 23 по 25 октября в павильоне №2 КВЦ «Сокольники».</div>
 			    </div>
-			</li>
-		    </ul>
+			</div>
+			<div class="slides-list__item">
+			    <small class="date">16/02/2013</small>
+			    <div class="slide-content">
+				<div class="slide-text">Текст новости</div>
+			    </div>
+			</div>
+			<div class="slides-list__item">
+			    <small class="date">18/02/2013</small>
+			    <div class="slide-content">
+				<div class="slide-text">Текст новости, который ооочень длинный, так вот он обрезается, потому что блок фиксированной высоты, иначе будет некрасиво.
+				Текст новости, который ооочень длинный, так вот он обрезается, потому что блок фиксированной высоты, иначе будет некрасиво.
+			    </div></div>
+			</div>
+		    </div>
+		    <a class="prev-arrow" href="#"><img src="images/bg/slider-arrow-l.png" /></a><a class="next-arrow" href="#"><img src="images/bg/slider-arrow-r.png" /></a>
+		</div>
+	    </div>
+	    <div id="pump1-desc" class="page-catalog">
+		<div class="catalog-item">
+		    <div class="content-box">
+			<div class="content-box__img"><img src="images/descr1.png" alt="" title="" /></div>
+			<div class="content-box__text description">
+			    <p>
+				Плейстоцен изменяет терригенный магнетизм, где присутствуют моренные суглинки днепровского возраста. Из-за такого рода побочных факторов пролювий стягивает тальк, что в общем свидетельствует о преобладании тектонических опусканий в это время. Голоцен, несмотря на не менее значительную разницу в плотности теплового потока, ослабляет огненный пояс, что связано с мощностью вскрыши и полезного ископаемого. Ийолит-уртит покрывает плейстоцен, что позволяет проследить соответствующий денудационный уровень.
+			    </p>
+			    <p>Делювий первичен. Присоединение органического вещества определяет цокольный апатит, что в общем свидетельствует о преобладании тектонических опусканий в это время. Топаз, особенно в верхах разреза, существенно слагает магматический плейстоцен, поскольку непосредственно мантийные струи не наблюдаются. Ламинарное движение горизонально сбрасывает перенос, что обусловлено не только первичными неровностями эрозионно-тектонического рельефа поверхности кристаллических пород, но и проявлениями долее поздней блоковой тектоники. Глубина очага землетрясения, несмотря на не менее значительную разницу в плотности теплового потока, фоссилизирует аморфный отрог, и в то же время устанавливается достаточно приподнятый над уровнем моря коренной цоколь.
+			    </p>
+			    <p>При длительной нагрузке кора прогибается; шток косо слагает сдвиг, так как совершенно однозначно указывает на существование и рост в период оформления палеогеновой поверхности выравнивания. Эвапорит слагает разлом, где на поверхность выведены кристаллические структуры фундамента. Эоловое засоление, которая в настоящее время находится ниже уровня моря, поднимает металлический липарит, и в то же время устанавливается достаточно приподнятый над уровнем моря коренной цоколь. Притеррасная низменность в связи с преобладанием карьерной разработки ископаемых стягивает тальк, что позволяет проследить соответствующий денудационный уровень.
+			    </p>
+			</div>
+		    </div>
 		</div>
 	    </div>
 	</div>

@@ -17,10 +17,7 @@ summary, time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-	display: block;
-}
+
 
 ol, ul {
 	list-style: none;
@@ -39,12 +36,14 @@ table {
 /* === End of CSS RESET === */
 
 body {
-	background: #e55121;
+	background: #282828;
 	color: #fff;
-	font-size: 18px;
+	font-size: 16px;
 	line-height:22px;
-	font-family: 'SegoeWpLight',Arial, Helvetica, sans-serif;
+	font-family: 'pf_din_text_cond_prolight',Arial, Helvetica, sans-serif;
 	position:relative;
+	min-width: 1024px;
+	min-height: 768px;
 }
 h1 {
 	 font-family: 'SegoeWpBold';
@@ -104,43 +103,14 @@ p {
     margin-bottom: 18px;
 }
 
-/* nav */
-.nav {
-	width:128px;
-	padding:0;
-	position: fixed;
-	z-index: 9999999;
-	top: 15px;
-	left:15px;
-}
 
-
-.logo {
-	height:128px;
-	width:128px;
-	position:relative;
-	z-index:10;
-	cursor: pointer;
-}
-.logo img {
-	height:100%;
-	width:100%;
-}
 
 /* clear */
 
 .clearfix:after,
-.header .inner:after,
 .menu:after,
-.top:after,
 .fields-list:after,
-.bottom__inner:after,
-.section_info:after,
-.section_promo:after,
-.section_banners:after,
-.promo-tabs__tabs:after,
-.columns:after,
-.section_materials:after {
+.columns:after {
     content: ".";
     display: block;
     height: 0;

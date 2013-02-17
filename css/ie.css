@@ -1,0 +1,19 @@
+input {
+    overflow:visible;
+}
+
+/* zoomin */
+.clearfix,
+.menu,
+.fields-list,
+.fields-list__item,
+.section_banners {
+	zoom:1;
+}
+
+.menu_site a, 
+.submenu__item a {
+   *zoom:1;
+   *display:inline;
+}
+
