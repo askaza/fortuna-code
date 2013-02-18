@@ -36,7 +36,7 @@ table {
 /* === End of CSS RESET === */
 
 body {
-	background: #282828;
+	background: lightblue;
 	color: #fff;
 	font-size: 16px;
 	line-height:22px;
@@ -46,46 +46,42 @@ body {
 	min-height: 768px;
 }
 h1 {
-	 font-family: 'SegoeWpBold';
-	 font-size: 46px;
+	 font-family: 'pf_din_text_cond_prolight';
+	 font-size: 20px;
 	 color:#fff;
-	 margin-bottom: 30px;
-	 line-height:50px;
-	 letter-spacing:-1px;
+	 margin-bottom: 10px;
 }
 h2 {
-	font-family: 'SegoeWpBold';
-	color:#2e2626;
-	font-size: 30px;
-	line-height: 30px;
+	font-family: 'pf_din_text_cond_promedium';
+	 font-size: 18px;
+	 color:#fff;
+	 margin-bottom: 10px;
 }
 
 h3 {
-	font-family: 'SegoeWpBold';
-	color:#fff;
-	font-size: 24px;
-	line-height: 30px;
-		margin-bottom:15px;
+	font-family: 'pf_din_text_cond_prolight';
+	 font-size: 16px;
+	 color:#fff;
+	 margin-bottom: 10px;
 }
 
+.content-box__text a,
+.content-box__text a:visited,
 a, a:visited {
 	color:#fff;
+	text-decoration: underline;
+	padding: 0 2px;
 }
 
-a:hover {
+.content-box__text a:hover {
 	color: #fff;
+	text-decoration: none;
+	background: #c4161c;
 }
 
-a:active {
-	color: #fff;
-}
 
 
-.link_ico {
-	text-decoration:none;
-}
-
-.btn-gray {
+.btn {
 	background:#2e2626;
 	border:0;
 	display:block;
@@ -97,14 +93,55 @@ a:active {
 }
 
 p {
-	color:#fff;
-	font-size: 18px;
-    line-height: 22px;
-    margin-bottom: 18px;
+    color:#fff;
+    font-size: 16px;
+    font-family: 'pf_din_text_cond_prolight';
+    line-height: 20px;
+    margin-bottom: 8px;
 }
 
+.content-box__text ul li {
+    background: url(../images/bg/bullet.png) no-repeat 0 7px;
+    padding-left: 17px;
+    color:#fff;
+    font-size: 16px;
+    font-family: 'pf_din_text_cond_prolight';
+    line-height: 20px;
+    margin-bottom: 10px;
+}
 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    margin-bottom: 8px;
+    width: 100%;
+}
+table td,table th {
+    color: #fff;
+    font-family: 'pf_din_text_cond_prolight';
+    font-size: 14px;
+    padding: 7px 5px 7px 0;
+    text-align: left;
+}
+table th {
+    font-family: 'pf_din_text_cond_probold';
+}
+table td {
+    border-top:1px solid #9c9c9c;
+}
 
+.btn-red {
+    font-size: 14px;
+    font-family: 'pf_din_text_cond_probold';
+    color: #fff;
+    height: 32px;
+    line-height: 32px;
+    display: inline-block;
+    background: #c4161c;
+    text-decoration: none;
+}
 /* clear */
 
 .clearfix:after,

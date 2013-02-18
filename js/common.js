@@ -1,5 +1,26 @@
 $(document).ready(function(){
 
+    $( ".accordion" ).accordion({
+	header: '.content-head',
+	heightStyle: 'content'
+    });
+
+    $(".gallery .img-list a").fancybox({
+	prevEffect	: 'none',
+	nextEffect	: 'none',
+	padding		: 0
+
+	helpers	: {
+	    title	: {
+		type: 'over'
+	    },
+	    thumbs	: {
+		width	: 96,
+		height	: 96
+	    }
+	}
+    });
+
       function sliderSize() {
 	var windowSize = $(window).width();
 	var slideWidth = windowSize*0.38;
