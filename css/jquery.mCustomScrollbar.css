@@ -1,0 +1,97 @@
+/* basic scrollbar styling */
+/* vertical scrollbar */
+.mCSB_container{
+	width:auto;
+	margin-right:30px;
+	overflow:hidden;
+}
+.mCSB_container.mCS_no_scrollbar{
+	margin-right:0;
+}
+.mCS_disabled .mCSB_container.mCS_no_scrollbar,
+.mCS_destroyed .mCSB_container.mCS_no_scrollbar{
+	margin-right:30px;
+}
+.mCustomScrollBox .mCSB_scrollTools{
+	width:48px;
+	height:100%;
+	top:0;
+	right:0;
+}
+.mCSB_scrollTools .mCSB_draggerContainer{
+	height:100%;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+.mCSB_scrollTools .mCSB_buttonUp+.mCSB_draggerContainer{
+	padding-bottom:40px;
+}
+.mCSB_scrollTools .mCSB_draggerRail{
+	width:2px;
+	height:100%;
+	margin:0 auto;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+}
+.mCSB_scrollTools .mCSB_dragger{
+	cursor:pointer;
+	width:100%;
+	height:30px;
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+	width:4px;
+	height:100%;
+	margin:0 auto;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+	text-align:center;
+}
+.mCustomScrollbar .mCSB_buttonUp, 
+.mCustomScrollbar .mCSB_buttonUp:hover {
+	display: block;
+	text-decoration: none;
+	height: 48px;
+	width: 48px;
+	top:0;
+	left:0;
+	cursor: pointer;
+	position: absolute !important;
+	z-index: 100;
+	background: url(../images/bg/slider-arrow-t.png) no-repeat 0 0;
+}
+.mCustomScrollbar .mCSB_buttonDown, 
+.mCustomScrollbar .mCSB_buttonDown:hover {
+	display: block;
+	text-decoration: none;
+	height: 48px;
+	width: 48px;
+	top:48px;
+	position: absolute !important;
+	left:0;
+	cursor: pointer;
+	z-index: 100;
+	background: url(../images/bg/slider-arrow-b.png) no-repeat 0 0;
+}
+
+.mCSB_container {
+	overflow: hidden;
+    width: auto;
+}
+.mCustomScrollBox {
+	height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.mCSB_scrollTools {
+	position: absolute;
+	right: 0;
+	top:0;
+    height: 100%;
+    position: absolute;
+	width: 48px;
+
+}

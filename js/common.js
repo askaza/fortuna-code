@@ -1,14 +1,16 @@
 $(document).ready(function(){
 
-    $( ".accordion" ).accordion({
-	header: '.content-head',
-	heightStyle: 'content'
-    });
+   /* $( ".accordion" ).accordion({
+		header: '.content-head',
+		heightStyle: 'content'
+	}); */
 
     $(".gallery .img-list a").fancybox({
 	prevEffect	: 'none',
 	nextEffect	: 'none',
-	padding		: 0
+	padding		: 0,
+	arrows		:'true',
+	
 
 	helpers	: {
 	    title	: {
@@ -20,8 +22,19 @@ $(document).ready(function(){
 	    }
 	}
     });
+	
+	$('.gallery .img-list').each(function() {
+		var elCount = $('.img-list__item',this).size();
+		if (elCount > 3) {			
+			$(this).parents('.gallery').mCustomScrollbar({
+				mouseWheel:true,
+				scrollButtons:{
+					enable:true
+				}});
+			}
+	});
 
-      function sliderSize() {
+function sliderSize() {
 	var windowSize = $(window).width();
 	var slideWidth = windowSize*0.38;
 	var slideHeight = windowSize*0.1;
@@ -29,17 +42,17 @@ $(document).ready(function(){
 	var FontSize = Math.ceil(windowSize*0.018);
 
 	if (windowSize <= 1024) {
-	    $('.slider_news, .slide-content').width(385);
-	    $('.slider_news, .slide-content').height(160);
-	    $('.slider_news').top(430);
-	    $('.slider_news .slides-list__item').width(385).height(160);
+		$('.slider_news, .slide-content').width(385);
+		$('.slider_news, .slide-content').height(160);
+		$('.slider_news').top(430);
+		$('.slider_news .slides-list__item').width(385).height(160);
 	} else {
-	    $('.slider_news, .slider_news .slides-list__item, .slide-content').width(slideWidth);
-	    $('.slider_news, .slider_news .slides-list__item, .slide-content').height(slideHeight);
-	    $('.slider_news').css('top',slideTop + 'px');
-	    $('.slider').css('font-size',FontSize + 'px');
+		$('.slider_news, .slider_news .slides-list__item, .slide-content').width(slideWidth);
+		$('.slider_news, .slider_news .slides-list__item, .slide-content').height(slideHeight);
+		$('.slider_news').css('top',slideTop + 'px');
+		$('.slider').css('font-size',FontSize + 'px');
 	}
-    }
+}
 
      sliderSize();
 
