@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta content="width=device-width, maximum-scale=1.0, initial-scale=0.7" name="viewport">
-		<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
-		<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
-		<link rel="stylesheet" type="text/css" href="css/fonts.css" />
-		<link rel="stylesheet" type="text/css" href="css/common.css" />
-		<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.1.custom.css" />
-		<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" />
-		<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" type="text/css" href="css/components.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta content="width=device-width, maximum-scale=1.0, initial-scale=0.7" name="viewport">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+	<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+	<link rel="stylesheet" type="text/css" href="css/fonts.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.1.custom.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" />
+	<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/components.css" />
 
-		<script src="js/jquery-1.9.1.min.js"></script>
-		<script src="js/jquery-ui-1.10.1.custom.min.js"></script>
-		<script type="text/javascript" src="js/slides.min.jquery.js"></script>
-		<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
-		<script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
-		<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
-		<script type="text/javascript" src="js/common.js"></script>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery-ui-1.10.1.custom.min.js"></script>
+	<script type="text/javascript" src="js/slides.min.jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
+	<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-		<meta name="description" content="Fortuna" />
+	<meta name="description" content="Fortuna" />
 
-		<title>Fortuna</title>
+	<title>Fortuna</title>
 
     </head>
     <body>
-		<div class="page-bg" id="bgslide">
-			<div class="bg1"></div>
-		</div>
+	<div class="page-bg" id="bgslide">
+	    <div class="bg1"></div>
+	</div>
         <div id="wrap">
             <div class="nav" id="controls"> <!-- .nav -->
                 <h1 class="logo"><a href="javascript: void( 0 );" onclick='javascript: showGlagne();'><img src="images/logo.png" alt="Fortuna" title="Fortuna" /></a></h1>
@@ -38,6 +38,25 @@
                     <li class="menu__item" id="section_l2_menu"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l2" );'>Клиенты</a></li>
                     <li class="menu__item" id="section_l3_menu"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l3" );'>Связь с нами</a></li>
                 </ul>
+
+		<form class="form contacts-form" action="#" method="get">
+		    <ul class="fields-list">
+			<li class="fields-list__item">
+			    <label for="name_contact">Ваше имя:</label>
+			    <input type="text" id="name_contacts" name="name" class="field_text"/>
+			</li>
+			<li class="fields-list__item">
+			    <label for="contacts_contacts">Контактный телефон или e-mail:</label>
+			    <input type="text" id="contacts_contacts" name="contacts" class="field_text"/>
+			</li>
+			<li class="fields-list__item">
+			    <label for="message_contacts">Вопрос или предложение:</label>
+			    <textarea cols="10" rows="10" id="message_contacts" name="message" class="field_textarea"></textarea>
+			</li>
+		    </ul>
+		    <a  href="#" class="btn btn-red btn-order">Отправить заказ</a>
+		</form>
+
                 <div class="short-contacts">
                     +7 (495) 123-45-67 <br />
                     <a href="maito:info@fortunavc.com">info@fortunavc.com</a>

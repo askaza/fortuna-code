@@ -87,10 +87,9 @@ body, html {
 }
 
 .menu_site {
-    left: 65px;
-    top:95px;
+    margin: 20px 0 40px 65px;
     width: 113px;
-    position: absolute;
+    position: relative;
 }
 .menu_site .menu__item {
     margin-bottom: 10px;
@@ -470,3 +469,9 @@ body, html {
 	background-image: url(../images/bg/home_ico.png);
 }
 /* .page-about > */
+
+/* contacts form < */
+
+.contacts-form {
+    width: 208px;
+}
