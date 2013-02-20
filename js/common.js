@@ -88,9 +88,24 @@ $( document ).ready( function() {
             } );
         }
     } );
+
+    $( "#wrap" ).mCustomScrollbar( {
+        mouseWheel:true,
+        scrollButtons:{
+            enable:true
+        },
+        advanced:{
+           updateOnBrowserResize:true,
+           updateOnContentResize:true,
+           autoExpandHorizontalScroll:false,
+           autoScrollOnFocus:true
+        }
+    } );
 } );
 
 function initializeMap() {
+    $( "#map_canvas" ).css( "width", ( iWindowWidth - $( "#controls" ).width() ) + "px" );
+    $( "#map_canvas" ).css( "height", iWindowHeight + "px" );
     var styles = [
         {
             "featureType": "water",
@@ -116,20 +131,44 @@ function initializeMap() {
         { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [ { "visibility": "on" }, { "color": "#606060" } ] }
     ];
     var styledMap = new google.maps.StyledMapType( styles, { name: "Styled Map" } );
+    var myLatlng = new google.maps.LatLng( 55.75329, 37.63813 );
+    var content = document.createElement( 'div' );
+    content.innerHTML = "<strong><a href='#'>яндекс-карты</a><a href='#'>гугл-карты</a><a href='#'>распечатать</a></strong>";
+    var infowindow = new google.maps.InfoWindow( { content: content } );
+
     var mapOptions = {
         zoom: 14,
-        center: new google.maps.LatLng( 55.75329,37.63813 ),
+        center: myLatlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         panControl: false,
         zoomControl: false,
         mapTypeControl: false,
         scaleControl: false,
         streetViewControl: false,
-        overviewMapControl: false
+        overviewMapControl: false,
+        scrollwheel: false
     };
     var map = new google.maps.Map( document.getElementById( 'map_canvas' ), mapOptions );
     map.mapTypes.set( 'map_style', styledMap );
     map.setMapTypeId( 'map_style' );
+
+    var markerImage = new google.maps.MarkerImage(
+         'images/bg-num.png',
+         new google.maps.Size(33,33),
+         new google.maps.Point(0,0),
+         new google.maps.Point(0,33)
+     );
+
+    var marker = new google.maps.Marker({
+        icon: markerImage,
+        position: myLatlng,
+        map: map,
+        title:"мы тута!"
+    } );
+
+    google.maps.event.addListener( marker, 'click', function() {
+        infowindow.open( map, marker );
+    } );
 }
 
 
