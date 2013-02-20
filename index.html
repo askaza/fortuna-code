@@ -39,7 +39,7 @@
                     <li class="menu__item" id="section_l3_menu"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l3" );'>Связь с нами</a></li>
                 </ul>
 
-		<form class="form contacts-form" action="#" method="get">
+		<form class="form contacts-form" id="contact_form" action="#" method="get" style='display: none;'>
 		    <ul class="fields-list">
 			<li class="fields-list__item">
 			    <label for="name_contact">Ваше имя:</label>
@@ -469,7 +469,7 @@
                         'bg_size': 'auto',
                         'position': 2,
                         'height': 300,
-			'show':'clients'
+			            'show':'clients'
                     },
                     'section_l3': {
                         'title': "Связь с нами",
@@ -479,7 +479,8 @@
                         'position': 3,
                         'height': 300,
                         'menu_additional_class': 'nav_contacts',
-                        'show': 'map'
+                        'show': 'map',
+                        'show_contact_form': 1
                     }
                 },
                 'right': {

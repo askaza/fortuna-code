@@ -227,8 +227,22 @@ $.extend( {
     }
 } );
 
+function showHideContactForm( sAction ) {
+    if( sAction == 'show' ) {
+        $( "#contact_form" ).css( "height", "0px" );
+        $( "#contact_form" ).css( "display", "" );
+        $( "#contact_form" ).animate( { height: "310px" }, 500 );
+    } else {
+        $( "#contact_form" ).animate( { height: "0px" }, 500 );
+        setTimeout( function() {
+            $( "#contact_form" ).css( "display", "none" );
+        }, 500 );
+    }
+}
+
 function showGlagne() {
     if( bAnimating == false ) {
+        showHideContactForm();
         bAnimating = true;
         $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
         setTimeout( function() {
@@ -236,6 +250,8 @@ function showGlagne() {
         }, 500 );
         $( ".nav" ).removeClass( "nav_left" );
         $( ".nav" ).removeClass( "nav_right" );
+        $( ".nav" ).removeClass( "nav_about" );
+        $( ".nav" ).removeClass( "nav_contacts" );
         var sNewBackground = "images/bg/img0.jpg";
         var oAdd = $( "<div class='bg1'></div>" );
         sSlideDirection = sCurrentSectionSide == "right" ? "right" : "left";
@@ -315,6 +331,7 @@ function showPage( sSection ) {
         }
         sCurrentPosition = oSection.position;
         if( oSection ) {
+            showHideContactForm( oSection.show_contact_form ? "show" : "" );
             if( $( ".nav" ).hasClass( "nav_about" ) ) {
                 $( ".nav" ).removeClass( "nav_about" );
             }
@@ -403,43 +420,4 @@ function showContent( oSection ) {
         initializeMap();
 	    bAnimating = false;
     }, 1000 );
-}
-
-function scaleCrop(li) {
-    var img = $($(li).find('img:first')),
-    wW = $(window).width(),
-    wH = $(window).height(),
-    iH = img.height(),
-    iW = img.width();
-    if (!(((iH < wH || iW < wW) || (iH > wH && iW > wW)) && (iH > 0 && iW > 0)))
-    {
-    //return;
-    }
-    var highestScale,
-    widthScale = wW / iW,
-    heightScale = wH / iH;
-    highestScale = Math.max(heightScale, widthScale);
-    newWidth = iW * highestScale;
-    newHeight = iH * highestScale;
-    img.css({
-	width:newWidth.toString()+"px",
-	height:newHeight.toString()+"px"
-    });
-}
-
-function centerX(li) {
-    var img = $(li.find('img:first')),
-    wW = $(window).width(),
-    iW = img.width();
-    li.css({
-	left:((0 - (iW / 2)) + (wW / 2)).toString() + "px"
-    });
-}
-function centerY(li) {
-    var img = $(li.find('img:first')),
-    wH = $(window).height(),
-    iH = img.height();
-    li.css({
-	top:((0 - (iH / 2)) + (wH / 2)).toString() + "px"
-    });
 }
