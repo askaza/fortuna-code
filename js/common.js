@@ -70,22 +70,16 @@ $( document ).ready( function() {
     });
 
     $( window ).resize( function() {
-        sliderSize();
         iWindowWidth = $( window ).width();
         iWindowHeight = $( window ).height();
-        if( !$( "#wrap" ).hasClass( "mCustomScrollbar" ) ) {
-            $( "#wrap" ).mCustomScrollbar({
-                mouseWheel:true,
-                scrollButtons:{
-                    enable:true
-                },
-                advanced:{
-                   updateOnBrowserResize:true,
-                   updateOnContentResize:false,
-                   autoExpandHorizontalScroll:false,
-                   autoScrollOnFocus:true
-                }
-            } );
+        sliderSize();
+        initializeMap();
+        if( $( ".nav" ).hasClass( "nav_left" ) ) {
+            $( ".nav" ).css( "left", ( iWindowWidth - $( "#controls" ).width() ) + "px" );
+        } else if( $( ".nav" ).hasClass( "nav_right" ) ) {
+            $( ".nav" ).css( "left", "0px" );
+        } else {
+            $( ".nav" ).css( "left", ( ( iWindowWidth / 2 ) - ( $( "#controls" ).width() / 2 ) ) + "px" );
         }
     } );
 
@@ -133,7 +127,7 @@ function initializeMap() {
     var styledMap = new google.maps.StyledMapType( styles, { name: "Styled Map" } );
     var myLatlng = new google.maps.LatLng( 55.75329, 37.63813 );
     var content = document.createElement( 'div' );
-    content.innerHTML = "<strong><a href='#'>яндекс-карты</a><a href='#'>гугл-карты</a><a href='#'>распечатать</a></strong>";
+    content.innerHTML = "123123123<strong><a href='#'>яндекс-карты</a><a href='#'>гугл-карты</a><a href='#'>распечатать</a></strong>";
     var infowindow = new google.maps.InfoWindow( { content: content } );
 
     var mapOptions = {
@@ -153,17 +147,14 @@ function initializeMap() {
     map.setMapTypeId( 'map_style' );
 
     var markerImage = new google.maps.MarkerImage(
-         'images/bg-num.png',
-         new google.maps.Size(33,33),
-         new google.maps.Point(0,0),
-         new google.maps.Point(0,33)
-     );
+        'images/mark.png'
+    );
 
     var marker = new google.maps.Marker({
         icon: markerImage,
         position: myLatlng,
         map: map,
-        title:"мы тута!"
+        title: "мы тута!"
     } );
 
     google.maps.event.addListener( marker, 'click', function() {
@@ -191,21 +182,23 @@ function enableScroll( oContent ) {
 }
 
 function sliderSize() {
-    var windowSize = $(window).width();
-    var slideWidth = windowSize*0.38;
-    var slideHeight = windowSize*0.1;
-    var slideTop = windowSize*0.42;
-    var FontSize = Math.ceil(windowSize*0.018);
-    if (windowSize <= 1024) {
-        $('.slider_news, .slide-content').width(385);
-        $('.slider_news, .slide-content').height(160);
-        $('.slider_news').top(430);
-        $('.slider_news .slides-list__item').width(385).height(160);
-    } else {
-        $('.slider_news, .slider_news .slides-list__item, .slide-content').width(slideWidth);
-        $('.slider_news, .slider_news .slides-list__item, .slide-content').height(slideHeight);
-        $('.slider_news').css('top',slideTop + 'px');
-        $('.slider').css('font-size',FontSize + 'px');
+    if( $('.slider_news').size() ) {
+        var windowSize = $(window).width();
+        var slideWidth = windowSize*0.38;
+        var slideHeight = windowSize*0.1;
+        var slideTop = windowSize*0.42;
+        var FontSize = Math.ceil(windowSize*0.018);
+        if (windowSize <= 1024) {
+            $('.slider_news, .slide-content').width(385);
+            $('.slider_news, .slide-content').height(160);
+            $('.slider_news').css( "top", "430px" );
+            $('.slider_news .slides-list__item').width(385).height(160);
+        } else {
+            $('.slider_news, .slider_news .slides-list__item, .slide-content').width(slideWidth);
+            $('.slider_news, .slider_news .slides-list__item, .slide-content').height(slideHeight);
+            $('.slider_news').css('top',slideTop + 'px');
+            $('.slider').css('font-size',FontSize + 'px');
+        }
     }
 }
 
