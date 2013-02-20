@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+    $( ".nav" ).css( "left", ( iWindowWidth / 2 + $( "#controls" ).width() ) + "px" );
+
      $( ".accordion" ).accordion({
 		header: '.content-head',
 		heightStyle: 'content'
@@ -133,86 +135,122 @@ $( document ).ready( function() {
     }
 } );
 
+function showGlagne() {
+    if( bAnimating == false ) {
+        bAnimating = true;
+        $( "#content" ).animate( { opacity: "0" }, 500 );
+        $( ".nav" ).removeClass( "nav_left" );
+        $( ".nav" ).removeClass( "nav_right" );
+        var sNewBackground = "images/bg/img0.jpg";
+        var oAdd = $( "<div class='bg1'></div>" );
+        sSlideDirection = sCurrentSectionSide == "right" ? "right" : "left";
+        $( ".submenu"  ).animate( { height: "0px" }, 1000 );
+        $( ".submenu"  ).css( "display", "none" );
+        $( ".nav" ).animate( { left: ( iWindowWidth - $( "#controls" ).width() / 2  ) + "px" }, 1000 );
+        console.log( iWindowWidth / 2 );
+        console.log( iWindowWidth / 2 );
+        console.log( $( "#controls" ).width() / 2  );
+        console.log( ( iWindowWidth / 2 - $( "#controls" ).width() / 2 )  );
+        sCurrentPosition = 0;
+        var oCurrent = $( ".bg1:eq(0)" );
+        $( "#bgslide" ).append( $( oAdd ) );
+        $( oAdd ).css( "background-image", "url(" + sNewBackground + ")" );
+        if( sSlideDirection == "left" ) {
+            $( oAdd ).css( "left", iWindowWidth + "px" );
+            $( oAdd ).animate( {
+                left: "0px"
+            }, 1000 );
+            $( oCurrent ).animate( {
+                left: "-" + iWindowWidth + "px"
+            }, 1000 );
+        } else {
+            $( oAdd ).css( "left", "-" + iWindowWidth + "px" );
+            $( oAdd ).animate( { left: "0px" }, 1000 );
+            $( oCurrent ).animate( { left: iWindowWidth + "px" }, 1000 );
+        }
+        setTimeout( function() {
+            $( ".menu_site" ).removeClass( "menu_site_active " );
+            $( ".menu_catalog" ).removeClass( "menu_catalog_active " );
+            $( ".menu__item" ).removeClass( "menu__item_active" );
+            $( oCurrent ).replaceWith( "" );
+            oAdd = "";
+            bAnimating = false;
+        }, 1001 );
+    }
+}
+
 function showPage( sSection ) {
     if( bAnimating == false ) {
-	$( "#content" ).animate( {
-	    opacity: "0"
-	}, 500 );
-	var sNewBackground = "";
-	var oSection = false;
-	var oAdd = $( "<div class='bg1'></div>" );
-	if( aSections.left[sSection] ) {
-	    oSection = aSections.left[sSection];
-	    if( sCurrentSectionSide != "left" ) {
-		sSlideDirection = "right";
-	    } else {
-		if( sCurrentPosition < oSection.position ) {
-		    sSlideDirection = "right";
-		} else {
-		    sSlideDirection = "left";
-		}
-	    }
-	    sCurrentSectionSide = "left";
-	    $( "#controls" ).animate( {
-		left: "100px"
-	    }, 1000 );
-	    $( "#controls" ).addClass( "nav_left" );
-	    $( "#controls" ).removeClass( "nav_right" );
-	} else if( aSections.right[sSection] ) {
-	    oSection = aSections.right[sSection];
-	    if( sCurrentSectionSide != "right" ) {
-		sSlideDirection = "left";
-	    } else {
-		if( sCurrentPosition > oSection.position ) {
-		    sSlideDirection = "right";
-		} else {
-		    sSlideDirection = "left";
-		}
-	    }
-	    sCurrentSectionSide = "right";
-	    //            $( "#controls" ).animate( { left: ( iWindowWidth - $( "#controls" ).width() - 100 ) + "px" }, 1000 );
-	    $( "#controls" ).addClass( "nav_right" );
-	    $( "#controls" ).removeClass( "nav_left" );
-	}
-	sCurrentPosition = oSection.position;
-	if( oSection ) {
-	    if( $( "#" + sSection ).size() ) {
-		$( "#" + sSection  ).css( "height", "0px" );
-		$( "#" + sSection  ).css( "display", "" );
-		$( ".submenu"  ).animate( {
-		    height: "0px"
-		}, 1000 );
-		$( "#" + sSection  ).animate( {
-		    height: "255px"
-		}, 1000 );
-	    }
-	    $( "#bgslide" ).append( $( oAdd ) );
-	    $( oAdd ).css( "background-image", "url(" + oSection.bg + ")" );
-	    bAnimating = true;
-	    var oCurrent = $( ".bg1:eq(0)" );
-	    if( sSlideDirection == "left" ) {
-		$( oAdd ).css( "left", iWindowWidth + "px" );
-		$( oAdd ).animate( {
-		    left: "0px"
-		}, 1000 );
-		$( oCurrent ).animate( {
-		    left: "-" + iWindowWidth + "px"
-		}, 1000 );
-	    } else {
-		$( oAdd ).css( "left", "-" + iWindowWidth + "px" );
-		$( oAdd ).animate( {
-		    left: "0px"
-		}, 1000 );
-		$( oCurrent ).animate( {
-		    left: iWindowWidth + "px"
-		}, 1000 );
-	    }
-	    setTimeout( function() {
-		$( oCurrent ).replaceWith( "" );
-		oAdd = "";
-		showContent( sCurrentSectionSide, oSection );
-	    }, 1001 );
-	}
+        $( "#content" ).animate( { opacity: "0" }, 500 );
+        var sNewBackground = "";
+        var oSection = false;
+        var oAdd = $( "<div class='bg1'></div>" );
+        if( aSections.left[sSection] ) {
+            oSection = aSections.left[sSection];
+            if( sCurrentSectionSide != "left" ) {
+                sSlideDirection = "right";
+            } else {
+                if( sCurrentPosition < oSection.position ) {
+                    sSlideDirection = "right";
+                } else {
+                    sSlideDirection = "left";
+                }
+            }
+            sCurrentSectionSide = "left";
+            $( "#controls" ).animate( { left: ( iWindowWidth - $( "#controls" ).width() ) + "px" }, 1000 );
+            $( "#controls" ).addClass( "nav_left" );
+            $( "#controls" ).removeClass( "nav_right" );
+        } else if( aSections.right[sSection] ) {
+            oSection = aSections.right[sSection];
+            if( sCurrentSectionSide != "right" ) {
+            sSlideDirection = "left";
+            } else {
+            if( sCurrentPosition > oSection.position ) {
+                sSlideDirection = "right";
+            } else {
+                sSlideDirection = "left";
+            }
+            }
+            sCurrentSectionSide = "right";
+            $( "#controls" ).animate( { left: "0px" }, 1000 );
+            $( "#controls" ).addClass( "nav_right" );
+            $( "#controls" ).removeClass( "nav_left" );
+        }
+        sCurrentPosition = oSection.position;
+        if( oSection ) {
+            $( ".menu_site" ).removeClass( "menu_site_active " );
+            $( ".menu_catalog" ).removeClass( "menu_catalog_active " );
+            $( ".menu__item" ).removeClass( "menu__item_active" );
+            $( "#" + sSection + "_menu" ).addClass( "menu__item_active" );
+            if( $( "#" + sSection ).size() ) {
+                $( "#" + sSection  ).css( "height", "0px" );
+                $( "#" + sSection  ).css( "display", "" );
+                $( ".submenu"  ).animate( { height: "0px" }, 1000 );
+                $( "#" + sSection  ).animate( { height: "255px" }, 1000 );
+            }
+            $( "#bgslide" ).append( $( oAdd ) );
+            $( oAdd ).css( "background-image", "url(" + oSection.bg + ")" );
+            bAnimating = true;
+            var oCurrent = $( ".bg1:eq(0)" );
+            if( sSlideDirection == "left" ) {
+                $( oAdd ).css( "left", iWindowWidth + "px" );
+                $( oAdd ).animate( {
+                    left: "0px"
+                }, 1000 );
+                $( oCurrent ).animate( {
+                    left: "-" + iWindowWidth + "px"
+                }, 1000 );
+            } else {
+                $( oAdd ).css( "left", "-" + iWindowWidth + "px" );
+                $( oAdd ).animate( { left: "0px" }, 1000 );
+                $( oCurrent ).animate( { left: iWindowWidth + "px" }, 1000 );
+            }
+            setTimeout( function() {
+                $( oCurrent ).replaceWith( "" );
+                oAdd = "";
+                showContent( sCurrentSectionSide, oSection );
+            }, 1001 );
+        }
     }
 }
 

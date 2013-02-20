@@ -35,7 +35,7 @@ body, html {
     min-height: 100%;
     z-index: 100;
     left:50%;
-    margin-left: -320px;
+    /*margin-left: -320px;*/
     width:640px;
     background: url(../images/bg/menu-home-bg.png) repeat-y 50% 0;
 }
@@ -45,13 +45,13 @@ body, html {
 	margin: 0;
 	left:auto;
 	width:508px;
-	right: 0;
+	/*right: 0;*/
 }
 
 .nav_left {
 	background: url(../images/bg/menu-left-bg.png) repeat-y 0 0;
 	width: 600px;
-	left:0;
+	/*left:0;*/
 	margin: 0;
 }
 
