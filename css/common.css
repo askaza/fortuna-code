@@ -41,7 +41,7 @@ body {
 	font-size: 16px;
 	line-height:22px;
 	font-family: 'pf_din_text_cond_prolight',Arial, Helvetica, sans-serif;
-	position:relative;	
+	position:relative;
 	overflow: hidden;
 }
 h1 {
@@ -150,7 +150,16 @@ table td {
     right: 0;
     text-decoration: none;
 }
-
+.btn-submit {
+    width: 142px;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'pf_din_text_cond_promedium';
+    margin: 0 auto;
+    border:1px solid #c4161c;
+    height: 32px;
+    line-height: 30px;
+}
 .btn-white,
 .btn-white:hover,
 .content-box .content-box__text .btn-white {

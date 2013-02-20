@@ -90,6 +90,7 @@ body, html {
     margin: 20px 0 40px 65px;
     width: 113px;
     position: relative;
+    text-align: left;
 }
 .menu_site .menu__item {
     margin-bottom: 10px;
@@ -140,9 +141,7 @@ body, html {
     font-size: 12px;
     font-family: 'pf_din_text_cond_promedium';
     cursor: default;
-    left: 65px;
-    top:235px;
-    position: absolute;
+    margin: 0 0 0 65px;
     width: 113px;
 }
 .short-contacts a {
@@ -155,9 +154,10 @@ body, html {
 }
 
 .menu_catalog {
-    float: left;
+    position: absolute;
     margin-left: 322px;
     width: 210px;
+    top:150px;
 }
 .menu_catalog .menu__item {
     position: relative;
@@ -473,5 +473,9 @@ body, html {
 /* contacts form < */
 
 .contacts-form {
+    margin: 30px 0 0 35px;
+    padding: 12px 0;
+    border-top:1px solid #969696;
+    border-bottom:1px solid #969696;
     width: 208px;
 }
