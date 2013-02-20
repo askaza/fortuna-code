@@ -58,7 +58,7 @@ function sliderSize() {
 
 sliderSize();
 
-    $('#news-slider').slides({
+    $('#news-slider, #facts-slider').slides({
 	preload: true,
 	generateNextPrev: false,
 	generatePagination:false,

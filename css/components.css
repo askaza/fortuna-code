@@ -4,12 +4,16 @@ body, html {
 }
 
 .bg1 {
+	background-image: url(../images/bg/img1.jpg);
     position: fixed;
     width: 100%;
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-
+}
+.pages {
+	position: absolute;
+	z-index: 50;
 }
 
 /* common <  */
@@ -33,7 +37,31 @@ body, html {
     left:50%;
     margin-left: -320px;
     width:640px;
-    background: url(../images/bg/menu_home_bg.png) repeat-y 0 0;
+    background: url(../images/bg/menu-home-bg.png) repeat-y 50% 0;
+}
+
+.nav_right {
+	background: url(../images/bg/menu-default-bg.png) repeat-y 0 0;
+	margin: 0;
+	left:auto;
+	width:508px;
+	right: 0;
+}
+
+.nav_left {
+	background: url(../images/bg/menu-left-bg.png) repeat-y 0 0;
+	width: 600px;
+	left:0;
+	margin: 0;
+}
+
+.nav_about {
+	background-color:rgba(40,40,40,0.75);
+	border-left:1px solid #a3a3a3;	
+}
+.nav_contacts {
+	background:url(../images/bg/menu-contacts-bg.png) repeat-y 0 0;
+	border-left:1px solid #a3a3a3;
 }
 .logo {
 	height:44px;
@@ -343,3 +371,94 @@ body, html {
 .order-form .form-message {
     margin-top: 75px;
 }
+
+
+/* page-clients < */
+
+.page-clients {
+	position: absolute;
+	left:50px;
+	top:105px;
+}
+.clients-list {
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 100px;
+}
+.clients-list__item {
+	list-style: none outside;
+	padding: 0;
+	margin-bottom: 45px;
+}
+.clients-list__item img {
+	max-width: 100px;
+	display: block;
+	height: auto;
+	width: auto;
+}
+
+.page-clients .content-box {
+	padding: 0 0 0 48px;
+	width: 461px;
+	float: left;
+}
+
+/* .page-about < */
+
+.page-about {
+	position: absolute;
+	top:220px;
+	left:30px;
+	width: 670px;
+}
+
+.infograph {
+	background: url(../images/bg/round.png) no-repeat 10px 0;
+	padding-left: 200px;
+	padding-top: 15px;
+	height: 175px;
+}
+
+.info-list {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+.info-list__item {
+	list-style: none outside;
+	float: left;
+	width: 23%;
+	padding: 0 5%;
+	font-size: 40px;
+	font-family: 'pf_din_text_cond_prolight';
+}
+
+.info-list .ico {
+	display: block;
+	height: 53px;
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+	margin-bottom: 25px;
+}
+
+.info-list small {
+	background: url(../images/bg/info-line.png) no-repeat 0 7px;
+	padding-left: 10px;
+	font-family: 'pf_din_text_cond_probold';
+	font-size: 13px;
+	line-height: 14px;
+	display: block;
+	margin-top: 7px;
+}
+
+.ico_car {
+	background-image: url(../images/bg/car_ico.png);
+}
+.ico_agro {
+	background-image: url(../images/bg/agro_ico.png);
+}
+.ico_home {
+	background-image: url(../images/bg/home_ico.png);
+}
+/* .page-about > */

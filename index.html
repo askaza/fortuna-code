@@ -1,365 +1,430 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta content="width=device-width, maximum-scale=1.0, initial-scale=0.7" name="viewport">
-	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
-	<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
-	<link rel="stylesheet" type="text/css" href="css/fonts.css" />
-	<link rel="stylesheet" type="text/css" href="css/common.css" />
-	<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.1.custom.css" />
-	<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" />
-	<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" type="text/css" href="css/components.css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta content="width=device-width, maximum-scale=1.0, initial-scale=0.7" name="viewport">
+		<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+		<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+		<link rel="stylesheet" type="text/css" href="css/fonts.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.1.custom.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" />
+		<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="css/components.css" />
 
-	<script src="js/jquery-1.9.1.min.js"></script>
-	<script src="js/jquery-ui-1.10.1.custom.min.js"></script>
-	<script type="text/javascript" src="js/slides.min.jquery.js"></script>
-	<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
-	<script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
-	<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
-	<script type="text/javascript" src="js/common.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jquery-ui-1.10.1.custom.min.js"></script>
+		<script type="text/javascript" src="js/slides.min.jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
+		<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
 
-	<meta name="description" content="Fortuna" />
+		<meta name="description" content="Fortuna" />
 
-	<title>Fortuna</title>
+		<title>Fortuna</title>
 
     </head>
     <body>
-	<div class="page-bg" id="bgslide">
-	    <div class="bg1"></div>
-	</div>
-
-	<div class="nav" id="controls"> <!-- .nav -->
-	    <h1 class="logo"><a href="#"><img src="images/logo.png" alt="Fortuna" title="Fortuna" /></a></h1>
-	    <ul class="menu menu_site">
-		<li class="menu__item menu__item_active"><a  href="javascript: void( 0 );" onclick='javascript:showPage( "section_l1" );'>О компании</a></li>
-		<li class="menu__item"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l2" );'>Клиенты</a></li>
-		<li class="menu__item"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l3" );'>Связь с нами</a></li>
-	    </ul>
-	    <div class="short-contacts">
-		+7 (495) 123-45-67 <br />
-		<a href="maito:info@fortunavc.com">info@fortunavc.com</a>
-	    </div>
-	    <ul class="menu menu_catalog"> <!-- .menu_catalog -->
-		<li class="menu__item"><i class="ico"><img src="images/cat/ico_pump.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r1" );'><strong>насосное</strong> оборудование</a>
-		    <ul class="submenu" id="section_r1">
-			<li class="submenu__item"><a href="#">Описание</a></li>
-			<li class="submenu__item menu__item_active"><a href="#">Сферы применения</a></li>
-			<li class="submenu__item"><a href="#">Плюсы и результаты</a></li>
-			<li class="submenu__item"><a href="#">Инфоброшюра</a></li>
-			<li class="submenu__item"><a href="#">Полный каталог</a></li>
-			<li class="submenu__item"><a href="#">Условия и цены</a></li>
-			<li class="submenu__item"><a href="#"><strong>Заказать сейчас</strong></a></li>
-		    </ul>
-		</li>
-		<li class="menu__item"><i class="ico"><img src="images/cat/ico_sorb.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r2" );'><strong>Инновационные</strong> сорбиционные материалы</a>
-		    <ul class="submenu" id="section_r2">
-			<li class="submenu__item"><a href="#">Описание</a></li>
-			<li class="submenu__item"><a href="#">Сферы применения</a></li>
-			<li class="submenu__item"><a href="#">Плюсы и результаты</a></li>
-			<li class="submenu__item"><a href="#">Инфоброшюра</a></li>
-			<li class="submenu__item"><a href="#">Полный каталог</a></li>
-			<li class="submenu__item"><a href="#">Условия и цены</a></li>
-			<li class="submenu__item"><a href="#"><strong>Заказать сейчас</strong></a></li>
-		    </ul>
-		</li>
-		<li class="menu__item"><i class="ico"><img src="images/cat/ico_oil.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r3" );'><strong>нефтеловушки</strong> и системы очистки для автомоек</a>
-		    <ul class="submenu" id="section_r3">
-			<li class="submenu__item"><a href="#">Описание</a></li>
-			<li class="submenu__item"><a href="#">Сферы применения</a></li>
-			<li class="submenu__item"><a href="#">Плюсы и результаты</a></li>
-			<li class="submenu__item"><a href="#">Инфоброшюра</a></li>
-			<li class="submenu__item"><a href="#">Полный каталог</a></li>
-			<li class="submenu__item"><a href="#">Условия и цены</a></li>
-			<li class="submenu__item"><a href="#"><strong>Заказать сейчас</strong></a></li>
-		    </ul>
-		</li>
-		<li class="menu__item"><i class="ico"><img src="images/cat/ico_skim.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r4" );'><strong>Скиммеры</strong> жиров и нефтепродуктов</a>
-		    <ul class="submenu" id="section_r4">
-			<li class="submenu__item"><a href="#">Описание</a></li>
-			<li class="submenu__item"><a href="#">Сферы применения</a></li>
-			<li class="submenu__item"><a href="#">Плюсы и результаты</a></li>
-			<li class="submenu__item"><a href="#">Инфоброшюра</a></li>
-			<li class="submenu__item"><a href="#">Полный каталог</a></li>
-			<li class="submenu__item"><a href="#">Условия и цены</a></li>
-			<li class="submenu__item"><a href="#"><strong>Заказать сейчас</strong></a></li>
-		    </ul>
-		</li>
-	    </ul> <!-- ..menu_catalog -->
-
-	</div> <!-- /.nav -->
-
-	<div class="pages">
-	    <div class="page" id="home" style="display: none;"> <!-- home -->
-		<div class="slider slider_news" id="news-slider">
-		    <div class="slides_container slides-list">
-			<div class="slides-list__item">
-			    <small class="date">14/02/2013</small>
-			    <div class="slide-content">
-				<div class="slide-text">Наша компания принимает участие на 9-й международной выставке экологических технологий и
-				    инноваций «WASMA 2012», которая состоится с 23 по 25 октября в павильоне №2 КВЦ «Сокольники».</div>
-			    </div>
-			</div>
-			<div class="slides-list__item">
-			    <small class="date">16/02/2013</small>
-			    <div class="slide-content">
-				<div class="slide-text">Текст новости</div>
-			    </div>
-			</div>
-			<div class="slides-list__item">
-			    <small class="date">18/02/2013</small>
-			    <div class="slide-content">
-				<div class="slide-text">Текст новости, который ооочень длинный, так вот он обрезается, потому что блок фиксированной высоты, иначе будет некрасиво.
-				    Текст новости, который ооочень длинный, так вот он обрезается, потому что блок фиксированной высоты, иначе будет некрасиво.
-				</div></div>
-			</div>
-		    </div>
-		    <a class="prev-arrow" href="#"><img src="images/bg/slider-arrow-l.png" /></a><a class="next-arrow" href="#"><img src="images/bg/slider-arrow-r.png" /></a>
+		<div class="page-bg" id="bgslide">
+			<div class="bg1"></div>
 		</div>
-	    </div> <!-- /home -->
 
-	    <div class="page-catalog" id="description1" style="display: none;"> <!-- description1 -->
-		<div class="catalog-item">
-		    <div class="content-box">
-			<div class="content-box__img"><img src="images/descr1.png" alt="" title="" /></div>
-			<div class="content-box__text description">
-			    <p>
-				Плейстоцен изменяет терригенный магнетизм, где присутствуют моренные суглинки днепровского возраста. Из-за такого рода побочных факторов пролювий стягивает тальк, что в общем свидетельствует о преобладании тектонических опусканий в это время. Голоцен, несмотря на не менее значительную разницу в плотности теплового потока, ослабляет огненный пояс, что связано с мощностью вскрыши и полезного ископаемого. Ийолит-уртит покрывает плейстоцен, что позволяет проследить соответствующий денудационный уровень.
-			    </p>
-			    <p>Делювий первичен. Присоединение органического вещества определяет цокольный апатит, что в общем свидетельствует о преобладании тектонических опусканий в это время. Топаз, особенно в верхах разреза, существенно слагает магматический плейстоцен, поскольку непосредственно мантийные струи не наблюдаются. Ламинарное движение горизонально сбрасывает перенос, что обусловлено не только первичными неровностями эрозионно-тектонического рельефа поверхности кристаллических пород, но и проявлениями долее поздней блоковой тектоники. Глубина очага землетрясения, несмотря на не менее значительную разницу в плотности теплового потока, фоссилизирует аморфный отрог, и в то же время устанавливается достаточно приподнятый над уровнем моря коренной цоколь.
-			    </p>
-			    <p>При длительной нагрузке кора прогибается; шток косо слагает сдвиг, так как совершенно однозначно указывает на существование и рост в период оформления палеогеновой поверхности выравнивания. Эвапорит слагает разлом, где на поверхность выведены кристаллические структуры фундамента. Эоловое засоление, которая в настоящее время находится ниже уровня моря, поднимает металлический липарит, и в то же время устанавливается достаточно приподнятый над уровнем моря коренной цоколь. Притеррасная низменность в связи с преобладанием карьерной разработки ископаемых стягивает тальк, что позволяет проследить соответствующий денудационный уровень.
-			    </p>
+		<div class="nav" id="controls"> <!-- .nav -->
+			<h1 class="logo"><a href="#"><img src="images/logo.png" alt="Fortuna" title="Fortuna" /></a></h1>
+			<ul class="menu menu_site">
+				<li class="menu__item menu__item_active"><a  href="javascript: void( 0 );" onclick='javascript:showPage( "section_l1" );'>О компании</a></li>
+				<li class="menu__item"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l2" );'>Клиенты</a></li>
+				<li class="menu__item"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l3" );'>Связь с нами</a></li>
+			</ul>
+			<div class="short-contacts">
+				+7 (495) 123-45-67 <br />
+				<a href="maito:info@fortunavc.com">info@fortunavc.com</a>
 			</div>
-		    </div>
-		</div>
-	    </div> <!-- /description1 -->
+			<ul class="menu menu_catalog"> <!-- .menu_catalog -->
+				<li class="menu__item"><i class="ico"><img src="images/cat/ico_pump.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r1" );'><strong>насосное</strong> оборудование</a>
+					<ul class="submenu" id="section_r1">
+						<li class="submenu__item"><a href="#">Описание</a></li>
+						<li class="submenu__item menu__item_active"><a href="#">Сферы применения</a></li>
+						<li class="submenu__item"><a href="#">Плюсы и результаты</a></li>
+						<li class="submenu__item"><a href="#">Инфоброшюра</a></li>
+						<li class="submenu__item"><a href="#">Полный каталог</a></li>
+						<li class="submenu__item"><a href="#">Условия и цены</a></li>
+						<li class="submenu__item"><a href="#"><strong>Заказать сейчас</strong></a></li>
+					</ul>
+				</li>
+				<li class="menu__item"><i class="ico"><img src="images/cat/ico_sorb.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r2" );'><strong>Инновационные</strong> сорбиционные материалы</a>
+					<ul class="submenu" id="section_r2">
+						<li class="submenu__item"><a href="#">Описание</a></li>
+						<li class="submenu__item"><a href="#">Сферы применения</a></li>
+						<li class="submenu__item"><a href="#">Плюсы и результаты</a></li>
+						<li class="submenu__item"><a href="#">Инфоброшюра</a></li>
+						<li class="submenu__item"><a href="#">Полный каталог</a></li>
+						<li class="submenu__item"><a href="#">Условия и цены</a></li>
+						<li class="submenu__item"><a href="#"><strong>Заказать сейчас</strong></a></li>
+					</ul>
+				</li>
+				<li class="menu__item"><i class="ico"><img src="images/cat/ico_oil.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r3" );'><strong>нефтеловушки</strong> и системы очистки для автомоек</a>
+					<ul class="submenu" id="section_r3">
+						<li class="submenu__item"><a href="#">Описание</a></li>
+						<li class="submenu__item"><a href="#">Сферы применения</a></li>
+						<li class="submenu__item"><a href="#">Плюсы и результаты</a></li>
+						<li class="submenu__item"><a href="#">Инфоброшюра</a></li>
+						<li class="submenu__item"><a href="#">Полный каталог</a></li>
+						<li class="submenu__item"><a href="#">Условия и цены</a></li>
+						<li class="submenu__item"><a href="#"><strong>Заказать сейчас</strong></a></li>
+					</ul>
+				</li>
+				<li class="menu__item"><i class="ico"><img src="images/cat/ico_skim.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r4" );'><strong>Скиммеры</strong> жиров и нефтепродуктов</a>
+					<ul class="submenu" id="section_r4">
+						<li class="submenu__item"><a href="#">Описание</a></li>
+						<li class="submenu__item"><a href="#">Сферы применения</a></li>
+						<li class="submenu__item"><a href="#">Плюсы и результаты</a></li>
+						<li class="submenu__item"><a href="#">Инфоброшюра</a></li>
+						<li class="submenu__item"><a href="#">Полный каталог</a></li>
+						<li class="submenu__item"><a href="#">Условия и цены</a></li>
+						<li class="submenu__item"><a href="#"><strong>Заказать сейчас</strong></a></li>
+					</ul>
+				</li>
+			</ul> <!-- ..menu_catalog -->
 
-	    <div class="page-catalog" id="use1" style="display: none;"> <!-- use1 -->
-		<div class="catalog-item">
-		    <div class="content-box">
-			<div class="content-box__img content-box__img_small"><img src="images/descr1.png" alt="" title="" /></div>
-			<div class="content-box__text">
-			    <p>
-				Использование, например.<br />
-				Голоцен, несмотря на не менее значительную разницу в плотности теплового потока,
-				ослабляет огненный пояс, что связано с мощностью вскрыши и полезного ископаемого.
-				Ийолит-уртит покрывает плейстоцен, что позволяет проследить соответствующий денудационный уровень.
-			    </p>
+		</div> <!-- /.nav -->
 
-			</div>
-		    </div>
-		</div>
-	    </div>  <!-- use2 -->
-
-	    <div class="page-catalog" id="catalog1" style="display: none;">  <!-- catalog1 -->
-		<div class="accordion">
-		    <div class="catalog-item">
-			<div class="content-head">AG</div>
-			<div class="content-box">
-			    <div class="content-box__text">
-				<h1>AG</h1>
-				<p>
-				    Активированный уголь AG производят из скорлупы кокосовых орехов с
-				    последующей обработкой <a href="#">препаратами серебра</a>. Массовая доля серебра в сорбционной
-				    загрузке 0.01%. Технологии нанесения серебра позволяют минимизировать выделение металла в воду.
-
-				</p>
-				<ul>
-				    <li>Гранулированный активированный уголь AG</li>
-				    <li>импрегнированный серебром,</li>
-				    <li>предназначен для удаления запаха,</li>
-				    <li>осветления воды,</li>
-				    <li>уменьшения содержания растворенных органических веществ,</li>
-				    <li>а также для обеспечения бактериостатического эффекта.</li>
-				</ul>
-				<p>
-				    Активированный уголь AG производят из скорлупы кокосовых орехов с
-				    последующей обработкой <a href="#">препаратами серебра</a>. Массовая доля серебра в сорбционной
-				    загрузке 0.01%. Технологии нанесения серебра позволяют минимизировать выделение металла в воду.
-
-				</p>
-			    </div>
-			    <a href="#" class="btn-red btn-order">Заказать</a>
-			</div>
-		    </div>
-		    <div class="catalog-item">
-			<div class="content-head">AG</div>
-			<div class="content-box">
-			    <div class="content-box__text">
-				<h1>AG</h1>
-				<p>
-				    Активированный уголь AG производят из скорлупы кокосовых орехов с
-				    последующей обработкой <a href="#">препаратами серебра</a>. Массовая доля серебра в сорбционной
-				    загрузке 0.01%. Технологии нанесения серебра позволяют минимизировать выделение металла в воду.
-
-				</p>
-
-				<table>
-				    <thead>
-					<tr>
-					    <th>Гранулированный</th>
-					    <th>активированный</th>
-					    <th>уголь</th>
-					</tr>
-				    </thead>
-				    <tbody>
-					<tr>
-					    <td>Технологии</td>
-					    <td>позволяют</td>
-					    <td>минимизировать</td>
-					</tr>
-					<tr>
-					    <td>Технологии</td>
-					    <td>позволяют</td>
-					    <td>минимизировать</td>
-					</tr>
-				    </tbody>
-				</table>
-				<p>При длительной нагрузке кора прогибается; шток косо слагает сдвиг, так как совершенно однозначно указывает на существование и рост в период оформления палеогеновой поверхности выравнивания. Эвапорит слагает разлом, где на поверхность выведены кристаллические структуры фундамента. Эоловое засоление, которая в настоящее время находится ниже уровня моря, поднимает металлический липарит, и в то же время устанавливается достаточно приподнятый над уровнем моря коренной цоколь. Притеррасная низменность в связи с преобладанием карьерной разработки ископаемых стягивает тальк, что позволяет проследить соответствующий денудационный уровень.
-				</p>
-
-			    </div>
-			    <a href="#" class="btn-red btn-order">Заказать</a>
-			</div>
-		    </div>
-		    <div class="catalog-item">
-			<div class="content-head">БАУ-А</div>
-			<div class="content-box">
-			    <div class="content-box__img content-box__img_small"><img src="images/descr1.png" alt="" title="" /></div>
-			    <div class="content-box__text">
-				<h1>БАУ-А</h1>
-				<p>
-				    Активированный уголь AG производят из скорлупы кокосовых орехов с
-				    последующей обработкой препаратами серебра. Массовая доля серебра в сорбционной
-				    загрузке 0.01%. Технологии нанесения серебра позволяют минимизировать выделение металла в воду.
-				</p>
-				<div class="gallery">
-				    <ul class="img-list">
-					<li class="img-list__item"><a rel="img-gallery" href="images/gallery/1_big.png" title="ассовая доля серебра в сорбционной загрузке 0.01%"><img src="images/gallery/1.png" alt="foto-name" title="" /></a></li>
-					<li class="img-list__item"><a rel="img-gallery" href="images/gallery/2_big.png" title="Технологии нанесения серебра"><img src="images/gallery/2.png" alt="foto-name" title="" /></a></li>
-					<li class="img-list__item"><a rel="img-gallery" href="images/gallery/3_big.png" title="минимизировать"><img src="images/gallery/3.png" alt="foto-name" title="" /></a></li>
-					<li class="img-list__item"><a rel="img-gallery" href="images/gallery/4_big.png" title="уголь AG производят из скорлупы кокосовых ореховs"><img src="images/gallery/4.png" alt="foto-name" title="" /></a></li>
-				    </ul>
+		<div class="pages">
+			<div class="page" id="home" style="display: none;"> <!-- home -->
+				<div class="slider slider_news" id="news-slider">
+					<div class="slides_container slides-list">
+						<div class="slides-list__item">
+							<small class="date">14/02/2013</small>
+							<div class="slide-content">
+								<div class="slide-text">Наша компания принимает участие на 9-й международной выставке экологических технологий и
+									инноваций «WASMA 2012», которая состоится с 23 по 25 октября в павильоне №2 КВЦ «Сокольники».</div>
+							</div>
+						</div>
+						<div class="slides-list__item">
+							<small class="date">16/02/2013</small>
+							<div class="slide-content">
+								<div class="slide-text">Текст новости</div>
+							</div>
+						</div>
+						<div class="slides-list__item">
+							<small class="date">18/02/2013</small>
+							<div class="slide-content">
+								<div class="slide-text">Текст новости, который ооочень длинный, так вот он обрезается, потому что блок фиксированной высоты, иначе будет некрасиво.
+									Текст новости, который ооочень длинный, так вот он обрезается, потому что блок фиксированной высоты, иначе будет некрасиво.
+								</div></div>
+						</div>
+					</div>
+					<a class="prev-arrow" href="#"><img src="images/bg/slider-arrow-l.png" /></a><a class="next-arrow" href="#"><img src="images/bg/slider-arrow-r.png" /></a>
 				</div>
+			</div> <!-- /home -->
 
-			    </div>
-			    <a href="#" class="btn-red btn-order">Заказать</a>
-			</div>
-		    </div>
-		</div>
-	    </div>  <!-- /catalog1 -->
+			<div class="page-catalog" id="description1" style="display: none;"> <!-- description1 -->
+				<div class="catalog-item">
+					<div class="content-box">
+						<div class="content-box__img"><img src="images/descr1.png" alt="" title="" /></div>
+						<div class="content-box__text description">
+							<p>
+								Плейстоцен изменяет терригенный магнетизм, где присутствуют моренные суглинки днепровского возраста. Из-за такого рода побочных факторов пролювий стягивает тальк, что в общем свидетельствует о преобладании тектонических опусканий в это время. Голоцен, несмотря на не менее значительную разницу в плотности теплового потока, ослабляет огненный пояс, что связано с мощностью вскрыши и полезного ископаемого. Ийолит-уртит покрывает плейстоцен, что позволяет проследить соответствующий денудационный уровень.
+							</p>
+							<p>Делювий первичен. Присоединение органического вещества определяет цокольный апатит, что в общем свидетельствует о преобладании тектонических опусканий в это время. Топаз, особенно в верхах разреза, существенно слагает магматический плейстоцен, поскольку непосредственно мантийные струи не наблюдаются. Ламинарное движение горизонально сбрасывает перенос, что обусловлено не только первичными неровностями эрозионно-тектонического рельефа поверхности кристаллических пород, но и проявлениями долее поздней блоковой тектоники. Глубина очага землетрясения, несмотря на не менее значительную разницу в плотности теплового потока, фоссилизирует аморфный отрог, и в то же время устанавливается достаточно приподнятый над уровнем моря коренной цоколь.
+							</p>
+							<p>При длительной нагрузке кора прогибается; шток косо слагает сдвиг, так как совершенно однозначно указывает на существование и рост в период оформления палеогеновой поверхности выравнивания. Эвапорит слагает разлом, где на поверхность выведены кристаллические структуры фундамента. Эоловое засоление, которая в настоящее время находится ниже уровня моря, поднимает металлический липарит, и в то же время устанавливается достаточно приподнятый над уровнем моря коренной цоколь. Притеррасная низменность в связи с преобладанием карьерной разработки ископаемых стягивает тальк, что позволяет проследить соответствующий денудационный уровень.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div> <!-- /description1 -->
 
-	    <div class="page-catalog" id="results1" style="display: none;">  <!-- results1 -->
-		<div class="catalog-item">
-		    <div class="content-box">
-			<div class="content-box__text">
-			    <p>
-				Какие-то результаты
-			    </p>
+			<div class="page-catalog" id="use1" style="display: none;"> <!-- use1 -->
+				<div class="catalog-item">
+					<div class="content-box">
+						<div class="content-box__img content-box__img_small"><img src="images/descr1.png" alt="" title="" /></div>
+						<div class="content-box__text">
+							<p>
+								Использование, например.<br />
+								Голоцен, несмотря на не менее значительную разницу в плотности теплового потока,
+								ослабляет огненный пояс, что связано с мощностью вскрыши и полезного ископаемого.
+								Ийолит-уртит покрывает плейстоцен, что позволяет проследить соответствующий денудационный уровень.
+							</p>
 
-			</div>
-		    </div>
-		</div>
-	    </div>  <!-- /results1 -->
+						</div>
+					</div>
+				</div>
+			</div>  <!-- use2 -->
 
-	     <div class="page-catalog" id="price1" style="display: none;">  <!-- price1 -->
-		<div class="catalog-item">
-		    <div class="content-box">
-			<div class="content-box__text">
-			    <p>
-				Какие-то цены и возможно условия сотрудничества
-			    </p>
-			</div>
-		    </div>
-		</div>
-	    </div>  <!-- /price1 -->
+			<div class="page-catalog" id="catalog1" style="display: none;">  <!-- catalog1 -->
+				<div class="accordion">
+					<div class="catalog-item">
+						<div class="content-head">AG</div>
+						<div class="content-box">
+							<div class="content-box__text">
+								<h1>AG</h1>
+								<p>
+									Активированный уголь AG производят из скорлупы кокосовых орехов с
+									последующей обработкой <a href="#">препаратами серебра</a>. Массовая доля серебра в сорбционной
+									загрузке 0.01%. Технологии нанесения серебра позволяют минимизировать выделение металла в воду.
 
-	    <div class="page-catalog" id="order-form" style="display: none;">  <!-- order-form -->
-		<div class="catalog-item">
-		    <div class="content-box order-form">
-			<div class="content-box__img content-box__img_small"><img src="images/descr1.png" alt="" title="" /></div>
-			<div class="content-box__text">
-			    <h2>Форма заказа</h2>
-			    <form action="#" method="get" class="form">
-				<ul class="fields-list">
-				    <li class="fields-list__item">
-					<label for="name">Ваше имя:</label>
-					<input type="text" id="name" name="name" class="field_text"/>
-				    </li>
-				    <li class="fields-list__item">
-					<label for="contacts">Контактный телефон или e-mail:</label>
-					<input type="text" id="contacts" name="contacts" class="field_text"/>
-				    </li>
-				      <li class="fields-list__item">
-					<label for="message">Содержание заказа и комментарии:</label>
-					<textarea cols="10" rows="10" id="message" name="message" class="field_textarea"></textarea>
-				    </li>
+								</p>
+								<ul>
+									<li>Гранулированный активированный уголь AG</li>
+									<li>импрегнированный серебром,</li>
+									<li>предназначен для удаления запаха,</li>
+									<li>осветления воды,</li>
+									<li>уменьшения содержания растворенных органических веществ,</li>
+									<li>а также для обеспечения бактериостатического эффекта.</li>
+								</ul>
+								<p>
+									Активированный уголь AG производят из скорлупы кокосовых орехов с
+									последующей обработкой <a href="#">препаратами серебра</a>. Массовая доля серебра в сорбционной
+									загрузке 0.01%. Технологии нанесения серебра позволяют минимизировать выделение металла в воду.
+
+								</p>
+							</div>
+							<a href="#" class="btn-red btn-order">Заказать</a>
+						</div>
+					</div>
+					<div class="catalog-item">
+						<div class="content-head">AG</div>
+						<div class="content-box">
+							<div class="content-box__text">
+								<h1>AG</h1>
+								<p>
+									Активированный уголь AG производят из скорлупы кокосовых орехов с
+									последующей обработкой <a href="#">препаратами серебра</a>. Массовая доля серебра в сорбционной
+									загрузке 0.01%. Технологии нанесения серебра позволяют минимизировать выделение металла в воду.
+
+								</p>
+
+								<table>
+									<thead>
+										<tr>
+											<th>Гранулированный</th>
+											<th>активированный</th>
+											<th>уголь</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Технологии</td>
+											<td>позволяют</td>
+											<td>минимизировать</td>
+										</tr>
+										<tr>
+											<td>Технологии</td>
+											<td>позволяют</td>
+											<td>минимизировать</td>
+										</tr>
+									</tbody>
+								</table>
+								<p>При длительной нагрузке кора прогибается; шток косо слагает сдвиг, так как совершенно однозначно указывает на существование и рост в период оформления палеогеновой поверхности выравнивания. Эвапорит слагает разлом, где на поверхность выведены кристаллические структуры фундамента. Эоловое засоление, которая в настоящее время находится ниже уровня моря, поднимает металлический липарит, и в то же время устанавливается достаточно приподнятый над уровнем моря коренной цоколь. Притеррасная низменность в связи с преобладанием карьерной разработки ископаемых стягивает тальк, что позволяет проследить соответствующий денудационный уровень.
+								</p>
+
+							</div>
+							<a href="#" class="btn-red btn-order">Заказать</a>
+						</div>
+					</div>
+					<div class="catalog-item">
+						<div class="content-head">БАУ-А</div>
+						<div class="content-box">
+							<div class="content-box__img content-box__img_small"><img src="images/descr1.png" alt="" title="" /></div>
+							<div class="content-box__text">
+								<h1>БАУ-А</h1>
+								<p>
+									Активированный уголь AG производят из скорлупы кокосовых орехов с
+									последующей обработкой препаратами серебра. Массовая доля серебра в сорбционной
+									загрузке 0.01%. Технологии нанесения серебра позволяют минимизировать выделение металла в воду.
+								</p>
+								<div class="gallery">
+									<ul class="img-list">
+										<li class="img-list__item"><a rel="img-gallery" href="images/gallery/1_big.png" title="ассовая доля серебра в сорбционной загрузке 0.01%"><img src="images/gallery/1.png" alt="foto-name" title="" /></a></li>
+										<li class="img-list__item"><a rel="img-gallery" href="images/gallery/2_big.png" title="Технологии нанесения серебра"><img src="images/gallery/2.png" alt="foto-name" title="" /></a></li>
+										<li class="img-list__item"><a rel="img-gallery" href="images/gallery/3_big.png" title="минимизировать"><img src="images/gallery/3.png" alt="foto-name" title="" /></a></li>
+										<li class="img-list__item"><a rel="img-gallery" href="images/gallery/4_big.png" title="уголь AG производят из скорлупы кокосовых ореховs"><img src="images/gallery/4.png" alt="foto-name" title="" /></a></li>
+									</ul>
+								</div>
+
+							</div>
+							<a href="#" class="btn-red btn-order">Заказать</a>
+						</div>
+					</div>
+				</div>
+			</div>  <!-- /catalog1 -->
+
+			<div class="page-catalog" id="results1" style="display: none;">  <!-- results1 -->
+				<div class="catalog-item">
+					<div class="content-box">
+						<div class="content-box__text">
+							<p>
+								Какие-то результаты
+							</p>
+
+						</div>
+					</div>
+				</div>
+			</div>  <!-- /results1 -->
+
+			<div class="page-catalog" id="price1" style="display: none;">  <!-- price1 -->
+				<div class="catalog-item">
+					<div class="content-box">
+						<div class="content-box__text">
+							<p>
+								Какие-то цены и возможно условия сотрудничества
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>  <!-- /price1 -->
+
+			<div class="page-catalog" id="order-form" style="display: none;">  <!-- order-form -->
+				<div class="catalog-item">
+					<div class="content-box order-form">
+						<div class="content-box__img content-box__img_small"><img src="images/descr1.png" alt="" title="" /></div>
+						<div class="content-box__text">
+							<h2>Форма заказа</h2>
+							<form action="#" method="get" class="form">
+								<ul class="fields-list">
+									<li class="fields-list__item">
+										<label for="name">Ваше имя:</label>
+										<input type="text" id="name" name="name" class="field_text"/>
+									</li>
+									<li class="fields-list__item">
+										<label for="contacts">Контактный телефон или e-mail:</label>
+										<input type="text" id="contacts" name="contacts" class="field_text"/>
+									</li>
+									<li class="fields-list__item">
+										<label for="message">Содержание заказа и комментарии:</label>
+										<textarea cols="10" rows="10" id="message" name="message" class="field_textarea"></textarea>
+									</li>
+								</ul>
+								<a  href="#" class="btn btn-red btn-order">Отправить заказ</a>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div> <!-- /order-form -->
+
+
+			<div class="page-catalog" id="order-form-complete" style="display: none;"> <!-- order-form-complete -->
+				<div class="catalog-item">
+					<div class="content-box order-form order-form-complete">
+						<div class="content-box__img content-box__img_small"><img src="images/descr1.png" alt="" title="" /></div>
+						<div class="content-box__text">
+							<div class="form-message">
+								<h2>Спасибо!</h2>
+								<p>Ваш заказ отправлен, а это значит, что совсем скоро мы с вами свяжемся!</p>
+								<p>Вы можете продолжить просмотр нашей продукции, перейти на <a href="#">главную страницу</a> или <a href="#">связаться с нами</a> </p>
+							</div>
+							<a href="#" class="btn btn-white btn-order">Вернуть форму</a>
+						</div>
+					</div>
+				</div>
+			</div> <!-- /order-form-complete -->
+
+
+			<div class="page-catalog" id="order-form-send" style="display: none"> <!-- order-form-send -->
+				<div class="catalog-item">
+					<div class="content-box order-form">
+						<div class="content-box__img content-box__img_small"><img src="images/descr1.png" alt="" title="" /></div>
+						<div class="content-box__text">
+							<h2>Форма заказа</h2>
+							<form action="#" method="get" class="form">
+								<ul class="fields-list">
+									<li class="fields-list__item">
+										<label for="name">Ваше имя:</label>
+										<input type="text" id="name" name="name" class="field_text"/>
+									</li>
+									<li class="fields-list__item">
+										<label for="contacts">Контактный телефон или e-mail:</label>
+										<input type="text" id="contacts" name="contacts" class="field_text"/>
+									</li>
+									<li class="fields-list__item">
+										<label for="message">Содержание заказа и комментарии:</label>
+										<textarea cols="10" rows="10" id="message" name="message" class="field_textarea"></textarea>
+									</li>
+								</ul>
+								<a  href="#" class="btn btn-order btn-load"><img src="images/preloader_32.gif" alt="" title="" height="32" width="32" /></a>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div> <!-- /order-form-send -->
+
+
+			<div class="page-clients" id="clients" style="display: none;"> <!-- clients -->
+				<ul class="clients-list">
+					<li class="clients-list__item"><img src="images/clients/1.png" alt="Client1" title=""  /></li>
+					<li class="clients-list__item"><img src="images/clients/2.png" alt="Client1" title=""  /></li>
+					<li class="clients-list__item"><img src="images/clients/3.png" alt="Client1" title=""  /></li>
+					<li class="clients-list__item"><img src="images/clients/4.png" alt="Client1" title=""  /></li>
+					<li class="clients-list__item"><img src="images/clients/5.png" alt="Client1" title=""  /></li>
+					<li class="clients-list__item"><img src="images/clients/6.png" alt="Client1" title=""  /></li>
 				</ul>
-				<a  href="#" class="btn btn-red btn-order">Отправить заказ</a>
-			    </form>
-			</div>
-		    </div>
+				<div class="content-box description">
+					<p>
+						Плейстоцен изменяет терригенный магнетизм, где присутствуют моренные суглинки днепровского возраста.
+						Из-за такого рода побочных факторов пролювий стягивает тальк, что в общем свидетельствует о преобладании 
+						тектонических опусканий в это время. Голоцен, несмотря на не менее значительную разницу в плотности теплового потока, 
+						ослабляет огненный пояс, что связано с мощностью вскрыши и полезного ископаемого. Ийолит-уртит покрывает плейстоцен,
+						что позволяет проследить соответствующий денудационный уровень.</p>
+							
+					<p>Делювий первичен. Присоединение органического вещества определяет цокольный апатит, что в общем 
+						свидетельствует о преобладании тектонических опусканий в это время. Топаз, особенно в 
+						верхах разреза, существенно слагает магматический плейстоцен, поскольку непосредственно 
+						мантийные струи не наблюдаются. Ламинарное движение горизонально сбрасывает перенос, что </p>
+							
+					<p>обусловлено не только первичными неровностями эрозионно-тектонического рельефа поверхности
+						кристаллических пород, но и проявлениями долее поздней блоковой тектоники. Глубина очага землетрясения,
+						несмотря на не менее значительную разницу в плотности теплового потока, фоссилизирует аморфный отрог,
+						и в то же время устанавливается достаточно приподнятый над уровнем моря коренной цоколь.</p>							
+				</div>
+			</div> <!-- /clients -->
+			
+			<div class="page-about"> <!-- page-about -->
+				<div class="infograph">
+					<ul class="info-list">
+						<li class="info-list__item">
+							<i class="ico ico_car"></i>
+							70%
+							<small>&nbsp;&nbsp;сельское хозяйство</small>
+						</li>
+						<li class="info-list__item">
+							<i class="ico ico_agro"></i>
+							22%
+							<small>&nbsp;&nbsp;промышленные нужды</small>
+						</li>
+						<li class="info-list__item">
+							<i class="ico ico_home"></i>
+							8%
+							<small>&nbsp;&nbsp;домашнее использование</small>
+						</li>
+					</ul>
+				</div>
+				<div class="slider slider_news" id="facts-slider">
+					<div class="slides_container slides-list">
+						<div class="slides-list__item">
+							<div class="slide-content">
+								<div class="slide-text">Наша компания принимает участие на 9-й международной выставке экологических технологий и
+									инноваций «WASMA 2012», которая состоится с 23 по 25 октября в павильоне №2 КВЦ «Сокольники».</div>
+							</div>
+						</div>
+						<div class="slides-list__item">
+							<div class="slide-content">
+								<div class="slide-text">Текст новости</div>
+							</div>
+						</div>
+						<div class="slides-list__item">
+							<div class="slide-content">
+								<div class="slide-text">Текст новости, который ооочень длинный, так вот он обрезается, потому что блок фиксированной высоты, иначе будет некрасиво.
+									Текст новости, который ооочень длинный, так вот он обрезается, потому что блок фиксированной высоты, иначе будет некрасиво.
+								</div></div>
+						</div>
+					</div>
+					<a class="prev-arrow" href="#"><img src="images/bg/slider-arrow-l.png" /></a><a class="next-arrow" href="#"><img src="images/bg/slider-arrow-r.png" /></a>
+				</div>
+			</div> <!--/ page-about -->
+			
 		</div>
-	    </div> <!-- /order-form -->
-
-
-	    <div class="page-catalog" id="order-form-complete" style="display: none;"> <!-- order-form-complete -->
-		<div class="catalog-item">
-		    <div class="content-box order-form order-form-complete">
-			<div class="content-box__img content-box__img_small"><img src="images/descr1.png" alt="" title="" /></div>
-			<div class="content-box__text">
-			    <div class="form-message">
-				<h2>Спасибо!</h2>
-				<p>Ваш заказ отправлен, а это значит, что совсем скоро мы с вами свяжемся!</p>
-				<p>Вы можете продолжить просмотр нашей продукции, перейти на <a href="#">главную страницу</a> или <a href="#">связаться с нами</a> </p>
-			    </div>
-			    <a href="#" class="btn btn-white btn-order">Вернуть форму</a>
-			</div>
-		    </div>
-		</div>
-	    </div> <!-- /order-form-complete -->
-
-
-	    <div class="page-catalog" id="order-form-send" style="display: none"> <!-- order-form-send -->
-		<div class="catalog-item">
-		    <div class="content-box order-form">
-			<div class="content-box__img content-box__img_small"><img src="images/descr1.png" alt="" title="" /></div>
-			<div class="content-box__text">
-			    <h2>Форма заказа</h2>
-			    <form action="#" method="get" class="form">
-				<ul class="fields-list">
-				    <li class="fields-list__item">
-					<label for="name">Ваше имя:</label>
-					<input type="text" id="name" name="name" class="field_text"/>
-				    </li>
-				    <li class="fields-list__item">
-					<label for="contacts">Контактный телефон или e-mail:</label>
-					<input type="text" id="contacts" name="contacts" class="field_text"/>
-				    </li>
-				      <li class="fields-list__item">
-					<label for="message">Содержание заказа и комментарии:</label>
-					<textarea cols="10" rows="10" id="message" name="message" class="field_textarea"></textarea>
-				    </li>
-				</ul>
-				<a  href="#" class="btn btn-order btn-load"><img src="images/preloader_32.gif" alt="" title="" height="32" width="32" /></a>
-			    </form>
-			</div>
-		    </div>
-		</div>
-	    </div> <!-- /order-form-send -->
-
-
-	     <div class="page-clients" id="clients"> <!-- clients -->
-		<ul class="clients-list">
-		    <li class="clients-list__item"><img src="images/clients/1.png" alt="Client1" title=""  /></li>
-		</ul>
-	    </div> <!-- /clients -->
-
-
-
-	</div>
         <script language='javascript'>
             var aSections = {
                 'left': {
