@@ -13,11 +13,25 @@
 	margin-right:30px;
 }
 .mCustomScrollBox .mCSB_scrollTools{
+	height:100%;
+	top:0;
+	right:0;
+	width: 16px;
+}
+.gallery .mCustomScrollBox .mCSB_scrollTools{
 	width:48px;
+}
+
+.mCustomScrollBox .mCSB_scrollTools{
+	width:16px;
 	height:100%;
 	top:0;
 	right:0;
 }
+.gallery .mCustomScrollBox .mCSB_scrollTools{
+	width:48px;
+}
+
 .mCSB_scrollTools .mCSB_draggerContainer{
 	height:100%;
 	-webkit-box-sizing:border-box;
@@ -49,8 +63,8 @@
 	border-radius:10px;
 	text-align:center;
 }
-.mCustomScrollbar .mCSB_buttonUp, 
-.mCustomScrollbar .mCSB_buttonUp:hover {
+.gallery .mCustomScrollbar .mCSB_buttonUp, 
+.gallery .mCustomScrollbar .mCSB_buttonUp:hover {
 	display: block;
 	text-decoration: none;
 	height: 48px;
@@ -62,8 +76,8 @@
 	z-index: 100;
 	background: url(../images/bg/slider-arrow-t.png) no-repeat 0 0;
 }
-.mCustomScrollbar .mCSB_buttonDown, 
-.mCustomScrollbar .mCSB_buttonDown:hover {
+.gallery .mCustomScrollbar .mCSB_buttonDown, 
+.gallery .mCustomScrollbar .mCSB_buttonDown:hover {
 	display: block;
 	text-decoration: none;
 	height: 48px;
@@ -92,6 +106,8 @@
 	top:0;
     height: 100%;
     position: absolute;
+	width: 16px;
+}
+.gallery .mCSB_scrollTools {
 	width: 48px;
-
 }
