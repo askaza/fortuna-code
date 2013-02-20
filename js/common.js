@@ -73,6 +73,7 @@ $( document ).ready( function() {
         iWindowWidth = $( window ).width();
         iWindowHeight = $( window ).height();
         sliderSize();
+	enableScroll();
         initializeMap();
         if( $( ".nav" ).hasClass( "nav_left" ) ) {
             $( ".nav" ).css( "left", ( iWindowWidth - $( "#controls" ).width() ) + "px" );
@@ -167,8 +168,8 @@ function enableScroll( oContent ) {
     if( oContent ) {
         if( !$( oContent ).find( '.gallery').hasClass( "mCustomScrollbar" ) ) {
             $( oContent ).find( '.gallery' ).find( '.img-list' ).each( function() {
-                var elCount = $('.img-list__item',this).size();
-                if (elCount > 3) {
+                var elHeight = $(this).height();
+                if (elHeight > 111) {
                     $(this).parents('.gallery').mCustomScrollbar({
                         mouseWheel:true,
                         scrollButtons:{
@@ -231,7 +232,7 @@ function showHideContactForm( sAction ) {
     if( sAction == 'show' ) {
         $( "#contact_form" ).css( "height", "0px" );
         $( "#contact_form" ).css( "display", "" );
-        $( "#contact_form" ).animate( { height: "310px" }, 500 );
+        $( "#contact_form" ).animate( { height: "293px" }, 500 );
     } else {
         $( "#contact_form" ).animate( { height: "0px" }, 500 );
         setTimeout( function() {

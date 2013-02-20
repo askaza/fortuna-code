@@ -97,8 +97,9 @@
 }
 
 .mCSB_container {
-	overflow: hidden;
+    overflow: hidden;
     width: auto;
+    height: 100%;
 }
 .mCustomScrollBox {
 	height: 100%;
