@@ -19,6 +19,7 @@
 		<script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
 		<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
 		<script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
 		<meta name="description" content="Fortuna" />
 
@@ -91,8 +92,8 @@
             </div> <!-- /.nav -->
 
             <div class="pages">
-                <div class="page_content page" id="map" style="display: none;"> <!-- home -->
-
+                <div class="page_content" id="map" style="display: none;"> <!-- home -->
+                    <div id="map_canvas" style="width:640px; height:480px;"></div>
                 </div> <!-- /home -->
                 <div class="page_content page" id="home" style="display: none;"> <!-- home -->
                     <div class="slider slider_news" id="news-slider">
@@ -119,8 +120,6 @@
                             </div>
                         </div>
                         <a class="prev-arrow" href="#"><img src="images/bg/slider-arrow-l.png" /></a><a class="next-arrow" href="#"><img src="images/bg/slider-arrow-r.png" /></a>
-                        <img src="http://maps.googleapis.com/maps/api/staticmap?center=55.753298,37.63813&zoom=14&format=png&sensor=false&size=640x480&maptype=roadmap&style=feature:water|color:0x3c3c3c&style=feature:road.local|visibility:on|color:0x3c3c3c&style=feature:road.arterial|visibilit">
-                        google.maps.MapTypeStyle
                     </div>
                 </div> <!-- /home -->
 
@@ -460,7 +459,7 @@
                         'position': 3,
                         'height': 300,
                         'menu_additional_class': 'nav_contacts',
-                        'show': 'home'
+                        'show': 'map'
                     }
                 },
                 'right': {
