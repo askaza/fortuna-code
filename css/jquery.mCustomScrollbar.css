@@ -49,12 +49,12 @@
 	-moz-border-radius:10px;
 	border-radius:10px;
 }
-.mCSB_scrollTools .mCSB_dragger{
+.mCSB_scrollTools .mCSB_dragger {
 	cursor:pointer;
 	width:100%;
 	height:30px;
 }
-.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
 	width:16px;
 	height:100%;
 	margin:0 auto;
@@ -63,8 +63,14 @@
 	border-radius:10px;
 	text-align:center;
 }
-.gallery .mCustomScrollbar .mCSB_buttonUp,
-.gallery .mCustomScrollbar .mCSB_buttonUp:hover {
+.gallery .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    width: 0;
+}
+.gallery .mCSB_scrollTools .mCSB_draggerRail {
+    display: none;
+}
+.gallery.mCustomScrollbar .mCSB_buttonUp,
+.gallery.mCustomScrollbar .mCSB_buttonUp:hover {
 	display: block;
 	text-decoration: none;
 	height: 48px;
@@ -76,8 +82,8 @@
 	z-index: 100;
 	background: url(../images/bg/slider-arrow-t.png) no-repeat 0 0;
 }
-.gallery .mCustomScrollbar .mCSB_buttonDown,
-.gallery .mCustomScrollbar .mCSB_buttonDown:hover {
+.gallery.mCustomScrollbar .mCSB_buttonDown,
+.gallery.mCustomScrollbar .mCSB_buttonDown:hover {
 	display: block;
 	text-decoration: none;
 	height: 48px;
