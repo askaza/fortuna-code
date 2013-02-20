@@ -388,7 +388,6 @@ function showSubPage( sPage, oLink ) {
 function showContent( oSection ) {
     if( oSection.show ) {
         if( $( "#" + oSection.show ).size() ) {
-            $( ".submenu__item" ).removeClass( "menu__item_active" );
             $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
             setTimeout( function() {
                 $( "#" + sCurrentPage ).css( "display", "none" );
