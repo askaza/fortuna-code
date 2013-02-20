@@ -5,12 +5,14 @@ var imgList = [];
 var iWindowWidth = 0;
 var iWindowHeight = 0;
 var bAnimating = false;
-var sCurrentPage = "";
+var sCurrentPage = "glagne";
+var sCurrentSection = "";
 
 $( document ).ready( function() {
-    initializeMap();
     iWindowWidth = $( window ).width();
     iWindowHeight = $( window ).height();
+    $( "#wrap" ).css( "height", iWindowHeight + "px" );
+    $( "#controls" ).css( "height", iWindowHeight + "px" );
     if( $( "#preload_images" ).size() ) {
         $.preload( imageList , {
             init: function( loaded, loaded_percent, total ) {
@@ -57,9 +59,8 @@ $( document ).ready( function() {
         }
     });
 
-    enableScroll();
-
     sliderSize();
+
     $('#news-slider, #facts-slider').slides({
         preload: true,
         generateNextPrev: false,
@@ -81,6 +82,8 @@ $( document ).ready( function() {
         } else {
             $( ".nav" ).css( "left", ( ( iWindowWidth / 2 ) - ( $( "#controls" ).width() / 2 ) ) + "px" );
         }
+        $( "#wrap" ).css( "height", iWindowHeight + "px" );
+        $( "#controls" ).css( "height", iWindowHeight + "px" );
     } );
 
     $( "#wrap" ).mCustomScrollbar( {
@@ -179,6 +182,13 @@ function enableScroll( oContent ) {
                     });
                 }
             });
+        } else {
+            $( oContent ).find( '.gallery' ).find( '.img-list' ).each( function() {
+                var elCount = $( '.img-list__item', this ).size();
+                if ( elCount > 3 ) {
+                    $( this ).parents( '.gallery' ).mCustomScrollbar( "update" );
+                }
+            } );
         }
     }
 }
@@ -243,7 +253,7 @@ function showHideContactForm( sAction ) {
 }
 
 function showGlagne() {
-    if( bAnimating == false ) {
+    if( !bAnimating && sCurrentPage != 'glagne' ) {
         showHideContactForm();
         bAnimating = true;
         $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
@@ -263,6 +273,7 @@ function showGlagne() {
         var oCurrent = $( ".bg1:eq(0)" );
         $( "#bgslide" ).append( $( oAdd ) );
         $( oAdd ).css( "background-image", "url(" + sNewBackground + ")" );
+        sCurrentPage = "glagne";
         if( sSlideDirection == "left" ) {
             $( oAdd ).css( "left", iWindowWidth + "px" );
             $( oAdd ).animate( {
@@ -288,7 +299,8 @@ function showGlagne() {
 }
 
 function showPage( sSection ) {
-    if( !bAnimating ) {
+    if( !bAnimating && sSection != sCurrentSection ) {
+        sCurrentSection = sSection;
         $( ".page_content" ).animate( { opacity: "0" }, 500 );
         setTimeout( function() {
             $( ".page_content" ).css( "display", "none" );
@@ -382,7 +394,7 @@ function showPage( sSection ) {
 }
 
 function showSubPage( sPage, oLink ) {
-    if( !bAnimating ) {
+    if( !bAnimating && sCurrentPage != sPage ) {
         if( $( "#" + sPage ).size() ) {
             $( ".submenu__item" ).removeClass( "menu__item_active" );
             $( oLink).parent().addClass( "menu__item_active" );
@@ -397,7 +409,7 @@ function showSubPage( sPage, oLink ) {
             }, 500 );
         }
         setTimeout( function() {
-            enableScroll();
+            enableScroll( $( "#" + sPage ) );
             initializeMap();
             bAnimating = false;
         }, 1000 );
@@ -405,7 +417,7 @@ function showSubPage( sPage, oLink ) {
 }
 
 function showContent( oSection ) {
-    if( oSection.show ) {
+    if( oSection.show && sCurrentPage != oSection.show ) {
         if( $( "#" + oSection.show ).size() ) {
             $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
             setTimeout( function() {
@@ -416,10 +428,12 @@ function showContent( oSection ) {
                 sCurrentPage = oSection.show;
             }, 500 );
         }
+        setTimeout( function() {
+            enableScroll( $( "#" + oSection.show ) );
+            initializeMap();
+            bAnimating = false;
+        }, 1000 );
+    } else {
+        bAnimating = false;
     }
-    setTimeout( function() {
-        enableScroll();
-        initializeMap();
-	    bAnimating = false;
-    }, 1000 );
 }
