@@ -290,10 +290,10 @@ body, html {
 /* catalog pages */
 
 .page-catalog {
-	float: right;
+    float: right;
     z-index: 100;
-    width: 461px;
-	margin: 55px 10% 0 0;
+    width: 35%;
+    margin: 55px 6% 0 0;
 }
 .content-box {
     position: relative;
@@ -301,6 +301,8 @@ body, html {
 
 .content-box__img img {
     display: block;
+    width: 100%;
+    height: auto;
 }
 .content-box__text {
     padding: 20px 30px;
