@@ -8,6 +8,7 @@ var bAnimating = false;
 var sCurrentPage = "";
 
 $( document ).ready( function() {
+    initializeMap();
     iWindowWidth = $( window ).width();
     iWindowHeight = $( window ).height();
     if( $( "#preload_images" ).size() ) {
@@ -72,26 +73,64 @@ $( document ).ready( function() {
         sliderSize();
         iWindowWidth = $( window ).width();
         iWindowHeight = $( window ).height();
-//        if( $( ".nav" ).height() > iWindowHeight || $( "#pages" ).height() > iWindowHeight ) {
-            if( !$( "#wrap" ).hasClass( "mCustomScrollbar" ) ) {
-                $( "#wrap" ).mCustomScrollbar({
-                    mouseWheel:true,
-                    scrollButtons:{
-                        enable:true
-                    },
-                    advanced:{
-                       updateOnBrowserResize:true,
-                       updateOnContentResize:false,
-                       autoExpandHorizontalScroll:false,
-                       autoScrollOnFocus:true
-                    }
-                } );
-            }
-//        } else {
-//
-//        }
+        if( !$( "#wrap" ).hasClass( "mCustomScrollbar" ) ) {
+            $( "#wrap" ).mCustomScrollbar({
+                mouseWheel:true,
+                scrollButtons:{
+                    enable:true
+                },
+                advanced:{
+                   updateOnBrowserResize:true,
+                   updateOnContentResize:false,
+                   autoExpandHorizontalScroll:false,
+                   autoScrollOnFocus:true
+                }
+            } );
+        }
     } );
 } );
+
+function initializeMap() {
+    var styles = [
+        {
+            "featureType": "water",
+            "stylers": [
+                { "color": "#3c3c3c" }
+            ]
+        },
+        {
+            "featureType": "road.local",
+            "stylers": [
+                { "visibility": "on" },
+                { "color": "#3c3c3c" }
+            ]
+        },
+        { "featureType": "road.arterial", "stylers": [ { "visibility": "on" }, { "color": "#505050" } ] },
+        { "featureType": "road.highway", "stylers": [ { "color": "#808080" }, { "visibility": "on" } ] },
+        { "featureType": "administrative", "stylers": [ { "visibility": "off" } ] },
+        { "featureType": "road", "elementType": "labels.text.fill", "stylers": [ { "visibility": "on" }, { "color": "#ffffff" } ] },
+        { "featureType": "road", "elementType": "labels.text.stroke", "stylers": [ { "visibility": "off" } ] },
+        { "featureType": "transit", "stylers": [ { "visibility": "off" } ] },
+        { "featureType": "poi", "stylers": [ { "visibility": "off" } ] },
+        { "featureType": "landscape", "stylers": [ { "visibility": "on" }, { "color": "#282828" } ] },
+        { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [ { "visibility": "on" }, { "color": "#606060" } ] }
+    ];
+    var styledMap = new google.maps.StyledMapType( styles, { name: "Styled Map" } );
+    var mapOptions = {
+        zoom: 14,
+        center: new google.maps.LatLng( 55.75329,37.63813 ),
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        panControl: false,
+        zoomControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        overviewMapControl: false
+    };
+    var map = new google.maps.Map( document.getElementById( 'map_canvas' ), mapOptions );
+    map.mapTypes.set( 'map_style', styledMap );
+    map.setMapTypeId( 'map_style' );
+}
 
 
 function enableScroll( oContent ) {
@@ -308,6 +347,7 @@ function showSubPage( sPage, oLink ) {
         }
         setTimeout( function() {
             enableScroll();
+            initializeMap();
             bAnimating = false;
         }, 1000 );
     }
@@ -329,6 +369,7 @@ function showContent( oSection ) {
     }
     setTimeout( function() {
         enableScroll();
+        initializeMap();
 	    bAnimating = false;
     }, 1000 );
 }
