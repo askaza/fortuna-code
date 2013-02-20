@@ -5,6 +5,7 @@ var imgList = [];
 var iWindowWidth = 0;
 var iWindowHeight = 0;
 var bAnimating = false;
+var sCurrentPage = "";
 
 $( document ).ready( function() {
     iWindowWidth = $( window ).width();
@@ -158,14 +159,17 @@ $.extend( {
 function showGlagne() {
     if( bAnimating == false ) {
         bAnimating = true;
-        $( "#content" ).animate( { opacity: "0" }, 500 );
+        $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
+        setTimeout( function() {
+            $( "#" + sCurrentPage ).css( "display", "none" );
+        }, 500 );
         $( ".nav" ).removeClass( "nav_left" );
         $( ".nav" ).removeClass( "nav_right" );
         var sNewBackground = "images/bg/img0.jpg";
         var oAdd = $( "<div class='bg1'></div>" );
         sSlideDirection = sCurrentSectionSide == "right" ? "right" : "left";
-        $( ".submenu"  ).animate( { height: "0px" }, 1000 );
-        $( ".nav" ).animate( { left: ( ( iWindowWidth / 2 ) - ( $( "#controls" ).width() / 2 ) ) + "px" }, 1000 );
+        $( ".submenu"  ).animate( { height: "0px" }, 500 );
+        $( ".nav" ).animate( { left: ( ( iWindowWidth / 2 ) - ( $( "#controls" ).width() / 2 ) ) + "px" }, 500 );
         sCurrentPosition = 0;
         var oCurrent = $( ".bg1:eq(0)" );
         $( "#bgslide" ).append( $( oAdd ) );
@@ -174,14 +178,14 @@ function showGlagne() {
             $( oAdd ).css( "left", iWindowWidth + "px" );
             $( oAdd ).animate( {
                 left: "0px"
-            }, 1000 );
+            }, 500 );
             $( oCurrent ).animate( {
                 left: "-" + iWindowWidth + "px"
-            }, 1000 );
+            }, 500 );
         } else {
             $( oAdd ).css( "left", "-" + iWindowWidth + "px" );
-            $( oAdd ).animate( { left: "0px" }, 1000 );
-            $( oCurrent ).animate( { left: iWindowWidth + "px" }, 1000 );
+            $( oAdd ).animate( { left: "0px" }, 500 );
+            $( oCurrent ).animate( { left: iWindowWidth + "px" }, 500 );
         }
         setTimeout( function() {
             $( ".menu_site" ).removeClass( "menu_site_active " );
@@ -190,12 +194,12 @@ function showGlagne() {
             $( oCurrent ).replaceWith( "" );
             oAdd = "";
             bAnimating = false;
-        }, 1001 );
+        }, 501 );
     }
 }
 
 function showPage( sSection ) {
-    if( bAnimating == false ) {
+    if( !bAnimating ) {
         $( ".page_content" ).animate( { opacity: "0" }, 500 );
         setTimeout( function() {
             $( ".page_content" ).css( "display", "none" );
@@ -219,7 +223,7 @@ function showPage( sSection ) {
             $( "#controls" ).removeClass( "nav_right" );
             $( ".menu_site" ).addClass( "menu_site_active" );
             $( ".menu_catalog" ).removeClass( "menu_catalog_active" );
-            $( "#controls" ).animate( { left: ( iWindowWidth - $( "#controls" ).width() ) + "px" }, 1000 );
+            $( "#controls" ).animate( { left: ( iWindowWidth - $( "#controls" ).width() ) + "px" }, 500 );
         } else if( aSections.right[sSection] ) {
             $( ".menu_site" ).removeClass( "menu_site_active" );
             $( ".menu_catalog" ).addClass( "menu_catalog_active" );
@@ -236,7 +240,7 @@ function showPage( sSection ) {
             sCurrentSectionSide = "right";
             $( "#controls" ).addClass( "nav_right" );
             $( "#controls" ).removeClass( "nav_left" );
-            $( "#controls" ).animate( { left: "0px" }, 1000 );
+            $( "#controls" ).animate( { left: "0px" }, 500 );
         }
         sCurrentPosition = oSection.position;
         if( oSection ) {
@@ -250,12 +254,14 @@ function showPage( sSection ) {
                 $( ".nav" ).addClass( oSection.menu_additional_class );
             }
             $( ".menu__item" ).removeClass( "menu__item_active" );
-            $( ".submenu"  ).animate( { height: "0px" }, 1000 );
+            $( ".submenu"  ).animate( { height: "0px" }, 500 );
             $( "#" + sSection + "_menu" ).addClass( "menu__item_active" );
             if( $( "#" + sSection ).size() ) {
+                $( ".submenu__item" ).removeClass( "menu__item_active" );
                 $( "#" + sSection  ).css( "height", "0px" );
                 $( "#" + sSection  ).css( "display", "" );
-                $( "#" + sSection  ).animate( { height: ( $( "#" + sSection + " li" ).size() * 35 ) + "px" }, 1000 );
+                $( "#" + sSection  ).animate( { height: ( $( "#" + sSection + " li" ).size() * 35 ) + "px" }, 500 );
+                $( "#" + sSection + " li:eq(0)" ).addClass( "menu__item_active" );
             }
             $( "#bgslide" ).append( $( oAdd ) );
             $( oAdd ).css( "background-image", "url(" + oSection.bg + ")" );
@@ -267,45 +273,60 @@ function showPage( sSection ) {
                 $( oAdd ).css( "left", iWindowWidth + "px" );
                 $( oAdd ).animate( {
                     left: "0px"
-                }, 1000 );
+                }, 500 );
                 $( oCurrent ).animate( {
                     left: "-" + iWindowWidth + "px"
-                }, 1000 );
+                }, 500 );
             } else {
                 $( oAdd ).css( "left", "-" + iWindowWidth + "px" );
-                $( oAdd ).animate( { left: "0px" }, 1000 );
-                $( oCurrent ).animate( { left: iWindowWidth + "px" }, 1000 );
+                $( oAdd ).animate( { left: "0px" }, 500 );
+                $( oCurrent ).animate( { left: iWindowWidth + "px" }, 500 );
             }
             setTimeout( function() {
                 $( oCurrent ).replaceWith( "" );
                 oAdd = "";
-                showContent( sCurrentSectionSide, oSection );
-            }, 1001 );
+                showContent( oSection );
+            }, 501 );
         }
     }
 }
 
-function showContent( sSide, oSection ) {
-    if( oSection.show ) {
-        $( ".page_content" ).css( "display", "none" );
-        $( "#" + oSection.show ).css( "opacity", "0" );
-        $( "#" + oSection.show ).css( "display", "" );
-        $( "#" + oSection.show ).animate( { opacity: "1" }, 500 );
+function showSubPage( sPage, oLink ) {
+    if( !bAnimating ) {
+        if( $( "#" + sPage ).size() ) {
+            $( ".submenu__item" ).removeClass( "menu__item_active" );
+            $( oLink).parent().addClass( "menu__item_active" );
+            bAnimating = true;
+            $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
+            setTimeout( function() {
+                $( "#" + sCurrentPage ).css( "display", "none" );
+                $( "#" + sPage ).css( "opacity", "0" );
+                $( "#" + sPage ).css( "display", "" );
+                $( "#" + sPage ).animate( { opacity: "1" }, 500 );
+                sCurrentPage = sPage;
+            }, 500 );
+        }
+        setTimeout( function() {
+            enableScroll();
+            bAnimating = false;
+        }, 1000 );
     }
-//    $( "#content" ).css( "height", "20px" );
-//    $( "#content" ).html( "" );
-//    if( sSide == 'left' ) {
-//	    $( "#content" ).css( "left", ( iWindowWidth - $( "#content" ).width() - 100 ) + "px" );
-//    } else {
-//	    $( "#content" ).css( "left", "100px" );
-//    }
-//    $( "#content" ).animate( { opacity: "1" }, 500 );
-//    setTimeout( function() {
-//        $( "#content" ).animate( {
-//	        height: oSection.height + "px"
-//	    }, 500 );
-//	    $( "#content" ).html( "<h1>" + oSection.title + "</h1>" );
-//    }, 500 );
+}
+
+function showContent( oSection ) {
+    if( oSection.show ) {
+        if( $( "#" + oSection.show ).size() ) {
+            $( ".submenu__item" ).removeClass( "menu__item_active" );
+            $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
+            setTimeout( function() {
+                $( "#" + sCurrentPage ).css( "display", "none" );
+                $( "#" + oSection.show ).css( "opacity", "0" );
+                $( "#" + oSection.show ).css( "display", "" );
+                $( "#" + oSection.show ).animate( { opacity: "1" }, 500 );
+                sCurrentPage = oSection.show;
+            }, 500 );
+        }
+    }
     setTimeout( function() {
         enableScroll();
 	    bAnimating = false;
