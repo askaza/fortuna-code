@@ -89,7 +89,7 @@ a, a:visited {
 	height:48px;
 	line-height:46px;
 	text-decoration:none;
-	
+
 }
 
 .content-box .btn {
@@ -165,6 +165,17 @@ table td {
     height: 30px;
     line-height: 30px;
 }
+
+.btn-submit-bk {
+    background: none repeat scroll 0 0 #282828;
+    height: 32px;
+    padding: 0;
+    text-decoration: none;
+    border:0;
+    font-family: 'pf_din_text_cond_probold';
+    font-size: 14px;
+}
+
 .btn-white,
 .btn-white:hover,
 .content-box .content-box__text .btn-white {
