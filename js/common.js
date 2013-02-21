@@ -97,7 +97,6 @@ $( document ).ready( function() {
         advanced:{
            updateOnBrowserResize:true,
            updateOnContentResize:true,
-           autoExpandHorizontalScroll:true,
            autoScrollOnFocus:true
         }
     } );
@@ -279,6 +278,10 @@ function showGlagne() {
         var oCurrent = $( ".bg1:eq(0)" );
         $( "#bgslide" ).append( $( oAdd ) );
         $( oAdd ).css( "background-image", "url(" + sNewBackground + ")" );
+        $( oAdd ).css( "background-repeat", "no-repeat" );
+        $( oAdd ).css( "background-size", "cover" );
+        $( oAdd ).css( "-ms-filter", "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + sNewBackground + "',sizingMethod='scale')" );
+        $( oAdd ).css( "filter", "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='" + sNewBackground + "', sizingMethod='scale')" );
         sCurrentPage = "glagne";
         if( sSlideDirection == "left" ) {
             $( oAdd ).css( "left", iWindowWidth + "px" );
@@ -452,7 +455,7 @@ function getMaxHeight() {
     console.log( "window " + iWindowHeight );
 //    $( ".page_content" ).css( "display", "none" );
     $( "#controls" ).height( Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
-    $( ".pages" ).height( Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
+//    $( ".pages" ).height( Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
 ////    $( ".pages" ).width( "1px" );
 }
 
