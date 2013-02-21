@@ -43,6 +43,7 @@ body {
 	font-family: 'pf_din_text_cond_prolight',Arial, Helvetica, sans-serif;
 	position:relative;
 	overflow: hidden;
+	min-width: 1024px;
 }
 h1 {
 	 font-family: 'pf_din_text_cond_prolight';
