@@ -36,7 +36,7 @@ body, html {
 
 /* nav < */
 .nav {
-    position: fixed;
+    position: absolute;
     min-height: 100%;
     z-index: 100;
     left:50%;
@@ -73,7 +73,7 @@ body, html {
     width:164px;
     position:relative;
     z-index:10;
-    padding:25px 0 32px 25px;
+    padding:25px 0 31px 25px;
     cursor: pointer;
     margin: 0;
 }
@@ -88,7 +88,7 @@ body, html {
 }
 
 .menu_site {
-    margin: 0 0 10px 64px;
+    margin: 0 0 13px 62px;
     width: 113px;
     position: relative;
     text-align: left;
@@ -101,8 +101,9 @@ body, html {
 .menu_site a {
     display: inline-block;
     text-decoration: none;
-    padding:0 18px;
+    padding:0 20px;
     line-height: 30px;
+    height: 32px;
     text-transform: uppercase;
     font-size: 12px;
     font-family: 'pf_din_text_cond_promedium';
@@ -140,6 +141,7 @@ body, html {
     transition: opacity 0.3s ease-in-out;
     text-transform: uppercase;
     font-size: 12px;
+    line-height: 18px;
     font-family: 'pf_din_text_cond_promedium';
     cursor: default;
     margin: 0 0 0 82px;
@@ -170,7 +172,7 @@ body, html {
     display: block;
     font-family: 'pf_din_text_cond_prolight';
     font-size: 20px;
-    line-height: 21px;
+    line-height: 20px;
     padding: 20px 15px;
     text-decoration: none;
     text-transform: uppercase;
@@ -181,7 +183,7 @@ body, html {
     font-family: 'pf_din_text_cond_probold';
 }
 .menu_catalog .ico {
-    left: -40px;
+    left: -43px;
     position: absolute;
     top: 18px;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
@@ -242,34 +244,44 @@ body, html {
 .slider {
     position: absolute;
     left: 32px;
-    width: 385px;
+    max-height: 195px;
+    min-height: 160px;
     z-index: 101;
-
 }
 .slides_container {
+    background: url(../images/slider-bg.png) repeat-x 0 0;
+}
+
+.slider_news {
+    width: 42%;
+    top:54%;
+}
+.slider_news .slides_container {
     padding-top: 32px;
+
 }
 .slides_control {
-
+    background: url(../images/bg/slider-bg.png) repeat 0 0;
+    padding-bottom: 1000px;
 }
 
 .slide-content {
     font-size:1em;
     line-height: 1em;
-    background: url(../images/bg/slider-bg.png) repeat 0 0;
     overflow: hidden;
 }
 .slide-text {
-    padding: 4% 5%;
+    margin: 4% 5%;
+    overflow: hidden;
 }
 .date {
     color: #ffffff;
     font-family: 'pf_din_text_cond_probold';
-    font-size: 0.5em;
+    font-size: 0.66em;
     background: #c61d23;
     display: block;
     line-height: 1em;
-    padding:14px 18px;
+    padding:0 3%;
     position: absolute;
     top:-32px;
 }
@@ -425,10 +437,10 @@ body, html {
 
 .page-about {
     float: left;
-    margin: 14% 0 0 4%;
-    width: 40%;
+    margin: 18% 0 0 4%;
     min-width: 555px;
-}
+    width: 54%;
+  }
 
 .infograph {
     background: url(../images/bg/round.png) no-repeat 10px 0;
@@ -479,15 +491,28 @@ body, html {
 .ico_home {
     background-image: url(../images/bg/home_ico.png);
 }
+
+.slider_facts {
+    width: 54%;
+}
+.slider_facts .slides_container {
+    padding-top: 0;
+}
 /* .page-about > */
 
 /* contacts form < */
 
 .contacts-form {
-    margin: 30px 0 30px 35px;
+    width: 208px;
+    position: relative;
+    height: 310px;
+     margin: 30px 0 30px 35px;
     padding: 5px 0;
     border-top:1px solid #969696;
     border-bottom:1px solid #969696;
+}
+.contacts-form form {
+
     width: 208px;
 }
 .contacts-form label {
@@ -504,4 +529,15 @@ body, html {
 }
 .contacts-form .field_text {
     height: 27px;
+}
+.contacts-form .form-message {
+    padding-top: 80px;
+    height: 235px;
+    position: relative;
+}
+.contacts-form .form-message .btn {
+    position: absolute;
+    left: 50%;
+    margin-left: -72px;
+    bottom:21px;
 }
