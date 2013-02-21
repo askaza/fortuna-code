@@ -131,9 +131,8 @@ function initializeMap() {
     var styledMap = new google.maps.StyledMapType( styles, { name: "Styled Map" } );
     var myLatlng = new google.maps.LatLng( 55.75329, 37.63813 );
     var content = document.createElement( 'div' );
-    $( content ).html( "123123123<strong><a href='#'>яндекс-карты</a><a href='#'>гугл-карты</a><a href='#'>распечатать</a></strong>" );
-    $( content ).css( "color", "#000" );
-    $( content).find( "a" ).css( "color", "#000" );
+    $( content ).html( "<div class='mark-content'>119017, г Москва, ул. БольшаяОрдынка, д. 40, стр. 1<br /><a href='#'>Яндекс-карты</a><a href='#'>Гугл-карты</a><a class='print-link' href='#'>распечатать</a></div>" );
+  
     var infowindow = new google.maps.InfoWindow( { content: content } );
 
     var mapOptions = {
@@ -244,7 +243,7 @@ function showHideContactForm( sAction ) {
     if( sAction == 'show' ) {
         $( "#contact_form" ).css( "height", "0px" );
         $( "#contact_form" ).css( "display", "" );
-        $( "#contact_form" ).animate( { height: "293px" }, 500 );
+        $( "#contact_form" ).animate( { height: "310px" }, 500 );
     } else {
         $( "#contact_form" ).animate( { height: "0px" }, 500 );
         setTimeout( function() {
