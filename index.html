@@ -12,15 +12,11 @@
 	<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="css/components.css" />
 
-	    <!--[if lte IE 8 ]>
-                <link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" />
-        <![endif]-->
-
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/jquery-ui-1.10.1.custom.min.js"></script>
 	<script type="text/javascript" src="js/slides.min.jquery.js"></script>
 	<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
-	<script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
 	<script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -34,118 +30,94 @@
 	<div class="page-bg" id="bgslide">
 	    <div class="bg1"></div>
 	</div>
-
-    <div class="nav" id="controls"> <!-- .nav -->
-        <h1 class="logo"><a href="javascript: void( 0 );" onclick='javascript: showGlagne();'><img src="images/logo.png" alt="Fortuna" title="Fortuna" /></a></h1>
-        <ul class="menu menu_site">
-            <li class="menu__item" id="section_l1_menu"><a  href="javascript: void( 0 );" onclick='javascript:showPage( "section_l1" );'>О компании</a></li>
-            <li class="menu__item" id="section_l2_menu"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l2" );'>Клиенты</a></li>
-            <li class="menu__item" id="section_l3_menu"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l3" );'>Связь с нами</a></li>
-        </ul>
-	<div class="contacts-form"  id="contact_form" style='display: none;' >
-		<form class="form" action="#" method="get" style="display: none;">
-		    <ul class="fields-list">
-			<li class="fields-list__item">
-			    <label for="name_contact">Ваше имя:</label>
-			    <input type="text" id="name_contacts" name="name" class="field_text"/>
-			</li>
-			<li class="fields-list__item">
-			    <label for="contacts_contacts">Контактный телефон или e-mail:</label>
-			    <input type="text" id="contacts_contacts" name="contacts" class="field_text"/>
-			</li>
-			<li class="fields-list__item">
-			    <label for="message_contacts">Вопрос или предложение:</label>
-			    <textarea cols="10" rows="10" id="message_contacts" name="message" class="field_textarea"></textarea>
-			</li>
-		    </ul>
-		    <a  href="#" class="btn btn-submit">Отправить</a>
-		</form>
-		<form class="form" action="#" method="get" style="display: none;">
-		    <ul class="fields-list">
-			<li class="fields-list__item">
-			    <label for="name_contact">Ваше имя:</label>
-			    <input type="text" id="name_contacts" name="name" class="field_text"/>
-			</li>
-			<li class="fields-list__item">
-			    <label for="contacts_contacts">Контактный телефон или e-mail:</label>
-			    <input type="text" id="contacts_contacts" name="contacts" class="field_text"/>
-			</li>
-			<li class="fields-list__item">
-			    <label for="message_contacts">Вопрос или предложение:</label>
-			    <textarea cols="10" rows="10" id="message_contacts" name="message" class="field_textarea"></textarea>
-			</li>
-		    </ul>
-		    <a  href="#" class="btn btn-submit btn-submit-bk"><img src="images/preloader_32_black.gif" width="32" height="32"/></a>
-		</form>
-	    <div class="form-message">
-		<h2>Спасибо!</h2>
-		<p>Ваше сообщение отправлено,
-		    а это значит, что совсем скоро мы с вами свяжемся!</p>
-		<a  href="#" class="btn btn-submit btn-submit-bk">Вернуть форму</a>
-	    </div>
-
-
-	    </div>
-
-        <div class="short-contacts">
-            +7 (495) 123-45-67 <br />
-            <a href="mailto:info@fortunavc.com">info@fortunavc.com</a>
-        </div>
-        <ul class="menu menu_catalog"> <!-- .menu_catalog -->
-            <li class="menu__item" id="section_r1_menu"><i class="ico"><img src="images/cat/ico_pump.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r1" );'><strong>насосное</strong> оборудование</a>
-                <ul class="submenu" id="section_r1">
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "description1", $( this ) );'>Описание</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Сферы применения</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "results1", $( this ) );'>Плюсы и результаты</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Инфоброшюра</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "catalog1", $( this ) );'>Полный каталог</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "price1", $( this ) );'>Условия и цены</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "order-form", $( this ) );'><strong>Заказать сейчас</strong></a></li>
+    <div id="wrap" style='overflow: hidden;'>
+        <div class="nav" id="controls"> <!-- .nav -->
+            <div id="left_controls">
+                <h1 class="logo"><a href="javascript: void( 0 );" onclick='javascript: showGlagne();'><img src="images/logo.png" alt="Fortuna" title="Fortuna" /></a></h1>
+                <ul class="menu menu_site">
+                    <li class="menu__item" id="section_l1_menu"><a  href="javascript: void( 0 );" onclick='javascript:showPage( "section_l1" );'>О компании</a></li>
+                    <li class="menu__item" id="section_l2_menu"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l2" );'>Клиенты</a></li>
+                    <li class="menu__item" id="section_l3_menu"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l3" );'>Связь с нами</a></li>
                 </ul>
-            </li>
-            <li class="menu__item" id="section_r2_menu"><i class="ico"><img src="images/cat/ico_sorb.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r2" );'><strong>Инновационные</strong> сорбиционные материалы</a>
-                <ul class="submenu" id="section_r2">
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "description1", $( this ) );'>Описание</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Сферы применения</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "results1", $( this ) );'>Плюсы и результаты</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Инфоброшюра</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "catalog1", $( this ) );'>Полный каталог</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "price1", $( this ) );'>Условия и цены</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "order-form-complete", $( this ) );'><strong>Заказать сейчас</strong></a></li>
-                </ul>
-            </li>
-            <li class="menu__item" id="section_r3_menu"><i class="ico"><img src="images/cat/ico_oil.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r3" );'><strong>нефтеловушки</strong> и системы очистки для автомоек</a>
-                <ul class="submenu" id="section_r3">
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "description1", $( this ) );'>Описание</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Сферы применения</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "results1", $( this ) );'>Плюсы и результаты</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "price1", $( this ) );'>Инфоброшюра</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "catalog1", $( this ) );'>Полный каталог</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Условия и цены</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "order-form-send", $( this ) );'><strong>Заказать сейчас</strong></a></li>
-                </ul>
-            </li>
-            <li class="menu__item" id="section_r4_menu"><i class="ico"><img src="images/cat/ico_skim.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r4" );'><strong>Скиммеры</strong> жиров и нефтепродуктов</a>
-                <ul class="submenu" id="section_r4">
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "description1", $( this ) );'>Описание</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Сферы применения</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "results1", $( this ) );'>Плюсы и результаты</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Инфоброшюра</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "catalog1", $( this ) );'>Полный каталог</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "price1", $( this ) );'>Условия и цены</a></li>
-                    <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'><strong>Заказать сейчас</strong></a></li>
-                </ul>
-            </li>
-        </ul> <!-- .menu_catalog -->
 
-    </div> <!-- /.nav -->
-    <div id="wrap">
+                <form class="form contacts-form" id="contact_form" action="#" method="get" style='display: none;'>
+                    <ul class="fields-list">
+                    <li class="fields-list__item">
+                        <label for="name_contact">Ваше имя:</label>
+                        <input type="text" id="name_contacts" name="name" class="field_text"/>
+                    </li>
+                    <li class="fields-list__item">
+                        <label for="contacts_contacts">Контактный телефон или e-mail:</label>
+                        <input type="text" id="contacts_contacts" name="contacts" class="field_text"/>
+                    </li>
+                    <li class="fields-list__item">
+                        <label for="message_contacts">Вопрос или предложение:</label>
+                        <textarea cols="10" rows="10" id="message_contacts" name="message" class="field_textarea"></textarea>
+                    </li>
+                    </ul>
+                    <a  href="#" class="btn btn-submit">Отправить</a>
+                </form>
+
+                <div class="short-contacts">
+                    +7 (495) 123-45-67 <br />
+                    <a href="mailto:info@fortunavc.com">info@fortunavc.com</a>
+                </div>
+            </div>
+            <ul class="menu menu_catalog"> <!-- .menu_catalog -->
+                <li class="menu__item" id="section_r1_menu"><i class="ico"><img src="images/cat/ico_pump.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r1" );'><strong>насосное</strong> оборудование</a>
+                    <ul class="submenu" id="section_r1">
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "description1", $( this ) );'>Описание</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Сферы применения</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "results1", $( this ) );'>Плюсы и результаты</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Инфоброшюра</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "catalog1", $( this ) );'>Полный каталог</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "price1", $( this ) );'>Условия и цены</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "order-form", $( this ) );'><strong>Заказать сейчас</strong></a></li>
+                    </ul>
+                </li>
+                <li class="menu__item" id="section_r2_menu"><i class="ico"><img src="images/cat/ico_sorb.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r2" );'><strong>Инновационные</strong> сорбиционные материалы</a>
+                    <ul class="submenu" id="section_r2">
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "description1", $( this ) );'>Описание</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Сферы применения</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "results1", $( this ) );'>Плюсы и результаты</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Инфоброшюра</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "catalog1", $( this ) );'>Полный каталог</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "price1", $( this ) );'>Условия и цены</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "order-form-complete", $( this ) );'><strong>Заказать сейчас</strong></a></li>
+                    </ul>
+                </li>
+                <li class="menu__item" id="section_r3_menu"><i class="ico"><img src="images/cat/ico_oil.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r3" );'><strong>нефтеловушки</strong> и системы очистки для автомоек</a>
+                    <ul class="submenu" id="section_r3">
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "description1", $( this ) );'>Описание</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Сферы применения</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "results1", $( this ) );'>Плюсы и результаты</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "price1", $( this ) );'>Инфоброшюра</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "catalog1", $( this ) );'>Полный каталог</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Условия и цены</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "order-form-send", $( this ) );'><strong>Заказать сейчас</strong></a></li>
+                    </ul>
+                </li>
+                <li class="menu__item" id="section_r4_menu"><i class="ico"><img src="images/cat/ico_skim.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r4" );'><strong>Скиммеры</strong> жиров и нефтепродуктов</a>
+                    <ul class="submenu" id="section_r4">
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "description1", $( this ) );'>Описание</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Сферы применения</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "results1", $( this ) );'>Плюсы и результаты</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'>Инфоброшюра</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "catalog1", $( this ) );'>Полный каталог</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "price1", $( this ) );'>Условия и цены</a></li>
+                        <li class="submenu__item"><a href="javascript: void( 0 );" onclick='javascript:showSubPage( "use1", $( this ) );'><strong>Заказать сейчас</strong></a></li>
+                    </ul>
+                </li>
+            </ul> <!-- .menu_catalog -->
+
+        </div> <!-- /.nav -->
+
             <div class="pages">
                 <div class="page_content" id="map" style="display: none;"> <!-- home -->
                     <div id="map_canvas" style="width:640px; height:480px;"></div>
                 </div> <!-- /home -->
-                <div class="page_content page" id="home"> <!-- home -->
-                    <div class="slider slider_news" id="facts-slider">
+                <div class="page_content page" id="home" style="display: none;"> <!-- home -->
+                    <div class="slider slider_news" id="news-slider">
                         <div class="slides_container slides-list">
                             <div class="slides-list__item">
                                 <small class="date">14/02/2013</small>

@@ -11,8 +11,10 @@ var sCurrentSection = "";
 $( document ).ready( function() {
     iWindowWidth = $( window ).width();
     iWindowHeight = $( window ).height();
-    $( "#wrap" ).css( "height", iWindowHeight + "px" );
-    $( "#controls" ).css( "height", iWindowHeight + "px" );
+    $( "#wrap" ).css( "height", iWindowWidth + "px" );
+
+    getMaxHeight();
+
     if( $( "#preload_images" ).size() ) {
         $.preload( imageList , {
             init: function( loaded, loaded_percent, total ) {
@@ -74,7 +76,6 @@ $( document ).ready( function() {
         iWindowWidth = $( window ).width();
         iWindowHeight = $( window ).height();
         sliderSize();
-	enableScroll();
         initializeMap();
         if( $( ".nav" ).hasClass( "nav_left" ) ) {
             $( ".nav" ).css( "left", ( iWindowWidth - $( "#controls" ).width() ) + "px" );
@@ -83,19 +84,20 @@ $( document ).ready( function() {
         } else {
             $( ".nav" ).css( "left", ( ( iWindowWidth / 2 ) - ( $( "#controls" ).width() / 2 ) ) + "px" );
         }
-        $( "#wrap" ).css( "height", iWindowHeight + "px" );
-        $( "#controls" ).css( "height", iWindowHeight + "px" );
+        $( "#wrap" ).css( "height", iWindowWidth + "px" );
+        getMaxHeight();
     } );
 
     $( "#wrap" ).mCustomScrollbar( {
         mouseWheel:true,
+//        horizontalScroll:true,
         scrollButtons:{
             enable:true
         },
         advanced:{
            updateOnBrowserResize:true,
            updateOnContentResize:true,
-           autoExpandHorizontalScroll:false,
+           autoExpandHorizontalScroll:true,
            autoScrollOnFocus:true
         }
     } );
@@ -131,8 +133,9 @@ function initializeMap() {
     var styledMap = new google.maps.StyledMapType( styles, { name: "Styled Map" } );
     var myLatlng = new google.maps.LatLng( 55.75329, 37.63813 );
     var content = document.createElement( 'div' );
-    $( content ).html( "<div class='mark-content'>119017, г Москва, ул. БольшаяОрдынка, д. 40, стр. 1<br /><a href='#'>Яндекс-карты</a><a href='#'>Гугл-карты</a><a class='print-link' href='#'>распечатать</a></div>" );
-
+    $( content ).html( "123123123<strong><a href='#'>яндекс-карты</a><a href='#'>гугл-карты</a><a href='#'>распечатать</a></strong>" );
+    $( content ).css( "color", "#000" );
+    $( content).find( "a" ).css( "color", "#000" );
     var infowindow = new google.maps.InfoWindow( { content: content } );
 
     var mapOptions = {
@@ -172,8 +175,8 @@ function enableScroll( oContent ) {
     if( oContent ) {
         if( !$( oContent ).find( '.gallery').hasClass( "mCustomScrollbar" ) ) {
             $( oContent ).find( '.gallery' ).find( '.img-list' ).each( function() {
-                var elHeight = $(this).height();
-                if (elHeight > 111) {
+               var elHeight = $( this ).height();
+                if ( elHeight > 111 ) {
                     $(this).parents('.gallery').mCustomScrollbar({
                         mouseWheel:true,
                         scrollButtons:{
@@ -184,14 +187,15 @@ function enableScroll( oContent ) {
             });
         } else {
             $( oContent ).find( '.gallery' ).find( '.img-list' ).each( function() {
-                var elCount = $( '.img-list__item', this ).size();
-                if ( elCount > 3 ) {
+                var elHeight = $( this ).height();
+                if ( elHeight > 111 ) {
                     $( this ).parents( '.gallery' ).mCustomScrollbar( "update" );
                 }
             } );
         }
     }
 }
+
 
 function sliderSize() {
     if( $('.slider_news').size() ) {
@@ -249,6 +253,9 @@ function showHideContactForm( sAction ) {
             $( "#contact_form" ).css( "display", "none" );
         }, 500 );
     }
+    setTimeout( function() {
+        getMaxHeight();
+    }, 500 );
 }
 
 function showGlagne() {
@@ -293,6 +300,9 @@ function showGlagne() {
             $( oCurrent ).replaceWith( "" );
             oAdd = "";
             bAnimating = false;
+            showSubPage( "home" );
+            sliderSize();
+            getMaxHeight();
         }, 501 );
     }
 }
@@ -387,6 +397,7 @@ function showPage( sSection ) {
                 $( oCurrent ).replaceWith( "" );
                 oAdd = "";
                 showContent( oSection );
+                getMaxHeight();
             }, 501 );
         }
     }
@@ -396,7 +407,9 @@ function showSubPage( sPage, oLink ) {
     if( !bAnimating && sCurrentPage != sPage ) {
         if( $( "#" + sPage ).size() ) {
             $( ".submenu__item" ).removeClass( "menu__item_active" );
-            $( oLink).parent().addClass( "menu__item_active" );
+            if( oLink ) {
+                $( oLink ).parent().addClass( "menu__item_active" );
+            }
             bAnimating = true;
             $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
             setTimeout( function() {
@@ -411,12 +424,36 @@ function showSubPage( sPage, oLink ) {
             enableScroll( $( "#" + sPage ) );
             initializeMap();
             bAnimating = false;
+            getMaxHeight();
         }, 1000 );
     }
 }
 
+function getMaxHeight() {
+    var iRightMenuHeight = $( ".menu_catalog" ).height() + parseInt( $( ".menu_catalog" ).css( "margin-top" ) ) + parseInt( $( ".menu_catalog" ).css( "margin-bottom" ) ) + parseInt( $( ".menu_catalog" ).css( "padding-bottom" ) ) + parseInt( $( ".menu_catalog" ).css( "padding-top" ) );
+    var iLeftMenuHeight = $( "#left_controls" ).height() + parseInt( $( "#left_controls" ).css( "margin-top" ) ) + parseInt( $( "#left_controls" ).css( "margin-bottom" ) ) + parseInt( $( ".menu_catalog" ).css( "padding-bottom" ) ) + parseInt( $( "#left_controls" ).css( "padding-top" ) );
+    var iContentHeight = 0;
+    $( ".page_content" ).each( function( key, val ) {
+        if( $( val ).css( "display" ) != "none" ) {
+            iContentHeight += $( val ).height();
+            iContentHeight += parseInt( $( val ).css( "margin-top" ) );
+            iContentHeight += parseInt( $( val ).css( "margin-bottom" ) );
+            iContentHeight += parseInt( $( val ).css( "padding-top" ) );
+            iContentHeight += parseInt( $( val ).css( "padding-bottom" ) );
+        }
+    } );
+    console.log( "left menu " + iLeftMenuHeight );
+    console.log( "catalog " + iRightMenuHeight );
+    console.log( "pages " + iContentHeight );
+    console.log( "window " + iWindowHeight );
+//    $( ".page_content" ).css( "display", "none" );
+    $( "#controls" ).height( Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
+    $( ".pages" ).height( Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
+////    $( ".pages" ).width( "1px" );
+}
+
 function showContent( oSection ) {
-    if( oSection.show && sCurrentPage != oSection.show ) {
+    if( oSection.show ) {
         if( $( "#" + oSection.show ).size() ) {
             $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
             setTimeout( function() {
@@ -430,6 +467,7 @@ function showContent( oSection ) {
         setTimeout( function() {
             enableScroll( $( "#" + oSection.show ) );
             initializeMap();
+            getMaxHeight();
             bAnimating = false;
         }, 1000 );
     } else {
