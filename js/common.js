@@ -11,7 +11,7 @@ var sCurrentSection = "";
 $( document ).ready( function() {
     iWindowWidth = $( window ).width();
     iWindowHeight = $( window ).height();
-    $( "#wrap" ).css( "height", iWindowWidth + "px" );
+   // $( "#wrap" ).css( "height", iWindowWidth + "px" );
 
     getMaxHeight();
 
@@ -92,7 +92,7 @@ $( document ).ready( function() {
         mouseWheel:true,
 //        horizontalScroll:true,
         scrollButtons:{
-            enable:true
+            enable:false
         },
         advanced:{
            updateOnBrowserResize:true,

@@ -2,7 +2,6 @@
 /* vertical scrollbar */
 .mCSB_container{
 	width:auto;
-	margin-right:30px;
 	overflow:hidden;
 }
 .mCSB_container.mCS_no_scrollbar{
@@ -16,14 +15,14 @@
 	height:100%;
 	top:0;
 	right:0;
-	width: 16px;
+	width: 8px;
 }
 .gallery .mCustomScrollBox .mCSB_scrollTools{
 	width:48px;
 }
 
 .mCustomScrollBox .mCSB_scrollTools{
-	width:16px;
+	width:8px;
 	height:100%;
 	top:0;
 	right:0;
@@ -55,7 +54,7 @@
 	height:30px;
 }
 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
-	width:16px;
+	width:8px;
 	height:100%;
 	margin:0 auto;
 	-webkit-border-radius:10px;
@@ -112,7 +111,7 @@
 	top:0;
     height: 100%;
     position: absolute;
-	width: 16px;
+	width: 8px;
 }
 .gallery .mCSB_scrollTools {
 	width: 48px;

@@ -17,8 +17,8 @@ body, html {
 }
 #wrap {
     position: relative;
+    height: 100%;
     min-width: 1024px;
-    min-height: 768px;
 }
 
 /* common <  */
@@ -308,6 +308,7 @@ body, html {
     z-index: 100;
     width: 36%;
     margin: 7% 7% 0 0;
+    padding-bottom: 50px;
 }
 .content-box {
     position: relative;
@@ -407,6 +408,7 @@ body, html {
 .page-clients {
     margin: 105px 0 0 5%;
     float: left;
+    padding-bottom: 50px;
 }
 .clients-list {
     margin: 0;
@@ -439,6 +441,7 @@ body, html {
     float: left;
     margin: 18% 0 0 4%;
     min-width: 555px;
+    padding-bottom: 50px;
     width: 54%;
   }
 
