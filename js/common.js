@@ -196,20 +196,26 @@ function enableScroll( oContent ) {
 
 
 function sliderSize() {
-    if( $( '.slider_news' ).size() ) {
-        var sliderWidth     = $( '.slider' ).width();
-        var sliderHeight    = sliderWidth*0.35;
+    var oSlider = null;
+    $( ".slider" ).each( function( key, val ) {
+        if( $( val ).parent().css( "display" ) != "none" ) {
+            oSlider = $( val );
+        }
+    } );
+    if( oSlider ) {
+        var sliderWidth     = $( oSlider ).width();
+        var sliderHeight    = sliderWidth * ( $( oSlider ).hasClass( "slider_news" ) ? 0.31 : 0.25 );
         var FontSize        = Math.ceil( sliderWidth * 0.042 );
         var DataHeight      = sliderWidth * 0.065;
         //var DataFontSize  = sliderWidth*0.4*0.2*0.4;
-        $( '.slide-content' ).width( sliderWidth );
-        $( '.slides_container, .slides_control' ).height( sliderHeight );
-        $( '.slider' ).css( 'font-size', FontSize + 'px' );
+        $( oSlider ).find( '.slide-content' ).width( sliderWidth );
+        $( oSlider ).find( '.slides_container, .slides_control' ).height( sliderHeight );
+        $( oSlider ).css( 'font-size', FontSize + 'px' );
         // $('.date').css('font-size',DataFontSize + 'px');
-        $( '.date' ).height( DataHeight );
-        $( '.date' ).css( 'top', -DataHeight + 'px' );
-        $( '.date' ).css( 'line-height', ( DataHeight - 1 ) + 'px' );
-        $( '.slider_news .slides_container' ).css( 'padding-top', DataHeight + 'px' );
+        $( oSlider ).find( '.date' ).height( DataHeight );
+        $( oSlider ).find( '.date' ).css( 'top', -DataHeight + 'px' );
+        $( oSlider ).find( '.date' ).css( 'line-height', ( DataHeight - 1 ) + 'px' );
+        $( oSlider ).find( '.slider_news .slides_container' ).css( 'padding-top', DataHeight + 'px' );
     }
 }
 
@@ -471,11 +477,11 @@ function getMaxHeight() {
             iContentHeight += parseInt( $( val ).css( "padding-bottom" ) );
         }
     } );
-    console.log( "left menu " + iLeftMenuHeight );
-    console.log( "catalog " + iRightMenuHeight );
-    console.log( "pages " + iContentHeight );
-    console.log( "window " + iWindowHeight );
-    console.log( "max " + Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) );
+//    console.log( "left menu " + iLeftMenuHeight );
+//    console.log( "catalog " + iRightMenuHeight );
+//    console.log( "pages " + iContentHeight );
+//    console.log( "window " + iWindowHeight );
+//    console.log( "max " + Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) );
     $( ".pages" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
     $( "#controls" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
 }

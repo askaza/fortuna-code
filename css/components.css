@@ -250,7 +250,7 @@ body, html {
     z-index: 101;
 }
 .slides_container {
-    background: url(../images/slider-bg.png) repeat-x 0 0;
+    background: url(../images/bg/slider-bg.png) repeat 0 0;
 }
 
 .slider_news {
