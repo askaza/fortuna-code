@@ -11,9 +11,9 @@ var sCurrentSection = "";
 $( document ).ready( function() {
     iWindowWidth = $( window ).width();
     iWindowHeight = $( window ).height();
-   // $( "#wrap" ).css( "height", iWindowWidth + "px" );
+//    $( "#wrap" ).css( "height", iWindowWidth + "px" );
 
-    getMaxHeight();
+//    getMaxHeight();
 
     if( $( "#preload_images" ).size() ) {
         $.preload( imageList , {
@@ -84,7 +84,7 @@ $( document ).ready( function() {
         } else {
             $( ".nav" ).css( "left", ( ( iWindowWidth / 2 ) - ( $( "#controls" ).width() / 2 ) ) + "px" );
         }
-        $( "#wrap" ).css( "height", iWindowWidth + "px" );
+//        $( "#wrap" ).css( "height", iWindowWidth + "px" );
         getMaxHeight();
     } );
 
@@ -304,7 +304,7 @@ function showGlagne() {
             oAdd = "";
             bAnimating = false;
             showSubPage( "home" );
-            sliderSize();
+            sliderSizse();
             getMaxHeight();
         }, 501 );
     }
@@ -437,6 +437,8 @@ function showSubPage( sPage, oLink ) {
 }
 
 function getMaxHeight() {
+    return false;
+    /*
     var iRightMenuHeight = $( ".menu_catalog" ).height() + parseInt( $( ".menu_catalog" ).css( "margin-top" ) ) + parseInt( $( ".menu_catalog" ).css( "margin-bottom" ) ) + parseInt( $( ".menu_catalog" ).css( "padding-bottom" ) ) + parseInt( $( ".menu_catalog" ).css( "padding-top" ) );
     var iLeftMenuHeight = $( "#left_controls" ).height() + parseInt( $( "#left_controls" ).css( "margin-top" ) ) + parseInt( $( "#left_controls" ).css( "margin-bottom" ) ) + parseInt( $( ".menu_catalog" ).css( "padding-bottom" ) ) + parseInt( $( "#left_controls" ).css( "padding-top" ) );
     var iContentHeight = 0;
@@ -454,9 +456,10 @@ function getMaxHeight() {
     console.log( "pages " + iContentHeight );
     console.log( "window " + iWindowHeight );
 //    $( ".page_content" ).css( "display", "none" );
-    $( "#controls" ).height( Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
+//    $( "#controls" ).height( Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
 //    $( ".pages" ).height( Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
 ////    $( ".pages" ).width( "1px" );
+*/
 }
 
 function showContent( oSection ) {
