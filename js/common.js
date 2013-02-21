@@ -11,8 +11,10 @@ var sCurrentSection = "";
 $( document ).ready( function() {
     iWindowWidth = $( window ).width();
     iWindowHeight = $( window ).height();
-    $( "#wrap" ).css( "height", iWindowHeight + "px" );
-    $( "#controls" ).css( "height", iWindowHeight + "px" );
+    $( "#wrap" ).css( "height", iWindowWidth + "px" );
+
+    getMaxHeight();
+
     if( $( "#preload_images" ).size() ) {
         $.preload( imageList , {
             init: function( loaded, loaded_percent, total ) {
@@ -82,19 +84,20 @@ $( document ).ready( function() {
         } else {
             $( ".nav" ).css( "left", ( ( iWindowWidth / 2 ) - ( $( "#controls" ).width() / 2 ) ) + "px" );
         }
-        $( "#wrap" ).css( "height", iWindowHeight + "px" );
-        $( "#controls" ).css( "height", iWindowHeight + "px" );
+        $( "#wrap" ).css( "height", iWindowWidth + "px" );
+        getMaxHeight();
     } );
 
     $( "#wrap" ).mCustomScrollbar( {
         mouseWheel:true,
+//        horizontalScroll:true,
         scrollButtons:{
             enable:true
         },
         advanced:{
            updateOnBrowserResize:true,
            updateOnContentResize:true,
-           autoExpandHorizontalScroll:false,
+           autoExpandHorizontalScroll:true,
            autoScrollOnFocus:true
         }
     } );
@@ -250,6 +253,9 @@ function showHideContactForm( sAction ) {
             $( "#contact_form" ).css( "display", "none" );
         }, 500 );
     }
+    setTimeout( function() {
+        getMaxHeight();
+    }, 500 );
 }
 
 function showGlagne() {
@@ -294,6 +300,9 @@ function showGlagne() {
             $( oCurrent ).replaceWith( "" );
             oAdd = "";
             bAnimating = false;
+            showSubPage( "home" );
+            sliderSize();
+            getMaxHeight();
         }, 501 );
     }
 }
@@ -388,6 +397,7 @@ function showPage( sSection ) {
                 $( oCurrent ).replaceWith( "" );
                 oAdd = "";
                 showContent( oSection );
+                getMaxHeight();
             }, 501 );
         }
     }
@@ -397,7 +407,9 @@ function showSubPage( sPage, oLink ) {
     if( !bAnimating && sCurrentPage != sPage ) {
         if( $( "#" + sPage ).size() ) {
             $( ".submenu__item" ).removeClass( "menu__item_active" );
-            $( oLink).parent().addClass( "menu__item_active" );
+            if( oLink ) {
+                $( oLink ).parent().addClass( "menu__item_active" );
+            }
             bAnimating = true;
             $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
             setTimeout( function() {
@@ -412,12 +424,36 @@ function showSubPage( sPage, oLink ) {
             enableScroll( $( "#" + sPage ) );
             initializeMap();
             bAnimating = false;
+            getMaxHeight();
         }, 1000 );
     }
 }
 
+function getMaxHeight() {
+    var iRightMenuHeight = $( ".menu_catalog" ).height() + parseInt( $( ".menu_catalog" ).css( "margin-top" ) ) + parseInt( $( ".menu_catalog" ).css( "margin-bottom" ) ) + parseInt( $( ".menu_catalog" ).css( "padding-bottom" ) ) + parseInt( $( ".menu_catalog" ).css( "padding-top" ) );
+    var iLeftMenuHeight = $( "#left_controls" ).height() + parseInt( $( "#left_controls" ).css( "margin-top" ) ) + parseInt( $( "#left_controls" ).css( "margin-bottom" ) ) + parseInt( $( ".menu_catalog" ).css( "padding-bottom" ) ) + parseInt( $( "#left_controls" ).css( "padding-top" ) );
+    var iContentHeight = 0;
+    $( ".page_content" ).each( function( key, val ) {
+        if( $( val ).css( "display" ) != "none" ) {
+            iContentHeight += $( val ).height();
+            iContentHeight += parseInt( $( val ).css( "margin-top" ) );
+            iContentHeight += parseInt( $( val ).css( "margin-bottom" ) );
+            iContentHeight += parseInt( $( val ).css( "padding-top" ) );
+            iContentHeight += parseInt( $( val ).css( "padding-bottom" ) );
+        }
+    } );
+    console.log( "left menu " + iLeftMenuHeight );
+    console.log( "catalog " + iRightMenuHeight );
+    console.log( "pages " + iContentHeight );
+    console.log( "window " + iWindowHeight );
+//    $( ".page_content" ).css( "display", "none" );
+    $( "#controls" ).height( Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
+    $( ".pages" ).height( Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
+////    $( ".pages" ).width( "1px" );
+}
+
 function showContent( oSection ) {
-    if( oSection.show && sCurrentPage != oSection.show ) {
+    if( oSection.show ) {
         if( $( "#" + oSection.show ).size() ) {
             $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
             setTimeout( function() {
@@ -431,6 +467,7 @@ function showContent( oSection ) {
         setTimeout( function() {
             enableScroll( $( "#" + oSection.show ) );
             initializeMap();
+            getMaxHeight();
             bAnimating = false;
         }, 1000 );
     } else {

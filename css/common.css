@@ -48,11 +48,11 @@ h1 {
 	 font-family: 'pf_din_text_cond_prolight';
 	 font-size: 20px;
 	 color:#fff;
-	 margin-bottom: 10px;
+	 margin-bottom: 7px;
 }
 h2 {
 	font-family: 'pf_din_text_cond_promedium';
-	 font-size: 18px;
+	 font-size: 21px;
 	 color:#fff;
 	 margin-bottom: 10px;
 }
@@ -89,6 +89,11 @@ a, a:visited {
 	height:48px;
 	line-height:46px;
 	text-decoration:none;
+	
+}
+
+.content-box .btn {
+	text-decoration: none;
 }
 
 p {
@@ -121,7 +126,7 @@ table td,table th {
     color: #fff;
     font-family: 'pf_din_text_cond_prolight';
     font-size: 14px;
-    padding: 7px 5px 7px 0;
+    padding: 8px 5px 9px 0;
     text-align: left;
 }
 table th {
@@ -157,7 +162,7 @@ table td {
     font-family: 'pf_din_text_cond_promedium';
     margin: 0 auto;
     border:1px solid #c4161c;
-    height: 32px;
+    height: 30px;
     line-height: 30px;
 }
 .btn-white,
@@ -197,7 +202,9 @@ input,
 textarea {
     -moz-box-sizing: content-box;
 }
-
+textarea {
+	overflow: auto;
+}
 
 .form .fields-list,
 .form .fields-list .fields-list__item {
@@ -220,14 +227,14 @@ label {
     height:18px;
     border:1px solid #a2a2a2;
     padding:2px 2%;
-    width:96%;
+    width:95%;
 }
 .field_textarea {
     background: rgba(40, 40, 40, 0.5);
     height:101px;
     border:1px solid #a2a2a2;
     padding:2px 2%;
-    width:96%;
+    width:95%;
     resize: none;
 }
 /* form styles > */

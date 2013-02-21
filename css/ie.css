@@ -7,13 +7,49 @@ input {
 .menu,
 .fields-list,
 .fields-list__item,
-.section_banners {
+.section_banners, 
+.menu__item, 
+.catalog-item, 
+.accordion, 
+.content-box {
 	zoom:1;
 }
-
+.catalog-item {
+	position: relative;
+}
 .menu_site a, 
 .submenu__item a {
    *zoom:1;
    *display:inline;
+}
+
+
+.order-form .content-box__text {
+	*position: static;
+}
+.order-form .btn-order {
+	*bottom:0;
+}
+.nav_about {
+       background:transparent;
+       filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#70282828,endColorstr=#70282828);
+       zoom: 1;
+}		
+.content-box__text {
+	background:transparent;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#70282828,endColorstr=#70282828);
+	zoom: 1;
+}
+
+.accordion .content-head {
+	background:transparent;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#70282828,endColorstr=#70282828);
+	zoom: 1;
+}
+.field_text,
+.field_textarea {
+	background:transparent;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#70282828,endColorstr=#70282828);
+	zoom: 1;
 }
 

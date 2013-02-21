@@ -16,10 +16,10 @@
 	<script src="js/jquery-ui-1.10.1.custom.min.js"></script>
 	<script type="text/javascript" src="js/slides.min.jquery.js"></script>
 	<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
-	<script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
 	<script type="text/javascript" src="js/common.js"></script>
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
 	<meta name="description" content="Fortuna" />
 
@@ -30,36 +30,38 @@
 	<div class="page-bg" id="bgslide">
 	    <div class="bg1"></div>
 	</div>
-    <div id="wrap">
+    <div id="wrap" style='overflow: hidden;'>
         <div class="nav" id="controls"> <!-- .nav -->
-            <h1 class="logo"><a href="javascript: void( 0 );" onclick='javascript: showGlagne();'><img src="images/logo.png" alt="Fortuna" title="Fortuna" /></a></h1>
-            <ul class="menu menu_site">
-                <li class="menu__item" id="section_l1_menu"><a  href="javascript: void( 0 );" onclick='javascript:showPage( "section_l1" );'>О компании</a></li>
-                <li class="menu__item" id="section_l2_menu"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l2" );'>Клиенты</a></li>
-                <li class="menu__item" id="section_l3_menu"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l3" );'>Связь с нами</a></li>
-            </ul>
-
-            <form class="form contacts-form" id="contact_form" action="#" method="get" style='display: none;'>
-                <ul class="fields-list">
-                <li class="fields-list__item">
-                    <label for="name_contact">Ваше имя:</label>
-                    <input type="text" id="name_contacts" name="name" class="field_text"/>
-                </li>
-                <li class="fields-list__item">
-                    <label for="contacts_contacts">Контактный телефон или e-mail:</label>
-                    <input type="text" id="contacts_contacts" name="contacts" class="field_text"/>
-                </li>
-                <li class="fields-list__item">
-                    <label for="message_contacts">Вопрос или предложение:</label>
-                    <textarea cols="10" rows="10" id="message_contacts" name="message" class="field_textarea"></textarea>
-                </li>
+            <div id="left_controls">
+                <h1 class="logo"><a href="javascript: void( 0 );" onclick='javascript: showGlagne();'><img src="images/logo.png" alt="Fortuna" title="Fortuna" /></a></h1>
+                <ul class="menu menu_site">
+                    <li class="menu__item" id="section_l1_menu"><a  href="javascript: void( 0 );" onclick='javascript:showPage( "section_l1" );'>О компании</a></li>
+                    <li class="menu__item" id="section_l2_menu"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l2" );'>Клиенты</a></li>
+                    <li class="menu__item" id="section_l3_menu"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l3" );'>Связь с нами</a></li>
                 </ul>
-                <a  href="#" class="btn btn-submit">Отправить</a>
-            </form>
 
-            <div class="short-contacts">
-                +7 (495) 123-45-67 <br />
-                <a href="maito:info@fortunavc.com">info@fortunavc.com</a>
+                <form class="form contacts-form" id="contact_form" action="#" method="get" style='display: none;'>
+                    <ul class="fields-list">
+                    <li class="fields-list__item">
+                        <label for="name_contact">Ваше имя:</label>
+                        <input type="text" id="name_contacts" name="name" class="field_text"/>
+                    </li>
+                    <li class="fields-list__item">
+                        <label for="contacts_contacts">Контактный телефон или e-mail:</label>
+                        <input type="text" id="contacts_contacts" name="contacts" class="field_text"/>
+                    </li>
+                    <li class="fields-list__item">
+                        <label for="message_contacts">Вопрос или предложение:</label>
+                        <textarea cols="10" rows="10" id="message_contacts" name="message" class="field_textarea"></textarea>
+                    </li>
+                    </ul>
+                    <a  href="#" class="btn btn-submit">Отправить</a>
+                </form>
+
+                <div class="short-contacts">
+                    +7 (495) 123-45-67 <br />
+                    <a href="maito:info@fortunavc.com">info@fortunavc.com</a>
+                </div>
             </div>
             <ul class="menu menu_catalog"> <!-- .menu_catalog -->
                 <li class="menu__item" id="section_r1_menu"><i class="ico"><img src="images/cat/ico_pump.png" alt="" class="ico__img"/></i><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_r1" );'><strong>насосное</strong> оборудование</a>
