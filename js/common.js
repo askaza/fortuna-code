@@ -378,6 +378,10 @@ function showPage( sSection ) {
             $( oAdd ).css( "background-image", "url(" + oSection.bg + ")" );
             $( oAdd ).css( "background-repeat", oSection.bg_repeat );
             $( oAdd ).css( "background-size", oSection.bg_size );
+            if( oSection.bg_repeat == 'no-repeat' ) {
+                $( oAdd ).css( "-ms-filter", "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + oSection.bg + "',sizingMethod='scale')" );
+                $( oAdd ).css( "filter", "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='" + oSection.bg + "', sizingMethod='scale')" );
+            }
             bAnimating = true;
             var oCurrent = $( ".bg1:eq(0)" );
             if( sSlideDirection == "left" ) {
