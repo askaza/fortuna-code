@@ -159,7 +159,9 @@ body, html {
 .menu_catalog {
     margin-left: 321px;
     position: absolute;
-    top: 95px;
+    /*top: 95px;*/
+    top: 0px;
+    padding-top: 95px;
     width: 210px;
 }
 .menu_catalog .menu__item {
