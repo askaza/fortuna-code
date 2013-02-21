@@ -11,6 +11,7 @@ var sCurrentSection = "";
 $( document ).ready( function() {
     iWindowWidth = $( window ).width();
     iWindowHeight = $( window ).height();
+   // $( "#wrap" ).css( "height", iWindowWidth + "px" );
 
     getMaxHeight();
 
