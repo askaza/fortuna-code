@@ -84,7 +84,7 @@ $( document ).ready( function() {
         } else {
             $( ".nav" ).css( "left", ( ( iWindowWidth / 2 ) - ( $( "#controls" ).width() / 2 ) ) + "px" );
         }
-        $( "#wrap" ).css( "height", iWindowWidth + "px" );
+        //$( "#wrap" ).css( "height", iWindowWidth + "px" );
         getMaxHeight();
     } );
 
@@ -198,15 +198,15 @@ function enableScroll( oContent ) {
 
 
 function sliderSize() {
-    if( $('.slider_news').size() ) {
+    if( $('.slider').size() ) {
         var sliderWidth = $('.slider').width();
-        var sliderHeight = sliderWidth*0.35;
+        var sliderHeight = sliderWidth*0.31;
         var FontSize = Math.ceil(sliderWidth*0.042);
 	var DataHeight =  sliderWidth*0.065;
 	//var DataFontSize =  sliderWidth*0.4*0.2*0.4;
 
             $('.slide-content').width(sliderWidth);
-	    $('.slides_container, .slides_control').height(sliderHeight);
+	    $('.slides_container, .slides_control, .slides__item').height(sliderHeight);
             $('.slider').css('font-size',FontSize + 'px');
 	   // $('.date').css('font-size',DataFontSize + 'px');
 	    $('.date').height(DataHeight);
@@ -446,10 +446,7 @@ function getMaxHeight() {
             iContentHeight += parseInt( $( val ).css( "padding-bottom" ) );
         }
     } );
-    console.log( "left menu " + iLeftMenuHeight );
-    console.log( "catalog " + iRightMenuHeight );
-    console.log( "pages " + iContentHeight );
-    console.log( "window " + iWindowHeight );
+
 //    $( ".page_content" ).css( "display", "none" );
     $( "#controls" ).height( Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
     $( ".pages" ).height( Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );

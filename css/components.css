@@ -159,7 +159,8 @@ body, html {
 .menu_catalog {
     margin-left: 321px;
     position: absolute;
-    top: 95px;
+    padding-top: 95px;
+    top:0;
     width: 210px;
 }
 .menu_catalog .menu__item {
@@ -285,20 +286,23 @@ body, html {
     position: absolute;
     top:-32px;
 }
-.next-arrow,
-.prev-arrow {
+.slider .next-arrow,
+.slider .prev-arrow {
     position: absolute;
     margin-bottom:-48px;
     right: 0;
     text-decoration: none;
+    padding: 0;
+    height: 48px;
+    width: 48px;
 }
-.prev-arrow img,
-.prev-arrow img {
+.slider .next-arrow img,
+.slider .prev-arrow img {
     height: 100%;
     width: 100%;
 }
-.prev-arrow {
-    right: 50px;
+.slider .prev-arrow {
+    right: 48px;
 }
 
 /* catalog pages */
