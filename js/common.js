@@ -131,10 +131,11 @@ function initializeMap() {
     var styledMap = new google.maps.StyledMapType( styles, { name: "Styled Map" } );
     var myLatlng = new google.maps.LatLng( 55.75329, 37.63813 );
     var content = document.createElement( 'div' );
-    $( content ).html( "<div class><strong><a href='#'>яндекс-карты</a><a href='#'>гугл-карты</a><a href='#'>распечатать</a></strong>" );
-    $( content ).css( "color", "#000" );
-    $( content).find( "a" ).css( "color", "#000" );
-    var infowindow = new google.maps.InfoWindow( { content: content } );
+    $( content ).html( "<div class='mark-popup'><div class='text'>119017, г Москва, ул. БольшаяОрдынка, д. 40, стр. 1 </div><a class='maps-link' href='#'>Яндекс.карты</a><a class='maps-link' href='#'>Гугл.карты</a><a class='print-link' href='#'>Распечатать</a></strong></div>" );
+       var infowindow = new google.maps.InfoWindow( {
+		   content: content,
+		   maxWidth : 160
+	   } );
 
     var mapOptions = {
         zoom: 14,

@@ -570,3 +570,29 @@ body, html {
 	height: 64px;
 	width: 64px;
 }
+
+/* marker styles */
+
+.mark-popup {
+	position: relative;	
+	height:73px;
+	color: #282828;
+	font-size: 14px;
+	line-height: 17px;
+	width: 200px;
+}
+.mark-popup .text {
+	margin-bottom:5px;
+}
+.mark-popup a {
+	color: #c4161c;
+	font-size: 12px;
+	display: block;
+	width: 80px;
+}
+.mark-popup .print-link {
+	font-weight: bold;
+	position: absolute;
+	bottom: 0;
+	left:100px;
+}
