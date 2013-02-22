@@ -369,6 +369,7 @@ function showPage( sSection ) {
         }
         sCurrentPosition = oSection.position;
         if( oSection ) {
+	    $( "#preloader" ).find( "img :eq(0)" ).attr( "src", oSection.preloader );
             showHideContactForm( oSection.show_contact_form ? "show" : "" );
             if( $( ".nav" ).hasClass( "nav_about" ) ) {
                 $( ".nav" ).removeClass( "nav_about" );
