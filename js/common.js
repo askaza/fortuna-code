@@ -216,7 +216,7 @@ function sliderSize() {
         $( oSlider ).find( '.date' ).height( DataHeight );
         $( oSlider ).find( '.date' ).css( 'top', -DataHeight + 'px' );
         $( oSlider ).find( '.date' ).css( 'line-height', ( DataHeight - 1 ) + 'px' );
-        $( oSlider ).find( '.slider_news .slides_container' ).css( 'padding-top', DataHeight + 'px' );
+        $( oSlider ).find( '.slides_container' ).css( 'padding-top', DataHeight + 'px' );
     }
 }
 
@@ -244,6 +244,16 @@ $.extend( {
 	}
     }
 } );
+
+function showHidePreloader() {
+    if( $( "#preloader" ).size() ) {
+	if( $( "#preloader" ).css( "display" ) == 'none' ) {
+	    $( "#preloader" ).css( "display", "" );
+	} else {
+	    $( "#preloader" ).css( "display", "none" );
+	}
+    }
+}
 
 function showHideContactForm( sAction ) {
     if( sAction == 'show' ) {
@@ -370,6 +380,13 @@ function showPage( sSection ) {
             if( oSection.menu_additional_class ) {
                 $( ".nav" ).addClass( oSection.menu_additional_class );
             }
+	    if( sCurrentSectionSide == "right" ) {
+		$( "#preloader" ).css( "top", ( ( iWindowHeight / 2 ) - 32 ) + "px" );
+		$( "#preloader" ).css( "left", ( $( "#controls" ).width() + ( iWindowWidth - $( "#controls" ).width() ) / 2 - 32 ) + "px" );
+	    } else {
+		$( "#preloader" ).css( "top", ( ( iWindowHeight / 2 ) - 32 ) + "px" );
+		$( "#preloader" ).css( "left", ( ( iWindowWidth - $( "#controls" ).width() ) / 2 - 32 ) + "px" );		
+	    }
             $( ".menu__item" ).removeClass( "menu__item_active" );
             $( ".submenu"  ).animate( { height: "0px" }, 500 );
             $( "#" + sSection + "_menu" ).addClass( "menu__item_active" );
@@ -415,6 +432,7 @@ function showPage( sSection ) {
 function showSubPage( sPage, oLink ) {
     if( !bAnimating && sCurrentPage != sPage ) {
         if( $( "#" + sPage ).size() ) {
+	    showHidePreloader();
             $( ".submenu__item" ).removeClass( "menu__item_active" );
             if( oLink ) {
                 $( oLink ).parent().addClass( "menu__item_active" );
@@ -436,6 +454,7 @@ function showSubPage( sPage, oLink ) {
             sliderSize();
             bAnimating = false;
             getMaxHeight();
+	    showHidePreloader();
         }, 1000 );
     }
 }
@@ -443,6 +462,7 @@ function showSubPage( sPage, oLink ) {
 function showContent( oSection ) {
     if( oSection.show ) {
         if( $( "#" + oSection.show ).size() ) {
+	    showHidePreloader();
             $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
             setTimeout( function() {
 //                $( "#" + sCurrentPage ).css( "display", "none" );
@@ -459,6 +479,7 @@ function showContent( oSection ) {
             getMaxHeight();
             sliderSize();
             bAnimating = false;
+	    showHidePreloader();
         }, 1000 );
     } else {
         bAnimating = false;
