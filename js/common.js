@@ -215,7 +215,7 @@ function sliderSize() {
         $( oSlider ).find( '.date' ).height( DataHeight );
         $( oSlider ).find( '.date' ).css( 'top', -DataHeight + 'px' );
         $( oSlider ).find( '.date' ).css( 'line-height', ( DataHeight - 1 ) + 'px' );
-        $( oSlider ).find( '.slider_news .slides_container' ).css( 'padding-top', DataHeight + 'px' );
+        $( oSlider ).find( '.slides_container' ).css( 'padding-top', DataHeight + 'px' );
     }
 }
 
