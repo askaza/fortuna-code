@@ -209,7 +209,7 @@ function sliderSize() {
         var DataHeight      = sliderWidth * 0.065;
         //var DataFontSize  = sliderWidth*0.4*0.2*0.4;
         $( oSlider ).find( '.slide-content' ).width( sliderWidth );
-        $( oSlider ).find( '.slides_container, .slides_control' ).height( sliderHeight );
+        $( oSlider ).find( '.slides_container, .slides_control, .slide-content' ).height( sliderHeight );
         $( oSlider ).css( 'font-size', FontSize + 'px' );
         // $('.date').css('font-size',DataFontSize + 'px');
         $( oSlider ).find( '.date' ).height( DataHeight );
