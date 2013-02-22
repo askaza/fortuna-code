@@ -131,7 +131,7 @@ function initializeMap() {
     var styledMap = new google.maps.StyledMapType( styles, { name: "Styled Map" } );
     var myLatlng = new google.maps.LatLng( 55.75329, 37.63813 );
     var content = document.createElement( 'div' );
-    $( content ).html( "123123123<strong><a href='#'>яндекс-карты</a><a href='#'>гугл-карты</a><a href='#'>распечатать</a></strong>" );
+    $( content ).html( "<div class><strong><a href='#'>яндекс-карты</a><a href='#'>гугл-карты</a><a href='#'>распечатать</a></strong>" );
     $( content ).css( "color", "#000" );
     $( content).find( "a" ).css( "color", "#000" );
     var infowindow = new google.maps.InfoWindow( { content: content } );
