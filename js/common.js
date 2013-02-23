@@ -104,6 +104,7 @@ $( document ).ready( function() {
            autoScrollOnFocus:true
         },
         callbacks:{
+            onScrollStart: function(){ onScrollStart(); },
             onTotalScrollOffset:40,
             onTotalScrollBackOffset:20,
             whileScrolling:function(){ WhileScrolling(); }
@@ -111,9 +112,17 @@ $( document ).ready( function() {
     } );
 } );
 
+function onScrollStart() {
+    if( bAnimating ) {
+        $( "#wrap" ).mCustomScrollbar( "disable", true );
+    }
+}
+
 function WhileScrolling() {
-    if( ( Math.max( iRightMenuHeight, iLeftMenuHeight ) - iWindowHeight ) + mcs.top > 0 ) {
-        $( "#controls" ).css( "top", mcs.top + "px" );
+    if( !bAnimating ) {
+        if( ( Math.max( iRightMenuHeight, iLeftMenuHeight ) - iWindowHeight ) + mcs.top > 0 ) {
+            $( "#controls" ).css( "top", mcs.top + "px" );
+        }
     }
 }
 
