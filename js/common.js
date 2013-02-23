@@ -123,6 +123,9 @@ function WhileScrolling() {
         if( ( Math.max( iRightMenuHeight, iLeftMenuHeight ) - iWindowHeight ) + mcs.top >= 0 ) {
             $( "#controls" ).css( "top", mcs.top + "px" );
         }
+        if( msc.top > $( "#controls" ).css( "top" ) ) {
+            $( "#controls" ).css( "top", mcs.top + "px" );
+        }
     }
 }
 
