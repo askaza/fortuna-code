@@ -36,7 +36,8 @@ body, html {
 
 /* nav < */
 .nav {
-    position: absolute;
+    position: fixed;
+    top: 0;
     min-height: 100%;
     z-index: 100;
     left:50%;
@@ -320,10 +321,10 @@ body, html {
 /* catalog pages */
 
 .page-catalog {
-    float: right;
+    position: absolute;
     z-index: 100;
     width: 36%;
-    margin: 8% 6% 0 0;
+    margin: 8% 0% 0 0;
     padding-bottom: 50px;
 }
 .content-box {
@@ -426,15 +427,19 @@ body, html {
 /* page-clients < */
 
 .page-clients {
-    margin: 104px 0 0 5%;
-    float: left;
+    margin: 104px 0 0 0;
+    /*float: left;*/
+    position: absolute;
     padding-bottom: 50px;
+    width: 51%;
 }
 .clients-list {
     margin: 0;
     padding: 0;
-    float: left;
+    position: absolute;
     width: 100px;
+    left:0;
+    top:3px;
 }
 .clients-list__item {
     list-style: none outside;
@@ -449,10 +454,9 @@ body, html {
 }
 
 .page-clients .content-box {
-    padding: 0 0 0 6%;
-    width: 30%;
-    float: left;
-    margin-top: -3px;
+    padding: 0 0 0 10%;
+    margin-left: 100px;
+    position: absolute;
 }
 
 /* .page-about < */

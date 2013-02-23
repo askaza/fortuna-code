@@ -7,11 +7,12 @@ var iWindowHeight = 0;
 var bAnimating = false;
 var sCurrentPage = "glagne";
 var sCurrentSection = "";
+var iRightMenuHeight = 0;
+var iLeftMenuHeight = 0;
 
 $( document ).ready( function() {
     iWindowWidth = $( window ).width();
     iWindowHeight = $( window ).height();
-   // $( "#wrap" ).css( "height", iWindowWidth + "px" );
 
     getMaxHeight();
 
@@ -75,6 +76,11 @@ $( document ).ready( function() {
     $( window ).resize( function() {
         iWindowWidth = $( window ).width();
         iWindowHeight = $( window ).height();
+        if( sCurrentSectionSide == "right" ) {
+            $( "#" + sCurrentPage ).css( "left", ( $( "#controls" ).width() + ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + sCurrentPage ).width() / 2 ) ) + "px" );
+        } else {
+            $( "#" + sCurrentPage ).css( "left", ( ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + sCurrentPage ).width() / 2 ) ) + "px" );
+        }
         sliderSize();
         initializeMap();
         if( $( ".nav" ).hasClass( "nav_left" ) ) {
@@ -89,7 +95,6 @@ $( document ).ready( function() {
 
     $( "#wrap" ).mCustomScrollbar( {
         mouseWheel:true,
-//        horizontalScroll:true,
         scrollButtons:{
             enable:false
         },
@@ -97,9 +102,20 @@ $( document ).ready( function() {
            updateOnBrowserResize:true,
            updateOnContentResize:true,
            autoScrollOnFocus:true
+        },
+        callbacks:{
+            onTotalScrollOffset:40,
+            onTotalScrollBackOffset:20,
+            whileScrolling:function(){ WhileScrolling(); }
         }
     } );
 } );
+
+function WhileScrolling() {
+    if( ( Math.max( iRightMenuHeight, iLeftMenuHeight ) - iWindowHeight ) + mcs.top > 0 ) {
+        $( "#controls" ).css( "top", mcs.top + "px" );
+    }
+}
 
 function initializeMap() {
     $( "#map_canvas" ).css( "width", ( iWindowWidth - $( "#controls" ).width() ) + "px" );
@@ -370,7 +386,7 @@ function showPage( sSection ) {
         }
         sCurrentPosition = oSection.position;
         if( oSection ) {
-	    $( "#preloader" ).find( "img :eq(0)" ).attr( "src", oSection.preloader );
+	        $( "#preloader" ).find( "img :eq(0)" ).attr( "src", oSection.preloader );
             showHideContactForm( oSection.show_contact_form ? "show" : "" );
             if( $( ".nav" ).hasClass( "nav_about" ) ) {
                 $( ".nav" ).removeClass( "nav_about" );
@@ -381,13 +397,13 @@ function showPage( sSection ) {
             if( oSection.menu_additional_class ) {
                 $( ".nav" ).addClass( oSection.menu_additional_class );
             }
-	    if( sCurrentSectionSide == "right" ) {
-		$( "#preloader" ).css( "top", ( ( iWindowHeight / 2 ) - 32 ) + "px" );
-		$( "#preloader" ).css( "left", ( $( "#controls" ).width() + ( iWindowWidth - $( "#controls" ).width() ) / 2 - 32 ) + "px" );
-	    } else {
-		$( "#preloader" ).css( "top", ( ( iWindowHeight / 2 ) - 32 ) + "px" );
-		$( "#preloader" ).css( "left", ( ( iWindowWidth - $( "#controls" ).width() ) / 2 - 32 ) + "px" );		
-	    }
+            if( sCurrentSectionSide == "right" ) {
+                $( "#preloader" ).css( "top", ( ( iWindowHeight / 2 ) - 32 ) + "px" );
+                $( "#preloader" ).css( "left", ( $( "#controls" ).width() + ( iWindowWidth - $( "#controls" ).width() ) / 2 - 32 ) + "px" );
+            } else {
+                $( "#preloader" ).css( "top", ( ( iWindowHeight / 2 ) - 32 ) + "px" );
+                $( "#preloader" ).css( "left", ( ( iWindowWidth - $( "#controls" ).width() ) / 2 - 32 ) + "px" );
+            }
             $( ".menu__item" ).removeClass( "menu__item_active" );
             $( ".submenu"  ).animate( { height: "0px" }, 500 );
             $( "#" + sSection + "_menu" ).addClass( "menu__item_active" );
@@ -433,7 +449,7 @@ function showPage( sSection ) {
 function showSubPage( sPage, oLink ) {
     if( !bAnimating && sCurrentPage != sPage ) {
         if( $( "#" + sPage ).size() ) {
-	    showHidePreloader();
+	        showHidePreloader();
             $( ".submenu__item" ).removeClass( "menu__item_active" );
             if( oLink ) {
                 $( oLink ).parent().addClass( "menu__item_active" );
@@ -445,6 +461,11 @@ function showSubPage( sPage, oLink ) {
                 $( ".page_content" ).css( "display", "none" );
                 $( "#" + sPage ).css( "opacity", "0" );
                 $( "#" + sPage ).css( "display", "" );
+                if( sCurrentSectionSide == "right" ) {
+                    $( "#" + sPage ).css( "left", ( $( "#controls" ).width() + ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + sPage ).width() / 2 ) ) + "px" );
+                } else {
+                    $( "#" + sPage ).css( "left", ( ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + sPage ).width() / 2 ) ) + "px" );
+                }
                 $( "#" + sPage ).animate( { opacity: "1" }, 500 );
                 sCurrentPage = sPage;
             }, 500 );
@@ -455,7 +476,7 @@ function showSubPage( sPage, oLink ) {
             sliderSize();
             bAnimating = false;
             getMaxHeight();
-	    showHidePreloader();
+	        showHidePreloader();
         }, 1000 );
     }
 }
@@ -470,6 +491,11 @@ function showContent( oSection ) {
                 $( ".page_content" ).css( "display", "none" );
                 $( "#" + oSection.show ).css( "opacity", "0" );
                 $( "#" + oSection.show ).css( "display", "" );
+                if( sCurrentSectionSide == "right" ) {
+                    $( "#" + oSection.show ).css( "left", ( $( "#controls" ).width() + ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + oSection.show ).width() / 2 ) ) + "px" );
+                } else {
+                    $( "#" + oSection.show ).css( "left", ( ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + oSection.show ).width() / 2 ) ) + "px" );
+                }
                 $( "#" + oSection.show ).animate( { opacity: "1" }, 500 );
                 sCurrentPage = oSection.show;
             }, 500 );
@@ -488,8 +514,8 @@ function showContent( oSection ) {
 }
 
 function getMaxHeight() {
-    var iRightMenuHeight = $( ".menu_catalog" ).height() + parseInt( $( ".menu_catalog" ).css( "margin-top" ) ) + parseInt( $( ".menu_catalog" ).css( "margin-bottom" ) ) + parseInt( $( ".menu_catalog" ).css( "padding-bottom" ) ) + parseInt( $( ".menu_catalog" ).css( "padding-top" ) );
-    var iLeftMenuHeight = $( "#left_controls" ).height() + parseInt( $( "#left_controls" ).css( "margin-top" ) ) + parseInt( $( "#left_controls" ).css( "margin-bottom" ) ) + parseInt( $( ".menu_catalog" ).css( "padding-bottom" ) ) + parseInt( $( "#left_controls" ).css( "padding-top" ) );
+    iRightMenuHeight = $( ".menu_catalog" ).height() + parseInt( $( ".menu_catalog" ).css( "margin-top" ) ) + parseInt( $( ".menu_catalog" ).css( "margin-bottom" ) ) + parseInt( $( ".menu_catalog" ).css( "padding-bottom" ) ) + parseInt( $( ".menu_catalog" ).css( "padding-top" ) );
+    iLeftMenuHeight = $( "#left_controls" ).height() + parseInt( $( "#left_controls" ).css( "margin-top" ) ) + parseInt( $( "#left_controls" ).css( "margin-bottom" ) ) + parseInt( $( ".menu_catalog" ).css( "padding-bottom" ) ) + parseInt( $( "#left_controls" ).css( "padding-top" ) );
     var iContentHeight = 0;
     $( ".page_content" ).each( function( key, val ) {
         if( $( val ).css( "display" ) != "none" ) {
@@ -500,11 +526,6 @@ function getMaxHeight() {
             iContentHeight += parseInt( $( val ).css( "padding-bottom" ) );
         }
     } );
-//    console.log( "left menu " + iLeftMenuHeight );
-//    console.log( "catalog " + iRightMenuHeight );
-//    console.log( "pages " + iContentHeight );
-//    console.log( "window " + iWindowHeight );
-//    console.log( "max " + Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) );
     $( ".pages" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
     $( "#controls" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
 }
