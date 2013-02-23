@@ -90,6 +90,11 @@ $( document ).ready( function() {
         } else {
             $( ".nav" ).css( "left", ( ( iWindowWidth / 2 ) - ( $( "#controls" ).width() / 2 ) ) + "px" );
         }
+        if( ( Math.max( iRightMenuHeight, iLeftMenuHeight ) > iWindowHeight ) ) {
+//            $( "#controls" ).animate( { top: ( Math.max( iRightMenuHeight, iLeftMenuHeight ) - iWindowHeight + $( "#controls" ).css( "top" ) ) + "px" }, 800 );
+        } else {
+            $( "#controls" ).animate( { top: "0px" }, 800 );
+        }
         getMaxHeight();
     } );
 
@@ -121,9 +126,6 @@ function onScrollStart() {
 function WhileScrolling() {
     if( !bAnimating ) {
         if( ( Math.max( iRightMenuHeight, iLeftMenuHeight ) - iWindowHeight ) + mcs.top > 0 ) {
-            $( "#controls" ).css( "top", mcs.top + "px" );
-        }
-        if( mcs.top > $( "#controls" ).css( "top" ) ) {
             $( "#controls" ).css( "top", mcs.top + "px" );
         }
     }
@@ -538,6 +540,11 @@ function getMaxHeight() {
             iContentHeight += parseInt( $( val ).css( "padding-bottom" ) );
         }
     } );
+    if( iContentHeight <= iWindowHeight ) {
+        $( "#" + sCurrentPage ).css( "position", "fixed" );
+    } else {
+        $( "#" + sCurrentPage ).css( "position", "absolute" );
+    }
     $( ".pages" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
     $( "#controls" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
 }
