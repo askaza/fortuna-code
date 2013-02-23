@@ -38,12 +38,13 @@ body, html {
 .nav {
     position: fixed;
     top: 0;
-    min-height: 100%;
+    height: 100%;
     z-index: 100;
     left:50%;
     /*margin-left: -320px;*/
     width:640px;
     background: url(../images/bg/menu-home-bg.png) repeat-y 50% 0;
+    padding-bottom: 1000px;
 }
 
 .nav_right {
@@ -251,7 +252,7 @@ body, html {
     z-index: 101;
 }
 
-.slides_container, 
+.slides_container,
 .slides_control {
 	max-height: 195px;
 	min-height: 160px;
@@ -348,6 +349,9 @@ body, html {
 }
 
 /* accordion < */
+.accordion {
+    margin-bottom: 50px;
+}
 .accordion .content-box  {
     padding-bottom: 32px;
 }
@@ -436,10 +440,10 @@ body, html {
 .clients-list {
     margin: 0;
     padding: 0;
-    position: absolute;
-    width: 100px;
-    left:0;
-    top:3px;
+    float: left;
+    min-width: 100px;
+    width: 20%;
+    margin-top:3px;
 }
 .clients-list__item {
     list-style: none outside;
@@ -454,9 +458,9 @@ body, html {
 }
 
 .page-clients .content-box {
-    padding: 0 0 0 10%;
-    margin-left: 100px;
-    position: absolute;
+    padding: 0 0 0 5%;
+    float: right;
+    width: 72%;
 }
 
 /* .page-about < */
@@ -578,7 +582,7 @@ body, html {
 /* marker styles */
 
 .mark-popup {
-	position: relative;	
+	position: relative;
 	height:73px;
 	color: #282828;
 	font-size: 14px;
