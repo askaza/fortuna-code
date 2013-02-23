@@ -120,7 +120,7 @@ function onScrollStart() {
 
 function WhileScrolling() {
     if( !bAnimating ) {
-        if( ( Math.max( iRightMenuHeight, iLeftMenuHeight ) - iWindowHeight ) + mcs.top > 0 ) {
+        if( ( Math.max( iRightMenuHeight, iLeftMenuHeight ) - iWindowHeight ) + mcs.top >= 0 ) {
             $( "#controls" ).css( "top", mcs.top + "px" );
         }
     }
