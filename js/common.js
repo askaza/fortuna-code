@@ -335,6 +335,7 @@ function showGlagne() {
         sCurrentSection = "glagne";
         sCurrentSectionSide = "center";
         getMaxHeight();
+        $( "#page_content" ).css( "position", "absolute" );
         $( ".submenu"  ).animate( { height: "0px" }, 500 );
         $( ".nav" ).animate( { left: ( ( iWindowWidth / 2 ) - ( $( "#controls" ).width() / 2 ) ) + "px" }, 500 );
         sCurrentPosition = 0;
@@ -367,19 +368,16 @@ function showGlagne() {
             oAdd = "";
             bAnimating = false;
             showSubPage( "home" );
-
         }, 501 );
     }
 }
 
 function showPage( sSection ) {
     if( !bAnimating && sSection != sCurrentSection ) {
+        bAnimating = true;
         getMaxHeight();
         sCurrentSection = sSection;
         $( ".page_content" ).animate( { opacity: "0" }, 500 );
-        setTimeout( function() {
-            $( ".page_content" ).css( "display", "none" );
-        }, 500 );
         var sNewBackground = "";
         var oSection = false;
         var oAdd = $( "<div class='bg1'></div>" );
@@ -414,8 +412,8 @@ function showPage( sSection ) {
                 }
             }
             sCurrentSectionSide = "right";
-            $( "#controls" ).addClass( "nav_right" );
             $( "#controls" ).removeClass( "nav_left" );
+            $( "#controls" ).addClass( "nav_right" );
             $( "#controls" ).animate( { left: "0px" }, 500 );
         }
         sCurrentPosition = oSection.position;
@@ -460,7 +458,7 @@ function showPage( sSection ) {
                 $( oAdd ).css( "-ms-filter", "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + oSection.bg + "',sizingMethod='scale')" );
                 $( oAdd ).css( "filter", "progid:DXImageTransform.Microsoft.AlphaImageLoader( src='" + oSection.bg + "', sizingMethod='scale')" );
             }
-            bAnimating = true;
+//            bAnimating = true;
             var oCurrent = $( ".bg1:eq(0)" );
             if( sSlideDirection == "left" ) {
                 $( oAdd ).css( "left", iWindowWidth + "px" );
@@ -478,7 +476,9 @@ function showPage( sSection ) {
             setTimeout( function() {
                 $( oCurrent ).replaceWith( "" );
                 oAdd = "";
+                $( ".page_content" ).css( "display", "none" );
                 showContent( oSection );
+                oSection = false;
             }, 501 );
         }
     }
