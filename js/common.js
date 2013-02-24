@@ -130,6 +130,13 @@ function WhileScrolling() {
         if( ( Math.max( iRightMenuHeight, iLeftMenuHeight ) - iWindowHeight ) + mcs.top > 0 ) {
             $( "#controls" ).css( "top", mcs.top + "px" );
         }
+        if( $( "#" + sCurrentPage ).css( "top" ) ) {
+            var aContentTop = $( "#" + sCurrentPage ).css( "top" ).toString().split( "px" );
+            if( aContentTop[0] > ( -1 * parseInt( mcs.top ) ) ) {
+                $( "#" + sCurrentPage ).css( "top", ( -1 * parseInt( mcs.top ) ) + "px" );
+                getMaxHeight();
+            }
+        }
     }
 }
 
@@ -202,7 +209,6 @@ function initializeMap() {
         infowindow.open( map, marker );
     } );
 }
-
 
 function enableScroll( oContent ) {
     if( oContent ) {
@@ -281,11 +287,11 @@ $.extend( {
 
 function showHidePreloader() {
     if( $( "#preloader" ).size() ) {
-	if( $( "#preloader" ).css( "display" ) == 'none' ) {
-	    $( "#preloader" ).css( "display", "" );
-	} else {
-	    $( "#preloader" ).css( "display", "none" );
-	}
+        if( $( "#preloader" ).css( "display" ) == 'none' ) {
+            $( "#preloader" ).css( "display", "" );
+        } else {
+            $( "#preloader" ).css( "display", "none" );
+        }
     }
 }
 
@@ -307,6 +313,7 @@ function showHideContactForm( sAction ) {
 
 function showGlagne() {
     if( !bAnimating && sCurrentPage != 'glagne' ) {
+        getMaxHeight();
         showHideContactForm();
         bAnimating = true;
         $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
@@ -359,6 +366,7 @@ function showGlagne() {
 
 function showPage( sSection ) {
     if( !bAnimating && sSection != sCurrentSection ) {
+        getMaxHeight();
         sCurrentSection = sSection;
         $( ".page_content" ).animate( { opacity: "0" }, 500 );
         setTimeout( function() {
@@ -470,6 +478,7 @@ function showPage( sSection ) {
 
 function showSubPage( sPage, oLink ) {
     if( !bAnimating && sCurrentPage != sPage ) {
+        getMaxHeight();
         if( $( "#" + sPage ).size() ) {
 	        showHidePreloader();
             $( ".submenu__item" ).removeClass( "menu__item_active" );
@@ -479,8 +488,8 @@ function showSubPage( sPage, oLink ) {
             bAnimating = true;
             $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
             setTimeout( function() {
-//                $( "#" + sCurrentPage ).css( "display", "none" );
                 $( ".page_content" ).css( "display", "none" );
+                $( ".page_content" ).css( "top", "0" );
                 $( "#" + sPage ).css( "opacity", "0" );
                 $( "#" + sPage ).css( "display", "" );
                 if( sPage != 'map' ) {
@@ -495,6 +504,8 @@ function showSubPage( sPage, oLink ) {
             }, 500 );
         }
         setTimeout( function() {
+            console.log( ( -1 * parseInt( $( "#controls" ).css( "top" ) ) ) );
+            $( "#" + sCurrentPage ).animate( { top: ( -1 * parseInt( $( "#controls" ).css( "top" ) ) ) + "px" }, 500 );
             enableScroll( $( "#" + sPage ) );
             initializeMap();
             sliderSize();
@@ -511,7 +522,7 @@ function showContent( oSection ) {
 	    showHidePreloader();
             $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
             setTimeout( function() {
-//                $( "#" + sCurrentPage ).css( "display", "none" );
+                $( ".page_content" ).css( "top", "0" );
                 $( ".page_content" ).css( "display", "none" );
                 $( "#" + oSection.show ).css( "opacity", "0" );
                 $( "#" + oSection.show ).css( "display", "" );
@@ -527,12 +538,13 @@ function showContent( oSection ) {
             }, 500 );
         }
         setTimeout( function() {
+            $( "#" + sCurrentPage ).animate( { top: ( -1 * parseInt( $( "#controls" ).css( "top" ) ) ) + "px" }, 500 );
             enableScroll( $( "#" + oSection.show ) );
             initializeMap();
             getMaxHeight();
             sliderSize();
             bAnimating = false;
-	    showHidePreloader();
+	        showHidePreloader();
         }, 1000 );
     } else {
         bAnimating = false;
@@ -550,6 +562,7 @@ function getMaxHeight() {
             iContentHeight += parseInt( $( val ).css( "margin-bottom" ) );
             iContentHeight += parseInt( $( val ).css( "padding-top" ) );
             iContentHeight += parseInt( $( val ).css( "padding-bottom" ) );
+            iContentHeight += ( -1 * parseInt( $( "#controls" ).css( "top" ) ) );
         }
     } );
     if( iContentHeight <= iWindowHeight ) {
