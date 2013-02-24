@@ -76,10 +76,12 @@ $( document ).ready( function() {
     $( window ).resize( function() {
         iWindowWidth = $( window ).width();
         iWindowHeight = $( window ).height();
-        if( sCurrentSectionSide == "right" ) {
-            $( "#" + sCurrentPage ).css( "left", ( $( "#controls" ).width() + ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + sCurrentPage ).width() / 2 ) ) + "px" );
-        } else {
-            $( "#" + sCurrentPage ).css( "left", ( ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + sCurrentPage ).width() / 2 ) ) + "px" );
+        if( sCurrentPage != 'map' ) {
+            if( sCurrentSectionSide == "right" ) {
+                $( "#" + sCurrentPage ).css( "left", ( $( "#controls" ).width() + ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + sCurrentPage ).width() / 2 ) ) + "px" );
+            } else {
+                $( "#" + sCurrentPage ).css( "left", ( ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + sCurrentPage ).width() / 2 ) ) + "px" );
+            }
         }
         sliderSize();
         initializeMap();
@@ -134,6 +136,8 @@ function WhileScrolling() {
 function initializeMap() {
     $( "#map_canvas" ).css( "width", ( iWindowWidth - $( "#controls" ).width() ) + "px" );
     $( "#map_canvas" ).css( "height", iWindowHeight + "px" );
+    $( "#map_canvas" ).css( "left", "0px" );
+    $( "#map_canvas" ).css( "top", "0px" );
     var styles = [
         {
             "featureType": "water",
@@ -479,10 +483,12 @@ function showSubPage( sPage, oLink ) {
                 $( ".page_content" ).css( "display", "none" );
                 $( "#" + sPage ).css( "opacity", "0" );
                 $( "#" + sPage ).css( "display", "" );
-                if( sCurrentSectionSide == "right" ) {
-                    $( "#" + sPage ).css( "left", ( $( "#controls" ).width() + ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + sPage ).width() / 2 ) ) + "px" );
-                } else {
-                    $( "#" + sPage ).css( "left", ( ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + sPage ).width() / 2 ) ) + "px" );
+                if( sPage != 'map' ) {
+                    if( sCurrentSectionSide == "right" ) {
+                        $( "#" + sPage ).css( "left", ( $( "#controls" ).width() + ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + sPage ).width() / 2 ) ) + "px" );
+                    } else {
+                        $( "#" + sPage ).css( "left", ( ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + sPage ).width() / 2 ) ) + "px" );
+                    }
                 }
                 $( "#" + sPage ).animate( { opacity: "1" }, 500 );
                 sCurrentPage = sPage;
@@ -509,10 +515,12 @@ function showContent( oSection ) {
                 $( ".page_content" ).css( "display", "none" );
                 $( "#" + oSection.show ).css( "opacity", "0" );
                 $( "#" + oSection.show ).css( "display", "" );
-                if( sCurrentSectionSide == "right" ) {
-                    $( "#" + oSection.show ).css( "left", ( $( "#controls" ).width() + ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + oSection.show ).width() / 2 ) ) + "px" );
-                } else {
-                    $( "#" + oSection.show ).css( "left", ( ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + oSection.show ).width() / 2 ) ) + "px" );
+                if( oSection.show != 'map' ) {
+                    if( sCurrentSectionSide == "right" ) {
+                        $( "#" + oSection.show ).css( "left", ( $( "#controls" ).width() + ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + oSection.show ).width() / 2 ) ) + "px" );
+                    } else {
+                        $( "#" + oSection.show ).css( "left", ( ( iWindowWidth - $( "#controls" ).width() ) / 2 - ( $( "#" + oSection.show ).width() / 2 ) ) + "px" );
+                    }
                 }
                 $( "#" + oSection.show ).animate( { opacity: "1" }, 500 );
                 sCurrentPage = oSection.show;
