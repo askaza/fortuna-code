@@ -98,6 +98,7 @@ $( document ).ready( function() {
             $( "#controls" ).animate( { top: "0px" }, 800 );
         }
         getMaxHeight();
+        enableScroll( $( "#" + sCurrentPage ) );
     } );
 
     $( "#wrap" ).mCustomScrollbar( {
