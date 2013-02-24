@@ -431,19 +431,18 @@ body, html {
 /* page-clients < */
 
 .page-clients {
-    margin: 104px 0 0 0;
+    margin: 7% 0 0 0;
     /*float: left;*/
     position: absolute;
     padding-bottom: 50px;
-    width: 51%;
+    width: 52%;
 }
 .clients-list {
-    margin: 0;
-    padding: 0;
     float: left;
+    margin: 3px 0 0 20px;
     min-width: 100px;
+    padding: 0;
     width: 20%;
-    margin-top:3px;
 }
 .clients-list__item {
     list-style: none outside;
@@ -458,16 +457,16 @@ body, html {
 }
 
 .page-clients .content-box {
-    padding: 0 0 0 5%;
     float: right;
-    width: 72%;
+    padding: 0 0 0 5%;
+    width: 71%;
 }
 
 /* .page-about < */
 
 .page-about {
     float: left;
-    margin: 18% 0 0 4%;
+    margin: 15% 0 0 2%;
     min-width: 555px;
     padding-bottom: 50px;
     width: 52%;
@@ -475,13 +474,12 @@ body, html {
 
 .infograph {
     background: url(../images/bg/round.png) no-repeat 10px 0;
-    padding-left: 200px;
     padding-top: 11px;
     height: 175px;
 }
 
 .info-list {
-    margin: 0;
+    margin: 0 0 0 30%;
     padding: 0;
     overflow: hidden;
 }
@@ -490,7 +488,7 @@ body, html {
     float: left;
     width: 23%;
     max-width: 115px;
-    padding: 0 5%;
+    padding: 0 3%;
     font-size: 40px;
     font-family: 'pf_din_text_cond_prolight';
 }
@@ -524,8 +522,9 @@ body, html {
 }
 
 .slider_facts {
-    width: 51%;
-}
+    width: 88%;
+    left: 2%;
+ }
 .slider_facts .slides_container {
     padding-top: 0;
 }
@@ -603,4 +602,15 @@ body, html {
 	position: absolute;
 	bottom: 0;
 	left:100px;
+}
+
+/* logo-artkadabra < */
+
+.logo-artkadabra {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+}
+.logo-artkadabra img {
+    display: block;
 }
