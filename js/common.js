@@ -412,9 +412,13 @@ function showPage( sSection ) {
                 $( ".nav" ).addClass( oSection.menu_additional_class );
             }
             if( sCurrentSectionSide == "right" ) {
+                $( ".mCustomScrollBox .mCSB_scrollTools" ).css( "right", "0" );
+                $( ".mCustomScrollBox .mCSB_scrollTools" ).css( "left", "" );
                 $( "#preloader" ).css( "top", ( ( iWindowHeight / 2 ) - 32 ) + "px" );
                 $( "#preloader" ).css( "left", ( $( "#controls" ).width() + ( iWindowWidth - $( "#controls" ).width() ) / 2 - 32 ) + "px" );
             } else {
+                $( ".mCustomScrollBox .mCSB_scrollTools" ).css( "right", "" );
+                $( ".mCustomScrollBox .mCSB_scrollTools" ).css( "left", "0" );
                 $( "#preloader" ).css( "top", ( ( iWindowHeight / 2 ) - 32 ) + "px" );
                 $( "#preloader" ).css( "left", ( ( iWindowWidth - $( "#controls" ).width() ) / 2 - 32 ) + "px" );
             }
