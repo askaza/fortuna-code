@@ -564,10 +564,12 @@ function getMaxHeight() {
             iContentHeight += ( -1 * parseInt( $( "#controls" ).css( "top" ) ) );
         }
     } );
-    if( iContentHeight <= iWindowHeight ) {
-        $( "#" + sCurrentPage ).css( "position", "fixed" );
-    } else {
-        $( "#" + sCurrentPage ).css( "position", "absolute" );
+    if( sCurrentSectionSide == "left" ) {
+        if( iContentHeight <= iWindowHeight ) {
+            $( "#" + sCurrentPage ).css( "position", "fixed" );
+        } else {
+            $( "#" + sCurrentPage ).css( "position", "absolute" );
+        }
     }
     $( ".pages" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
     $( "#controls" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
