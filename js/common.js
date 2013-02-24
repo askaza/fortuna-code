@@ -504,7 +504,6 @@ function showSubPage( sPage, oLink ) {
             }, 500 );
         }
         setTimeout( function() {
-            console.log( ( -1 * parseInt( $( "#controls" ).css( "top" ) ) ) );
             $( "#" + sCurrentPage ).animate( { top: ( -1 * parseInt( $( "#controls" ).css( "top" ) ) ) + "px" }, 500 );
             enableScroll( $( "#" + sPage ) );
             initializeMap();
