@@ -98,6 +98,7 @@ $( document ).ready( function() {
             $( "#controls" ).animate( { top: "0px" }, 800 );
         }
         getMaxHeight();
+        enableScroll( $( "#" + sCurrentPage ) );
     } );
 
     $( "#wrap" ).mCustomScrollbar( {
@@ -246,13 +247,16 @@ function sliderSize() {
     if( oSlider ) {
         var sliderWidth     = $( oSlider ).width();
         var sliderHeight    = sliderWidth * ( $( oSlider ).hasClass( "slider_news" ) ? 0.31 : 0.25 );
-        var FontSize        = Math.ceil( sliderWidth * 0.042 );
+        var FontSize        = Math.ceil( sliderWidth * 0.041 );
         var DataHeight      = sliderWidth * 0.065;
         //var DataFontSize  = sliderWidth*0.4*0.2*0.4;
         $( oSlider ).find( '.slide-content' ).width( sliderWidth );
-        $( oSlider ).find( '.slides_container, .slides_control, .slide-content' ).height( sliderHeight );
+        $( oSlider ).find( '.slides_container, .slides_control, .slide-content' ).height( sliderHeight + 20 );
+        $( oSlider ).height( sliderHeight + 20 );
         $( oSlider ).css( 'font-size', FontSize + 'px' );
+        var TextCutterHeight = Math.floor( sliderHeight / parseInt( $( oSlider ).find( '.slide-content' ).css( "line-height" ) ) ) * parseInt( $( oSlider ).find( '.slide-content' ).css( "line-height" ) );
         // $('.date').css('font-size',DataFontSize + 'px');
+        $( oSlider ).find( '.slide-text' ).height( TextCutterHeight );
         $( oSlider ).find( '.date' ).height( DataHeight );
         $( oSlider ).find( '.date' ).css( 'top', -DataHeight + 'px' );
         $( oSlider ).find( '.date' ).css( 'line-height', ( DataHeight - 1 ) + 'px' );
@@ -313,7 +317,7 @@ function showHideContactForm( sAction ) {
 
 function showGlagne() {
     if( !bAnimating && sCurrentPage != 'glagne' ) {
-        getMaxHeight();
+//        getMaxHeight();
         showHideContactForm();
         bAnimating = true;
         $( "#" + sCurrentPage ).animate( { opacity: "0" }, 500 );
@@ -327,6 +331,9 @@ function showGlagne() {
         var sNewBackground = "images/bg/img0.jpg";
         var oAdd = $( "<div class='bg1'></div>" );
         sSlideDirection = sCurrentSectionSide == "right" ? "right" : "left";
+        sCurrentSection = "glagne";
+        sCurrentSectionSide = "center";
+        getMaxHeight();
         $( ".submenu"  ).animate( { height: "0px" }, 500 );
         $( ".nav" ).animate( { left: ( ( iWindowWidth / 2 ) - ( $( "#controls" ).width() / 2 ) ) + "px" }, 500 );
         sCurrentPosition = 0;
@@ -359,7 +366,7 @@ function showGlagne() {
             oAdd = "";
             bAnimating = false;
             showSubPage( "home" );
-            sCurrentSection = "glagne";
+
         }, 501 );
     }
 }
@@ -564,10 +571,12 @@ function getMaxHeight() {
             iContentHeight += ( -1 * parseInt( $( "#controls" ).css( "top" ) ) );
         }
     } );
-    if( iContentHeight <= iWindowHeight ) {
-        $( "#" + sCurrentPage ).css( "position", "fixed" );
-    } else {
-        $( "#" + sCurrentPage ).css( "position", "absolute" );
+    if( sCurrentSectionSide != "center" ) {
+        if( iContentHeight <= iWindowHeight ) {
+            $( "#" + sCurrentPage ).css( "position", "fixed" );
+        } else {
+            $( "#" + sCurrentPage ).css( "position", "absolute" );
+        }
     }
     $( ".pages" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
     $( "#controls" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );

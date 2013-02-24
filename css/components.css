@@ -247,19 +247,18 @@ body, html {
 .slider {
     position: absolute;
     left: 32px;
-    max-height: 195px;
+    /*max-height: 195px;*/
     min-height: 160px;
     z-index: 101;
 }
 
 .slides_container,
 .slides_control {
-	max-height: 195px;
+	/*max-height: 195px;*/
 	min-height: 160px;
 }
 .slide-content {
-	max-height: 195px;
-	min-height: 160px;
+	/*max-height:173px;*/
 }
 .slider_news {
     width: 42%;
