@@ -258,7 +258,8 @@ body, html {
 	min-height: 160px;
 }
 .slide-content {
-	max-height:173px;
+	max-height: 195px;
+	min-height: 160px;
 }
 .slider_news {
     width: 42%;
@@ -317,6 +318,10 @@ body, html {
 }
 .slider .prev-arrow {
     right: 48px;
+}
+
+.slides-list__item {
+    min-height: 160px;
 }
 
 /* catalog pages */
@@ -524,6 +529,7 @@ body, html {
 .slider_facts {
     width: 88%;
     left: 2%;
+    position: relative;
  }
 .slider_facts .slides_container {
     padding-top: 0;
