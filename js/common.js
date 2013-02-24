@@ -251,10 +251,11 @@ function sliderSize() {
         var DataHeight      = sliderWidth * 0.065;
         //var DataFontSize  = sliderWidth*0.4*0.2*0.4;
         $( oSlider ).find( '.slide-content' ).width( sliderWidth );
-        $( oSlider ).find( '.slides_container, .slides_control, .slide-content' ).height( sliderHeight + 20 );
-        $( oSlider ).height( sliderHeight + 20 );
+        $( oSlider ).find( '.slides_container, .slides_control, .slide-content' ).height( sliderHeight + parseInt( $( oSlider ).find( '.slide-content' ).css( "line-height" ) ) );
+        $( oSlider ).height( sliderHeight + parseInt( $( oSlider ).find( '.slide-content' ).css( "line-height" ) ) );
         $( oSlider ).css( 'font-size', FontSize + 'px' );
-        var TextCutterHeight = Math.floor( sliderHeight / parseInt( $( oSlider ).find( '.slide-content' ).css( "line-height" ) ) ) * parseInt( $( oSlider ).find( '.slide-content' ).css( "line-height" ) );
+//        var TextCutterHeight = Math.floor( sliderHeight / parseInt( $( oSlider ).find( '.slide-content' ).css( "line-height" ) ) ) * parseInt( $( oSlider ).find( '.slide-content' ).css( "line-height" ) );
+        var TextCutterHeight =  ( $( oSlider ).hasClass( "slider_news" ) ? 6 : 5 ) * parseInt( $( oSlider ).find( '.slide-content' ).css( "line-height" ) );
         // $('.date').css('font-size',DataFontSize + 'px');
         $( oSlider ).find( '.slide-text' ).height( TextCutterHeight );
         $( oSlider ).find( '.date' ).height( DataHeight );
