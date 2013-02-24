@@ -248,14 +248,14 @@ body, html {
     position: absolute;
     left: 32px;
     /*max-height: 195px;*/
-    min-height: 160px;
+    min-height: 153px;
     z-index: 101;
 }
 
 .slides_container,
 .slides_control {
 	/*max-height: 195px;*/
-	min-height: 160px;
+	min-height: 153px;
 }
 .slide-content {
 	/*max-height:173px;*/
@@ -286,7 +286,8 @@ body, html {
     overflow: hidden;
 }
 .slide-text {
-    margin: 3% 5% 4%;
+    margin: 3% 5% 0;
+    padding-bottom: 3px;
     overflow: hidden;
 }
 .date {
@@ -317,6 +318,10 @@ body, html {
 }
 .slider .prev-arrow {
     right: 48px;
+}
+
+.slides-list__item {
+    min-height: 153px;
 }
 
 /* catalog pages */
@@ -431,7 +436,7 @@ body, html {
 /* page-clients < */
 
 .page-clients {
-    margin: 7% 0 0 0;
+    margin: 5% 0 0 0;
     /*float: left;*/
     position: absolute;
     padding-bottom: 50px;
@@ -466,9 +471,8 @@ body, html {
 
 .page-about {
     float: left;
-    margin: 15% 0 0 2%;
+    margin: 12% 0 0 2%;
     min-width: 555px;
-    padding-bottom: 50px;
     width: 52%;
   }
 
@@ -524,9 +528,11 @@ body, html {
 .slider_facts {
     width: 88%;
     left: 2%;
+    position: relative;
+    padding-bottom: 90px;
  }
 .slider_facts .slides_container {
-    padding-top: 0;
+    padding-top: 0 !important;
 }
 /* .page-about > */
 
