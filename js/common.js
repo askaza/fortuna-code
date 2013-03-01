@@ -335,7 +335,7 @@ function showGlagne() {
         sCurrentSection = "glagne";
         sCurrentSectionSide = "center";
         getMaxHeight();
-        $( "#page_content" ).css( "position", "absolute" );
+        $( "#home"  ).css( "position", "" );
         $( ".submenu"  ).animate( { height: "0px" }, 500 );
         $( ".nav" ).animate( { left: ( ( iWindowWidth / 2 ) - ( $( "#controls" ).width() / 2 ) ) + "px" }, 500 );
         sCurrentPosition = 0;
@@ -368,6 +368,7 @@ function showGlagne() {
             oAdd = "";
             bAnimating = false;
             showSubPage( "home" );
+            $( "#home"  ).css( "position", "" );
         }, 501 );
     }
 }
@@ -572,12 +573,16 @@ function getMaxHeight() {
             iContentHeight += ( -1 * parseInt( $( "#controls" ).css( "top" ) ) );
         }
     } );
-    if( sCurrentSectionSide != "center" ) {
+    console.log( sCurrentSectionSide );
+    console.log( sCurrentPage );
+    if( sCurrentPage != "home" ) {
         if( iContentHeight <= iWindowHeight ) {
             $( "#" + sCurrentPage ).css( "position", "fixed" );
         } else {
             $( "#" + sCurrentPage ).css( "position", "absolute" );
         }
+    } else {
+        $( "#" + sCurrentPage ).css( "position", "" );
     }
     $( ".pages" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
     $( "#controls" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
