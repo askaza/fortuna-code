@@ -44,23 +44,48 @@
 			<li class="menu__item" id="section_l3_menu"><a href="javascript: void( 0 );" onclick='javascript:showPage( "section_l3" );'>Связь с нами</a></li>
 		    </ul>
 
-		    <form class="form contacts-form" id="contact_form" action="#" method="get" style='display: none;'>
-			<ul class="fields-list">
-			    <li class="fields-list__item">
-				<label for="name_contact">Ваше имя:</label>
-				<input type="text" id="name_contacts" name="name" class="field_text"/>
-			    </li>
-			    <li class="fields-list__item">
-				<label for="contacts_contacts">Контактный телефон или e-mail:</label>
-				<input type="text" id="contacts_contacts" name="contacts" class="field_text"/>
-			    </li>
-			    <li class="fields-list__item">
-				<label for="message_contacts">Вопрос или предложение:</label>
-				<textarea cols="10" rows="10" id="message_contacts" name="message" class="field_textarea"></textarea>
-			    </li>
-			</ul>
-			<a  href="#" class="btn btn-submit">Отправить</a>
-		    </form>
+			<form class="form contacts-form" id="contact_form" action="#" method="get" style='display: none;'>
+				<ul class="fields-list">
+					<li class="fields-list__item">
+						<label for="name_contact">Ваше имя:</label>
+						<input type="text" id="name_contacts" name="name" class="field_text"/>
+					</li>
+					<li class="fields-list__item">
+						<label for="contacts_contacts">Контактный телефон или e-mail:</label>
+						<input type="text" id="contacts_contacts" name="contacts" class="field_text"/>
+					</li>
+					<li class="fields-list__item">
+						<label for="message_contacts">Вопрос или предложение:</label>
+						<textarea cols="10" rows="10" id="message_contacts" name="message" class="field_textarea"></textarea>
+					</li>
+				</ul>
+				<a  href="#" class="btn btn-submit">Отправить</a>
+			</form>
+			<form class="form contacts-form" id="contact_form" action="#" method="get" style='display: none;'>
+				<div class="form-message">
+					<h2>Спасибо!</h2>
+					<p>Ваше сообщение отправлено,
+						а это значит, что совсем скоро мы с вами свяжемся!</p>
+					<a  href="#" class="btn btn-submit btn-submit-bk">Вернуть форму</a>
+				</div>
+			</form>
+			<form class="form contacts-form" id="contact_form" action="#" method="get" style='display: none;'>
+				<ul class="fields-list">
+					<li class="fields-list__item">
+						<label for="name_contact">Ваше имя:</label>
+						<input type="text" id="name_contacts" name="name" class="field_text"/>
+					</li>
+					<li class="fields-list__item">
+						<label for="contacts_contacts">Контактный телефон или e-mail:</label>
+						<input type="text" id="contacts_contacts" name="contacts" class="field_text"/>
+					</li>
+					<li class="fields-list__item">
+						<label for="message_contacts">Вопрос или предложение:</label>
+						<textarea cols="10" rows="10" id="message_contacts" name="message" class="field_textarea"></textarea>
+					</li>
+				</ul>
+				 <a  href="#" class="btn btn-submit btn-submit-bk"><img src="images/preloader_32_black.gif" width="32" height="32"/></a>
+			</form>
 
 		    <div class="short-contacts">
 			+7 (495) 123-45-67 <br />
@@ -353,7 +378,8 @@
                                     <a  href="#" class="btn btn-red btn-order">Отправить заказ</a>
                                 </form>
                             </div>
-                        </div>
+                        </div>					
+						
                     </div>
                 </div> <!-- /order-form -->
 
