@@ -9,6 +9,7 @@ var sCurrentPage = "glagne";
 var sCurrentSection = "";
 var iRightMenuHeight = 0;
 var iLeftMenuHeight = 0;
+var iCurrentScroll = 0;
 
 $( document ).ready( function() {
     iWindowWidth = $( window ).width();
@@ -108,8 +109,8 @@ $( document ).ready( function() {
         },
         advanced:{
            updateOnBrowserResize:true,
-           updateOnContentResize:true,
-           autoScrollOnFocus:true
+           updateOnContentResize:true
+//           autoScrollOnFocus:true
         },
         callbacks:{
             onScrollStart: function(){ onScrollStart(); },
@@ -122,7 +123,7 @@ $( document ).ready( function() {
 
 function onScrollStart() {
     if( bAnimating ) {
-        $( "#wrap" ).mCustomScrollbar( "disable", true );
+//        $( "#wrap" ).mCustomScrollbar( "disable", true );
     }
 }
 
@@ -131,6 +132,7 @@ function WhileScrolling() {
         if( ( Math.max( iRightMenuHeight, iLeftMenuHeight ) - iWindowHeight ) + mcs.top > 0 ) {
             $( "#controls" ).css( "top", mcs.top + "px" );
         }
+        iCurrentScroll = mcs.top;
         if( $( "#" + sCurrentPage ).css( "top" ) ) {
             var aContentTop = $( "#" + sCurrentPage ).css( "top" ).toString().split( "px" );
             if( aContentTop[0] > ( -1 * parseInt( mcs.top ) ) ) {
@@ -513,12 +515,19 @@ function showSubPage( sPage, oLink ) {
             }, 500 );
         }
         setTimeout( function() {
-            $( "#" + sCurrentPage ).animate( { top: ( -1 * parseInt( $( "#controls" ).css( "top" ) ) ) + "px" }, 500 );
             enableScroll( $( "#" + sPage ) );
             initializeMap();
             sliderSize();
             bAnimating = false;
             getMaxHeight();
+            setTimeout( function() {
+                $( "#wrap" ).mCustomScrollbar( "scrollTo", "#" + sCurrentPage, { scrollInertia: 500 } );
+                $( "#wrap" ).mCustomScrollbar( "scrollTo", "top", { moveDragger: 500 } );
+            }, 500 );
+//            if( $( "#" + sCurrentPage ).css( 'position' ) != 'fixed' ) {
+//                $( "#wrap" ).mCustomScrollbar( "scrollTo", "#" + sCurrentPage, { scrollInertia: 500 } );
+//                $( "#wrap" ).mCustomScrollbar( "scrollTo", "top", { moveDragger: 500 } );
+//            }
 	        showHidePreloader();
         }, 1000 );
     }
@@ -546,13 +555,20 @@ function showContent( oSection ) {
             }, 500 );
         }
         setTimeout( function() {
-            $( "#" + sCurrentPage ).animate( { top: ( -1 * parseInt( $( "#controls" ).css( "top" ) ) ) + "px" }, 500 );
             enableScroll( $( "#" + oSection.show ) );
             initializeMap();
             getMaxHeight();
             sliderSize();
+            setTimeout( function() {
+                $( "#wrap" ).mCustomScrollbar( "scrollTo", "#" + sCurrentPage, { scrollInertia: 500 } );
+                $( "#wrap" ).mCustomScrollbar( "scrollTo", "top", { moveDragger: 500 } );
+            }, 500 );
+//            if( $( "#" + sCurrentPage ).css( 'position' ) != 'fixed' ) {
+
+//                $( "#" + sCurrentPage ).animate( { top: ( -1 * ( parseInt( $( "#controls" ).css( "top" ) ) ) ) + "px" }, 500 );
+//            }
             bAnimating = false;
-	        showHidePreloader();
+            showHidePreloader();
         }, 1000 );
     } else {
         bAnimating = false;
@@ -570,11 +586,12 @@ function getMaxHeight() {
             iContentHeight += parseInt( $( val ).css( "margin-bottom" ) );
             iContentHeight += parseInt( $( val ).css( "padding-top" ) );
             iContentHeight += parseInt( $( val ).css( "padding-bottom" ) );
+            iContentHeight += parseInt( $( val ).css( "top" ) );
             iContentHeight += ( -1 * parseInt( $( "#controls" ).css( "top" ) ) );
         }
     } );
-    console.log( sCurrentSectionSide );
-    console.log( sCurrentPage );
+    $( ".pages" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
+    $( "#controls" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
     if( sCurrentPage != "home" ) {
         if( iContentHeight <= iWindowHeight ) {
             $( "#" + sCurrentPage ).css( "position", "fixed" );
@@ -584,6 +601,4 @@ function getMaxHeight() {
     } else {
         $( "#" + sCurrentPage ).css( "position", "" );
     }
-    $( ".pages" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
-    $( "#controls" ).css( "height", Math.max( iRightMenuHeight, iLeftMenuHeight, iWindowHeight, iContentHeight ) + "px" );
 }
