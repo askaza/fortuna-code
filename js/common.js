@@ -65,7 +65,7 @@ $( document ).ready( function() {
 
     sliderSize();
 
-    $('#news-slider, #facts-slider').slides({
+    $('#news-slider').slides({
         preload: true,
         generateNextPrev: false,
         generatePagination:false,
@@ -74,6 +74,12 @@ $( document ).ready( function() {
         prev: 'prev-arrow'
     });
 
+    $('#facts-slider, #infogr-slider').cycle({
+         prev:          '.prev-arrow',
+         next:         ' .next-arrow'
+    });
+    
+    
     $( window ).resize( function() {
         iWindowWidth = $( window ).width();
         iWindowHeight = $( window ).height();

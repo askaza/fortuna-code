@@ -21,6 +21,7 @@
 	<script type="text/javascript" src="js/slides.min.jquery.js"></script>
 	<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
 	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="js/jquery.cycle.lite.js"></script>
 	<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
 	<script type="text/javascript" src="js/common.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -462,27 +463,51 @@
                 </div> <!-- /clients -->
 
                 <div class="page_content page-about" id="about" style='display: none;'> <!-- page-about -->
-                    <div class="infograph">
-                        <ul class="info-list">
-                            <li class="info-list__item">
-                                <i class="ico ico_car"></i>
-                                70%
-                                <small>&nbsp;&nbsp;сельское хозяйство</small>
-                            </li>
-                            <li class="info-list__item">
-                                <i class="ico ico_agro"></i>
-                                22%
-                                <small>&nbsp;&nbsp;промышленные нужды</small>
-                            </li>
-                            <li class="info-list__item">
-                                <i class="ico ico_home"></i>
-                                8%
-                                <small>&nbsp;&nbsp;домашнее использование</small>
-                            </li>
-                        </ul>
+                    <div class="slider slider_infograph" >
+                        <div class="slides_container slides-list" id="infogr-slider">
+                            <div class="slides-list__item">
+                                <ul class="info-list">
+                                    <li class="info-list__item">
+                                        <i class="ico ico_car"></i>
+                                        70%
+                                        <small>&nbsp;&nbsp;сельское хозяйство</small>
+                                    </li>
+                                    <li class="info-list__item">
+                                        <i class="ico ico_agro"></i>
+                                        22%
+                                        <small>&nbsp;&nbsp;промышленные нужды</small>
+                                    </li>
+                                    <li class="info-list__item">
+                                        <i class="ico ico_home"></i>
+                                        8%
+                                        <small>&nbsp;&nbsp;домашнее использование</small>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="slides-list__item">
+                                <ul class="info-list">
+                                    <li class="info-list__item">
+                                        <i class="ico ico_car"></i>
+                                        70%
+                                        <small>&nbsp;&nbsp;сельское хозяйство</small>
+                                    </li>
+                                    <li class="info-list__item">
+                                        <i class="ico ico_agro"></i>
+                                        22%
+                                        <small>&nbsp;&nbsp;промышленные нужды</small>
+                                    </li>
+                                    <li class="info-list__item">
+                                        <i class="ico ico_home"></i>
+                                        8%
+                                        <small>&nbsp;&nbsp;домашнее использование</small>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                        </div>
                     </div>
-                    <div class="slider slider_facts" id="facts-slider">
-                        <div class="slides_container slides-list">
+                    <div class="slider slider_facts" >
+                        <div class="slides_container slides-list" id="facts-slider">
                             <div class="slides-list__item">
                                 <div class="slide-content">
                                     <div class="slide-text">Наша компания принимает участие на 9-й международной выставке экологических технологий и
@@ -501,11 +526,15 @@
                                         Текст новости, который ооочень длинный, так вот он обрезается, потому что блок фиксированной высоты, иначе будет некрасиво.
                                         Текст н
 					Текст новости, который ооочень длинный, так вот он обрезается, потому что блок фиксированной высоты, иначе будет некрасиво.
-                                    </div></div>
+                                    </div>                                    
+                                </div>
                             </div>
-                        </div>
-                        <a class="prev-arrow" href="#"><img src="images/bg/slider-arrow-l.png" /></a><a class="next-arrow" href="#"><img src="images/bg/slider-arrow-r.png" /></a>
+                        </div>                        
                     </div>
+                    <div class="nav">
+                        <a class="prev-arrow" href="#"><img src="images/bg/slider-arrow-l.png" /></a>
+                        <a class="next-arrow" href="#"><img src="images/bg/slider-arrow-r.png" /></a>
+                    </div>  
                 </div> <!--/ page-about -->
 
             </div>
