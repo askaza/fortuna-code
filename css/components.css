@@ -264,9 +264,6 @@ body, html {
     padding-bottom: 1000px;
 }
 
-.slider_facts .slides_control {
-	width: 100% !important;
-}
 
 .slide-content {
     font-size:1em;
@@ -459,69 +456,57 @@ body, html {
 
 .page-about {
     float: left;
-    margin: 12% 0 0 2%;
+    margin: 12% 0 0 0;
     min-width: 555px;
-    width: 52%;
+    width: 45%;
+
   }
-
-.infograph {
-    background: url(../images/bg/round.png) no-repeat 10px 0;
-    padding-top: 11px;
-    height: 175px;
-}
-
-.info-list {
-    margin: 0 0 0 30%;
-    padding: 0;
-    overflow: hidden;
-}
-.info-list__item {
-    list-style: none outside;
-    float: left;
-    width: 23%;
-    max-width: 115px;
-    padding: 0 3%;
-    font-size: 40px;
-    font-family: 'pf_din_text_cond_prolight';
-}
-
-.info-list .ico {
-    display: block;
-    height: 53px;
-    background-repeat: no-repeat;
-    background-position: 0 100%;
-    margin-bottom: 25px;
-}
-
-.info-list small {
-    background: url(../images/bg/info-line.png) no-repeat 0 7px;
-    padding-left: 10px;
-    font-family: 'pf_din_text_cond_probold';
-    font-size: 13px;
-    line-height: 14px;
-    display: block;
-    margin-top: 7px;
-}
-
-.ico_car {
-    background-image: url(../images/bg/car_ico.png);
-}
-.ico_agro {
-    background-image: url(../images/bg/agro_ico.png);
-}
-.ico_home {
-    background-image: url(../images/bg/home_ico.png);
-}
-
+  .page-about .slider {
+      left:0;
+  }
 .slider_facts {
-    width: 88%;
-    left: 2%;
+    background: url("../images/bg/slider-bg.png") repeat scroll 0 0 transparent;
+    width: 100%;
     position: relative;
-    padding-bottom: 90px;
+    padding-bottom: 14px;
  }
-.slider_facts .slides_container {
-    padding-top: 0 !important;
-}
+ .slider_facts .slides_container {
+     padding-top: 0 !important;
+ }
+ .slider_infograph {
+     position: relative;
+     margin-bottom: 30px;
+     height: 160px;
+ }
+ .slider_infograph .slides-list__item {
+     height:160px;
+     width: 100%;
+     bottom:0;
+ }
+ .slider_infograph img {
+     width: 90%;
+     height: auto;
+     margin-left: 2%;
+     max-width: 632px;
+     bottom:0;
+     position: absolute;
+ }
+ .slider-nav {
+     position: relative;
+ }
+ .slider-nav a {
+     display: block;
+     padding: 0;
+     position:absolute;
+ }
+ .slider-nav .prev-arrow {
+     right:48px;
+      top:0;
+ }
+ .slider-nav .next-arrow {
+     right:0;
+     top:0;
+ }
 /* .page-about > */
 
 /* contacts form < */
